@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { ActionCreator } from "../../store/action"
 import { useEffect, useState, useRef } from "react"
 
-function Popup({ showPopup, hidePopup, sendMessage, setSelectedStars, stars, resetSelectedStars, reviews }) {
+function Popup({ showPopup, hidePopup, sendMessage, setSelectedStars, stars, resetSelectedStars }) {
 
     const [clickedStar, setClickedStar] = useState(false)
     const [focus, setFocus] = useState(true)
@@ -88,6 +88,8 @@ function Popup({ showPopup, hidePopup, sendMessage, setSelectedStars, stars, res
         formRef.current.reset()
         resetSelectedStars(stars.length)
         hidePopup()
+        setMessage(false)
+        setName(false)
     }
 
 
