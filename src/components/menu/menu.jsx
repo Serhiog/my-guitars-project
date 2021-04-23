@@ -1,33 +1,36 @@
-import Characteristics from "../characteristics/characteristics"
-import Reviews from "../reviews/reviews"
-import Contacts from "../contacts/contacts"
-import { useState } from "react"
+import Characteristics from "../characteristics/characteristics";
+import Reviews from "../reviews/reviews";
+import Contacts from "../contacts/contacts";
+import {useState} from "react";
+import {menuTabs} from "../../consts";
+import React from "react";
+
 
 function Menu() {
 
-    const [selectedTab, setSelectedTab] = useState("char")
+  const [selectedTab, setSelectedTab] = useState(menuTabs.char);
 
-    const handleTabBtn = (evt) => {
-        evt.preventDefault()
-        let tab = evt.target.dataset.name
-        tab === "char" ? setSelectedTab("char") : tab === "reviews" ? setSelectedTab("reviews") : setSelectedTab("contacts")
-    }
+  const handleTabBtn = (evt) => {
+    evt.preventDefault();
+    let tab = evt.target.dataset.name;
+    tab === menuTabs.char ? setSelectedTab(menuTabs.char) : tab === menuTabs.reviews ? setSelectedTab(menuTabs.reviews) : setSelectedTab(menuTabs.contacts);
+  };
 
-    return (
-        <section className="menu">
-            <div className="menu__inner">
-                <ul className="menu__list">
-                    <li className={selectedTab === "char" ? "menu__list-item menu__list-item--active" : "menu__list-item"}><a className="menu__list-link" href="/" data-name="char" onClick={handleTabBtn}>Характеристики</a></li>
-                    <li className={selectedTab === "reviews" ? "menu__list-item menu__list-item--active" : "menu__list-item"}><a className="menu__list-link" href="/" data-name="reviews" onClick={handleTabBtn}>Отзывы</a></li>
-                    <li className={selectedTab === "contacts" ? "menu__list-item menu__list-item--active" : "menu__list-item"}><a className="menu__list-link" href="/" data-name="contacts" onClick={handleTabBtn}>Контакты</a></li>
-                </ul>
-                {selectedTab === "char" && < Characteristics />}
-                {selectedTab === "reviews" && <Reviews />}
-                {selectedTab === "contacts" && <Contacts />}
-            </div >
-        </section >
+  return (
+    <section className="menu">
+      <div className="menu__inner">
+        <ul className="menu__list">
+          <li className={selectedTab === `char` ? `menu__list-item menu__list-item--active` : `menu__list-item`}><button className="menu__list-link" href="/" data-name="char" onClick={handleTabBtn} type="button">Характеристики</button></li>
+          <li className={selectedTab === `reviews` ? `menu__list-item menu__list-item--active` : `menu__list-item`} type="button"><button className="menu__list-link" href="/" data-name="reviews" onClick={handleTabBtn}>Отзывы</button></li>
+          <li className={selectedTab === `contacts` ? `menu__list-item menu__list-item--active` : `menu__list-item`} type="button"><button className="menu__list-link" href="/" data-name="contacts" onClick={handleTabBtn}>Контакты</button></li>
+        </ul>
+        {selectedTab === menuTabs.char && < Characteristics />}
+        {selectedTab === menuTabs.reviews && <Reviews />}
+        {selectedTab === menuTabs.contacts && <Contacts />}
+      </div >
+    </section >
 
-    )
+  );
 }
 
-export default Menu
+export default Menu;

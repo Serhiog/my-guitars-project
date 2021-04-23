@@ -1,74 +1,73 @@
 .menu {
     margin-bottom: 130px;
+}
 
-    &__inner {
-        padding-left: 40px;
-        max-width   : 1245px;
-        padding-left: 40px;
-        margin      : 0 auto;
-    }
+.menu__inner {
+    padding-left: 40px;
+    max-width   : 1245px;
+    padding-left: 40px;
+    margin      : 0 auto;
+}
 
-    &__list {
-        @include flex;
-        justify-content: flex-start;
-        margin-bottom  : 34px;
-    }
+.menu__list {
+    @include flex;
+    justify-content: flex-start;
+    margin-bottom  : 34px;
+}
 
-    &__list-item {
-        width      : 195px;
-        height     : 50px;
-        text-align : center;
-        border     : 1px solid #d7d9df;
-        padding-top: 11px;
+.menu__list-item {
+    width      : 195px;
+    height     : 50px;
+    text-align : center;
+    border     : 1px solid #d7d9df;
+    padding-top: 11px;
 
-    }
+}
 
-    &__list-link {
-        width      : 167px;
-        height     : 26px;
-        color      : #000;
-        font-family: $regular, sans-serif;
-        font-size  : 20px;
-        font-weight: 400;
-        text-align : center;
-        width      : 100%;
-        display    : block;
-    }
+.menu__list-link {
+    height     : 26px;
+    font-family: $regular;
+    font-size  : 20px;
+    font-weight: 400;
+    text-align : center;
+    width      : 100%;
+    display    : block;
+    background : none;
+}
 
-    &__data-list {
-        max-width: 584px;
-    }
+.menu__data-list {
+    max-width: 584px;
+}
 
-    &__data-list-item {
-        @include flex;
-        color         : #48494d;
-        font-family   : $regular, sans-serif;
-        font-size     : 16px;
-        font-weight   : 400;
-        border-bottom : 1px solid #d7d9df;
-        padding-bottom: 7px;
-        margin-bottom : 26px;
-    }
+.menu__data-list-item {
+    @include flex;
+    color         : #48494d;
+    font-family   : $regular ;
+    font-size     : 16px;
+    font-weight   : 400;
+    border-bottom : 1px solid #d7d9df;
+    padding-bottom: 7px;
+    margin-bottom : 26px;
+}
 
-    &__data-list-type {
-        color      : #000000;
-        font-family: $regular, sans-serif;
-        font-size  : 16px;
-        font-weight: 400;
-    }
+.menu__data-list-type {
+    color      : #000000;
+    font-family: $regular ;
+    font-size  : 16px;
+    font-weight: 400;
+}
 
-    &__list-item--active {
-        @extend %btn-red;
-        font-family: $regular, sans-serif;
-        font-size  : 20px;
-        font-weight: 400;
-        text-align : center;
-        font-weight: 400;
-        width      : 223px;
-        border     : none;
+.menu__list-item--active {
+    @extend %btn-red;
+    font-family: $regular ;
+    font-size  : 20px;
+    text-align : center;
+    font-weight: 400;
+    width      : 223px;
+    border     : none;
+    color      : #ffffff;
 
-        a {
-            color: #ffffff;
-        }
+    button {
+        color: #ffffff;
     }
 }

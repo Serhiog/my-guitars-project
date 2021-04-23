@@ -2,25 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./style.css";
 import App from "./App";
-import { createStore, applyMiddleware } from "redux";
+import {createStore, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
-import { rootReducer } from "./store/rootReducer";
-import { Provider } from "react-redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { ActionCreator } from "./store/action";
+import {rootReducer} from "./store/rootReducer";
+import {Provider} from "react-redux";
+import {composeWithDevTools} from "redux-devtools-extension";
+import {ActionCreator} from "./store/action";
 
 const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
+    rootReducer,
+    composeWithDevTools(applyMiddleware(thunk))
 );
 
 Promise.all([store.dispatch(ActionCreator.addInitialPic())]).then(() => {
   ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>,
-    document.getElementById("root")
+      <React.StrictMode>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </React.StrictMode>,
+      document.getElementById(`root`)
   );
 });

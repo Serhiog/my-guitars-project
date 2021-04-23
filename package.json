@@ -28,8 +28,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eslint": "eslint src/**/*.js",
-    "test": "npm run eslint"
+    "eslint": "eslint --ext .jsx --ext .js src/",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [

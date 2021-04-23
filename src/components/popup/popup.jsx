@@ -1,162 +1,167 @@
-import closeBtn from "../../img/closeBtn.jpg"
-import { connect } from "react-redux"
-import { ActionCreator } from "../../store/action"
-import { useEffect, useState, useRef } from "react"
+import closeBtn from "../../img/closeBtn.jpg";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../store/action";
+import {useEffect, useState, useRef} from "react";
+import {commonButtons} from "../../consts";
+import React from "react";
 
-function Popup({ showPopup, hidePopup, sendMessage, setSelectedStars, stars, resetSelectedStars }) {
 
-    const [clickedStar, setClickedStar] = useState(false)
-    const [focus, setFocus] = useState(true)
+function Popup({showPopup, hidePopup, sendMessage, setSelectedStars, stars, resetSelectedStars}) {
 
-    const formRef = useRef()
-    const nameRef = useRef()
+  const [clickedStar, setClickedStar] = useState(false);
+  const [focus, setFocus] = useState(true);
 
-    const handleCloseBtn = (evt) => {
-        evt.preventDefault()
-        hidePopup()
+  const formRef = useRef();
+  const nameRef = useRef();
+
+  const handleCloseBtn = (evt) => {
+    evt.preventDefault();
+    hidePopup();
+  };
+
+  const handleDocument = (evt) => {
+    if (evt.key === commonButtons.escape) {
+      hidePopup();
     }
+  };
 
-    const handleDocument = (evt) => {
-        if (evt.key === "Escape") {
-            hidePopup()
-        }
+  const setActiveColorStar = (evt) => {
+    resetSelectedStars(stars.length);
+    setSelectedStars(+evt.target.dataset.id);
+  };
+
+  const setInactiveColorStar = (evt) => {
+    setClickedStar(false);
+    if (!clickedStar) {
+      resetSelectedStars(+evt.target.dataset.id);
     }
+  };
 
-    const setActiveColorStar = (evt) => {
-        resetSelectedStars(stars.length)
-        setSelectedStars(+evt.target.dataset.id)
+  useEffect(() => {
+    document.addEventListener(commonButtons.keydown, handleDocument);
+    return () => {
+      document.removeEventListener(commonButtons.keydown, handleDocument);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (focus) {
+      nameRef.current.focus();
     }
-
-    const setInactiveColorStar = (evt) => {
-        setClickedStar(false)
-        if (!clickedStar) {
-            resetSelectedStars(+evt.target.dataset.id)
-        }
-    }
-
-    useEffect(() => {
-        document.addEventListener("keydown", handleDocument);
-        return () => {
-            document.removeEventListener("keydown", handleDocument);
-        };
-    }, []);
-
-    useEffect(() => {
-        if (focus) {
-            nameRef.current.focus()
-        }
-    });
+  });
 
 
-    const [name, setName] = useState()
-    const onChangeName = (evt) => {
-        setName(evt.target.value)
-    }
+  const [name, setName] = useState();
+  const onChangeName = (evt) => {
+    setName(evt.target.value);
+  };
 
-    const [advan, setAdvan] = useState()
-    const onChangeAdvan = (evt) => {
-        setFocus(false)
-        setAdvan(evt.target.value)
-    }
+  const [advan, setAdvan] = useState();
+  const onChangeAdvan = (evt) => {
+    setFocus(false);
+    setAdvan(evt.target.value);
+  };
 
-    const [disadvan, setDisadvan] = useState()
-    const onChangeDisAdvan = (evt) => {
-        setFocus(false)
-        setDisadvan(evt.target.value)
-    }
+  const [disadvan, setDisadvan] = useState();
+  const onChangeDisAdvan = (evt) => {
+    setFocus(false);
+    setDisadvan(evt.target.value);
+  };
 
-    const [rating, setRating] = useState()
-    const onChangeRaiting = (evt) => {
-        setFocus(false)
-        resetSelectedStars(stars.length)
-        setClickedStar(true)
-        setRating(evt.target.value)
-        resetSelectedStars(evt.target.value)
-        setSelectedStars(evt.target.value)
-    }
+  const [rating, setRating] = useState();
+  const onChangeRaiting = (evt) => {
+    setFocus(false);
+    resetSelectedStars(stars.length);
+    setClickedStar(true);
+    setRating(evt.target.value);
+    resetSelectedStars(evt.target.value);
+    setSelectedStars(evt.target.value);
+  };
 
-    const [message, setMessage] = useState()
-    const onChangeMessage = (evt) => {
-        setFocus(false)
-        setMessage(evt.target.value)
-    }
-
-
-    const handlerOnSubmitForm = (evt) => {
-        evt.preventDefault()
-        sendMessage(name, advan, disadvan, rating, message)
-        formRef.current.reset()
-        resetSelectedStars(stars.length)
-        hidePopup()
-        setMessage(false)
-        setName(false)
-    }
+  const [message, setMessage] = useState();
+  const onChangeMessage = (evt) => {
+    setFocus(false);
+    setMessage(evt.target.value);
+  };
 
 
-    return (
-        <div className="popup" style={showPopup ? { display: "block" } : { display: "none" }} >
-            <div className="popup__inner" onClick={handleCloseBtn}>
-                <div className="popup__content" onClick={(evt) => { evt.stopPropagation() }}>
-                    <a className="popup__close" href="/" onClick={handleCloseBtn}>
-                        <img src={closeBtn} alt="close" className="popup__close-img" />
-                    </a>
-                    <h2 className="popup__title">Оставить отзыв </h2>
-                    <form className="popup__form" onSubmit={handlerOnSubmitForm} ref={formRef}>
-                        <div className="popup__left-block">
-                            <input className={!name ? "popup__input popup__input--nocorrect" : "popup__input"} placeholder="Имя" type="text" onChange={onChangeName} required ref={nameRef} id={"name"} />
-                            <label className={!name ? "popup__label popup__input-error" : null} htmlFor={"name"}></label>
-                            <input className="popup__input" placeholder="Достоинства" type="text" onChange={onChangeAdvan} />
-                            <input className="popup__input" placeholder="Недостатки" type="text" onChange={onChangeDisAdvan} />
-                        </div>
-                        <div className="popup__right-block">
-                            <div className="popup__rating">
-                                <div className="popup__value-wrapper">
-                                    <p className="popup__rating-value">Оцените товар:</p>
-                                    <div className="popup__rating-list">
-                                        {stars.map(star => {
-                                            return (
-                                                <div key={star.id} className="popup__inner-common">
-                                                    <input className="popup__rating-item" id={"star-" + star.id} type="radio" name="rating" defaultValue={star.id} onClick={onChangeRaiting} />
-                                                    <label data-id={star.id} className={star.isSelected ? "popup__rating-item-star popup__rating-item-star--active" : "popup__rating-item-star"} htmlFor={"star-" + star.id} onMouseOver={setActiveColorStar} onMouseLeave={setInactiveColorStar}>{"Rating" + star.id}</label>
-                                                </div>)
-                                        })}
+  const handlerOnSubmitForm = (evt) => {
+    evt.preventDefault();
+    sendMessage(name, advan, disadvan, rating, message);
+    formRef.current.reset();
+    resetSelectedStars(stars.length);
+    hidePopup();
+    setMessage(false);
+    setName(false);
+  };
 
-                                    </div>
-                                </div>
-                                <span className={!message ? "popup__input-error popup__input-error-mesesage popup__test" : "popup__test"}></span>
-                                <textarea style={!message ? { border: "1px solid #ff0000" } : null} className="popup__message" required placeholder="Комментарий" onChange={onChangeMessage} id={"message"}></textarea>
-                            </div>
-                        </div>
-                        <button className="popup__send-btn" type="submit">оставить отзыв</button>
-                    </form>
-                </div>
+
+  return (
+    <div className="popup" style={showPopup ? {display: `block`} : {display: `none`}} >
+      <div className="popup__inner" onClick={handleCloseBtn}>
+        <div className="popup__content" onClick={(evt) => {
+          evt.stopPropagation();
+        }}>
+          <a className="popup__close" href="/" onClick={handleCloseBtn}>
+            <img src={closeBtn} alt="close" className="popup__close-img" />
+          </a>
+          <h2 className="popup__title">Оставить отзыв </h2>
+          <form className="popup__form" onSubmit={handlerOnSubmitForm} ref={formRef}>
+            <div className="popup__left-block">
+              <input className={!name ? `popup__input popup__input--nocorrect` : `popup__input`} placeholder="Имя" type="text" onChange={onChangeName} required ref={nameRef} id={`name`} />
+              <label className={!name ? `popup__label popup__input-error` : null} htmlFor={`name`}><span className="popup__label-info">fill you're name</span></label>
+              <input className="popup__input" placeholder="Достоинства" type="text" onChange={onChangeAdvan} />
+              <input className="popup__input" placeholder="Недостатки" type="text" onChange={onChangeDisAdvan} />
             </div>
-        </div >
+            <div className="popup__right-block">
+              <div className="popup__rating">
+                <div className="popup__value-wrapper">
+                  <p className="popup__rating-value">Оцените товар:</p>
+                  <div className="popup__rating-list">
+                    {stars.map((star) => {
+                      return (
+                        <div key={star.id} className="popup__inner-common">
+                          <input className="popup__rating-item" id={`star-` + star.id} type="radio" name="rating" defaultValue={star.id} onClick={onChangeRaiting} />
+                          <label data-id={star.id} className={star.isSelected ? `popup__rating-item-star popup__rating-item-star--active` : `popup__rating-item-star`} htmlFor={`star-` + star.id} onMouseOver={setActiveColorStar} onMouseLeave={setInactiveColorStar}>{`Rating` + star.id}</label>
+                        </div>);
+                    })}
 
-    )
+                  </div>
+                </div>
+                <span className={!message ? `popup__input-error popup__input-error-mesesage popup__test` : `popup__test`}></span>
+                <textarea style={!message ? {border: `1px solid #ff0000`} : null} className="popup__message" required placeholder="Комментарий" onChange={onChangeMessage} id={`message`}></textarea>
+              </div>
+            </div>
+            <button className="popup__send-btn" type="submit">оставить отзыв</button>
+          </form>
+        </div>
+      </div>
+    </div >
+
+  );
 }
 
 
 const mapStateToProps = (state) => ({
-    showPopup: state.showPopup,
-    stars: state.stars,
-    reviews: state.reviews
-})
+  showPopup: state.showPopup,
+  stars: state.stars,
+  reviews: state.reviews
+});
 
 const mapDispatchToProps = (dispatch) => ({
-    hidePopup() {
-        dispatch(ActionCreator.hidePopup())
-    },
-    sendMessage(name, advan, disAdvan, rating, message) {
-        dispatch(ActionCreator.sendMessage({ name, advan, disAdvan, rating, message }))
-    },
-    setSelectedStars(id) {
-        dispatch(ActionCreator.setSelectedStars(id))
-    },
-    resetSelectedStars(id) {
-        dispatch(ActionCreator.resetSelectedStars(id))
-    }
-})
+  hidePopup() {
+    dispatch(ActionCreator.hidePopup());
+  },
+  sendMessage(name, advan, disAdvan, rating, message) {
+    dispatch(ActionCreator.sendMessage({name, advan, disAdvan, rating, message}));
+  },
+  setSelectedStars(id) {
+    dispatch(ActionCreator.setSelectedStars(id));
+  },
+  resetSelectedStars(id) {
+    dispatch(ActionCreator.resetSelectedStars(id));
+  }
+});
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Popup)
+export default connect(mapStateToProps, mapDispatchToProps)(Popup);

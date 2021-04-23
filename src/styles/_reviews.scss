@@ -1,156 +1,141 @@
-.reviews {
+.reviews__inner {
+    @include flex;
+    flex-direction: column;
+    align-items   : flex-start;
+    margin-top    : -10px;
+}
 
-    &__inner {
-        @include flex;
-        flex-direction: column;
-        align-items   : flex-start;
-        margin-top    : -10px;
-    }
+.reviews__send-review {
+    @extend %btn-white;
+    color         : #d12136;
+    font-family   : $semi-bold ;
+    font-size     : 14px;
+    font-weight   : 600;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    display       : inline-block;
+    padding-top   : 17px;
+    align-self    : flex-end;
+    width         : 189px;
+    z-index       : 10;
+    cursor        : pointer;
+}
 
-    &__send-review {
-        @extend %btn-white;
-        color         : #d12136;
-        font-family   : $semi-bold, sans-serif;
-        font-size     : 14px;
-        font-weight   : 600;
-        letter-spacing: 1.68px;
-        text-transform: uppercase;
-        display       : inline-block;
-        padding-top   : 17px;
-        align-self    : flex-end;
-        width         : 189px;
-        z-index       : 10;
-        cursor        : pointer;
-    }
+.reviews__name {
+    color        : #48494d;
+    font-family  : $bold ;
+    font-size    : 20px;
+    font-weight  : 600;
+    margin-bottom: 25px;
+    margin-top   : -44px;
+}
 
-    &__name {
-        color        : #48494d;
-        font-family  : $bold, sans-serif;
-        font-size    : 20px;
-        font-weight  : 600;
-        margin-bottom: 25px;
-        margin-top   : -44px;
-    }
+.reviews__item {
+    color        : #000000;
+    font-family  : $semi-bold ;
+    font-size    : 15px;
+    font-weight  : 600;
+    margin-bottom: 21px;
+}
 
-    &__list {}
+.reviews__item--advanteges {
+    margin-left: 20px;
+    position   : relative;
 
-    &__item {
-        color        : #000000;
-        font-family  : $semi-bold, sans-serif;
-        font-size    : 15px;
-        font-weight  : 600;
-        margin-bottom: 21px;
-    }
-
-    &__item--advanteges {
-        margin-left: 20px;
-        position   : relative;
-
-        &::before {
-            content    : "+";
-            position   : absolute;
-            color      : #d12136;
-            font-family: $semi-bold, sans-serif;
-            font-size  : 15px;
-            font-weight: 600;
-            left       : -18px;
-        }
-    }
-
-    &__item-advanteges-info {
-        color      : #000000;
-        font-family: $regular, sans-serif;
-        font-size  : 15px;
-        font-weight: 400;
-        display    : block;
-        margin-top : 10px;
-    }
-
-    &__item--disadvanteges {
-        margin-left: 20px;
-        position   : relative;
-
-        &::before {
-            content    : "-";
-            position   : absolute;
-            color      : #d12136;
-            font-family: $semi-bold, sans-serif;
-            font-size  : 15px;
-            font-weight: 600;
-            left       : -18px;
-        }
-    }
-
-    &__item-disadvanteges-info {
-        color      : #000000;
-        font-family: $regular, sans-serif;
-        font-size  : 15px;
-        font-weight: 400;
-        display    : block;
-        margin-top : 10px;
-    }
-
-    &__item-message {
-        color      : #000000;
-        font-family: $regular, sans-serif;
-        font-size  : 15px;
-        font-weight: 400;
-        margin-top : 10px;
-    }
-
-    &__rating {
-        @include flex;
-        margin-bottom: 30px
-    }
-
-    &__rating-list {
-        @include flex;
-        margin-right: 26px;
-    }
-
-    &__rating-item {}
-
-    &__rating-item-link {}
-
-    &__rating-item-star {}
-
-    &__rating-item-star--active {}
-
-    &__rating-advise {
-        color       : #d12136;
-        font-family : $regular, sans-serif;
-        font-size   : 15px;
-        font-weight : 400;
-        margin-right: auto;
-    }
-
-    &__answer {}
-
-    &__time {
-        opacity     : 0.4;
-        color       : #000000;
-        font-family : $regular, sans-serif;
-        font-size   : 14px;
-        font-weight : 400;
-        margin-right: 26px;
-    }
-
-    &__send-answer {
+    &::before {
+        content    : "+";
+        position   : absolute;
         color      : #d12136;
-        font-family: $regular, sans-serif;
+        font-family: $semi-bold ;
         font-size  : 15px;
-        font-weight: 400;
+        font-weight: 600;
+        left       : -18px;
     }
+}
 
-    &__wrapper {}
+.reviews__item-advanteges-info {
+    color      : #000000;
+    font-family: $regular ;
+    font-size  : 15px;
+    font-weight: 400;
+    display    : block;
+    margin-top : 10px;
+}
 
-    &__wrapper-item {
-        border-bottom : 1px solid rgba(0, 0, 0, 0.2);
-        padding-bottom: 24px;
-        margin-bottom : 78px;
+.reviews__item--disadvanteges {
+    margin-left: 20px;
+    position   : relative;
 
-        &:last-child {
-            margin-bottom: 0
-        }
+    &::before {
+        content    : "-";
+        position   : absolute;
+        color      : #d12136;
+        font-family: $semi-bold ;
+        font-size  : 15px;
+        font-weight: 600;
+        left       : -18px;
+    }
+}
+
+.reviews__item-disadvanteges-info {
+    color      : #000000;
+    font-family: $regular ;
+    font-size  : 15px;
+    font-weight: 400;
+    display    : block;
+    margin-top : 10px;
+}
+
+.reviews__item-message {
+    color      : #000000;
+    font-family: $regular ;
+    font-size  : 15px;
+    font-weight: 400;
+    margin-top : 10px;
+}
+
+.reviews__rating {
+    @include flex;
+    margin-bottom: 30px
+}
+
+.reviews__rating-list {
+    @include flex;
+    margin-right: 26px;
+}
+
+.reviews__rating-advise {
+    color       : #d12136;
+    font-family : $regular ;
+    font-size   : 15px;
+    font-weight : 400;
+    margin-right: auto;
+}
+
+
+.reviews__time {
+    opacity     : 0.4;
+    color       : #000000;
+    font-family : $regular ;
+    font-size   : 14px;
+    font-weight : 400;
+    margin-right: 26px;
+}
+
+.reviews__send-answer {
+    color      : #d12136;
+    font-family: $regular ;
+    font-size  : 15px;
+    font-weight: 400;
+}
+
+
+.reviews__wrapper-item {
+    border-bottom : 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 24px;
+    margin-bottom : 78px;
+
+    &:last-child {
+        margin-bottom: 0
     }
 }

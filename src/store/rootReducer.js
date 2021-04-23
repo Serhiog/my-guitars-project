@@ -1,4 +1,4 @@
-import { ActionType } from "./action";
+import {ActionType} from "./action";
 import slider1Min from "../img/slider-1-min.png";
 import slider2Min from "../img/slider-min-2.jpg";
 import slider3Min from "../img/slider-min-3.png";
@@ -31,16 +31,16 @@ const initialState = {
   ],
 
   picPreviews: [
-    { pic: slider1Min, id: 1 },
-    { pic: slider2Min, id: 2 },
-    { pic: slider3Min, id: 3 },
+    {pic: slider1Min, id: 1},
+    {pic: slider2Min, id: 2},
+    {pic: slider3Min, id: 3},
   ],
   bigPics: [
-    { pic: slider1Big, id: 1 },
-    { pic: slider2Big, id: 2 },
-    { pic: slider3Big, id: 3 },
+    {pic: slider1Big, id: 1},
+    {pic: slider2Big, id: 2},
+    {pic: slider3Big, id: 3},
   ],
-  activePic: "",
+  activePic: ``,
   showPopup: false,
   reviews: [],
 };
@@ -48,7 +48,7 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.GET_INITIAL_PIC:
-      return Object.assign({}, state, { activePic: state.bigPics[0] });
+      return Object.assign({}, state, {activePic: state.bigPics[0]});
     case ActionType.GET_NEXT_PIC:
       const picNext = state.bigPics.find((pic) => {
         return pic.id === action.payload;
@@ -64,14 +64,14 @@ const rootReducer = (state = initialState, action) => {
         activePic: picPreviously,
       });
     case ActionType.SHOW_POPUP:
-      return Object.assign({}, state, { showPopup: true });
+      return Object.assign({}, state, {showPopup: true});
     case ActionType.HIDE_POPUP:
-      return Object.assign({}, state, { showPopup: false });
+      return Object.assign({}, state, {showPopup: false});
     case ActionType.SEND_REVIEW:
       return Object.assign({}, state, {
         reviews: [
           ...state.reviews,
-          Object.assign({}, action.payload, { id: state.reviews.length }),
+          Object.assign({}, action.payload, {id: state.reviews.length}),
         ],
       });
     case ActionType.SET_FAVORITE_STAR:
@@ -97,4 +97,4 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export { rootReducer };
+export {rootReducer};

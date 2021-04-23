@@ -1,5 +1,5 @@
 import React from "react";
-import { Router } from "react-router-dom";
+import {Router} from "react-router-dom";
 import history from "./browser-history";
 import Header from "./components/header/header";
 import Slider from "./components/slider/slider";

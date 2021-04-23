@@ -1,20 +1,23 @@
 @charset "UTF-8";
 @font-face {
-  font-family: 'OpenSans-Regular';
+  font-family: "opensans-regular";
   font-weight: 400;
   src: url("./fonts/open-sans-v18-latin_cyrillic-regular.woff2") format("woff2");
+  src: url("./fonts/open-sans-v18-latin_cyrillic-regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'OpenSans-SemiBold';
+  font-family: "opensans-semibold";
   font-weight: 600;
   src: url("./fonts/open-sans-v18-latin_cyrillic-600.woff2") format("woff2");
+  src: url("./fonts/open-sans-v18-latin_cyrillic-600.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'OpenSans-ExtraBold';
+  font-family: "opensans-extrabold";
   font-weight: 700;
   src: url("./fonts/open-sans-v18-latin_cyrillic-700.woff2") format("woff2");
+  src: url("./fonts/open-sans-v18-latin_cyrillic-700.woff") format("woff");
 }
 
 /*Обнуление*/
@@ -321,8 +324,6 @@ legend {
   /* 1 */
   color: inherit;
   /* 2 */
-  display: table;
-  /* 1 */
   max-width: 100%;
   /* 1 */
   padding: 0;
@@ -478,17 +479,17 @@ template {
 }
 
 .header__title {
-  font-family: OpenSans-ExtraBold;
+  font-family: opensans-extrabold;
   color: #48494d;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 2.34px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .header__title--moto {
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   display: block;
   font-size: 14px;
   font-weight: 600;
@@ -496,7 +497,7 @@ template {
 }
 
 .header__nav {
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -530,6 +531,10 @@ template {
   margin-right: 0;
 }
 
+.header__nav-item-link {
+  color: black;
+}
+
 .footer {
   background-color: #f5f5f9;
 }
@@ -542,7 +547,7 @@ template {
 }
 
 .footer__nav {
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -567,8 +572,12 @@ template {
   padding-bottom: 30px;
 }
 
+.footer__nav-item-link {
+  color: black;
+}
+
 .offer__send, .menu__list-item--active, .popup__send-btn {
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   width: 196px;
   height: 52px;
   background-color: #d12136;
@@ -578,10 +587,11 @@ template {
   letter-spacing: 1.68px;
   line-height: normal;
   text-align: center;
+  color: #ffffff;
 }
 
 .offer__credit, .reviews__send-review {
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   width: 223px;
   height: 52px;
   border: 1px solid #d12136;
@@ -665,7 +675,7 @@ template {
   color: #ffffff;
   text-align: center;
   padding-top: 9px;
-  font-family: OpenSans-ExtraBold;
+  font-family: opensans-extrabold;
   font-size: 10px;
   font-weight: 600;
   font-style: normal;
@@ -794,7 +804,7 @@ template {
 
 .offer__title {
   color: #48494d;
-  font-family: OpenSans-ExtraBold;
+  font-family: opensans-extrabold;
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 72px;
@@ -824,7 +834,7 @@ template {
 
 .offer__item {
   color: rgba(72, 73, 77, 0.5);
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 16px;
   font-weight: 400;
   position: relative;
@@ -916,14 +926,14 @@ template {
 
 .offer__price-new {
   color: #48494d;
-  font-family: OpenSans-ExtraBold;
+  font-family: opensans-extrabold;
   font-size: 35px;
   font-weight: 700;
   margin-right: 33px;
 }
 
 .offer__price-old {
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-weight: 400;
   color: rgba(72, 73, 77, 0.5);
   position: relative;
@@ -992,15 +1002,14 @@ template {
 }
 
 .menu__list-link {
-  width: 167px;
   height: 26px;
-  color: #000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 20px;
   font-weight: 400;
   text-align: center;
   width: 100%;
   display: block;
+  background: none;
 }
 
 .menu__data-list {
@@ -1024,7 +1033,7 @@ template {
       -ms-flex-align: center;
           align-items: center;
   color: #48494d;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 16px;
   font-weight: 400;
   border-bottom: 1px solid #d7d9df;
@@ -1034,22 +1043,22 @@ template {
 
 .menu__data-list-type {
   color: #000000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 16px;
   font-weight: 400;
 }
 
 .menu__list-item--active {
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 20px;
-  font-weight: 400;
   text-align: center;
   font-weight: 400;
   width: 223px;
   border: none;
+  color: #ffffff;
 }
 
-.menu__list-item--active a {
+.menu__list-item--active button {
   color: #ffffff;
 }
 
@@ -1079,7 +1088,7 @@ template {
 
 .reviews__send-review {
   color: #d12136;
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.68px;
@@ -1095,7 +1104,7 @@ template {
 
 .reviews__name {
   color: #48494d;
-  font-family: OpenSans-ExtraBold;
+  font-family: opensans-extrabold;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 25px;
@@ -1104,7 +1113,7 @@ template {
 
 .reviews__item {
   color: #000000;
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 21px;
@@ -1119,7 +1128,7 @@ template {
   content: "+";
   position: absolute;
   color: #d12136;
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-size: 15px;
   font-weight: 600;
   left: -18px;
@@ -1127,7 +1136,7 @@ template {
 
 .reviews__item-advanteges-info {
   color: #000000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 15px;
   font-weight: 400;
   display: block;
@@ -1143,7 +1152,7 @@ template {
   content: "-";
   position: absolute;
   color: #d12136;
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-size: 15px;
   font-weight: 600;
   left: -18px;
@@ -1151,7 +1160,7 @@ template {
 
 .reviews__item-disadvanteges-info {
   color: #000000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 15px;
   font-weight: 400;
   display: block;
@@ -1160,7 +1169,7 @@ template {
 
 .reviews__item-message {
   color: #000000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 15px;
   font-weight: 400;
   margin-top: 10px;
@@ -1206,7 +1215,7 @@ template {
 
 .reviews__rating-advise {
   color: #d12136;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 15px;
   font-weight: 400;
   margin-right: auto;
@@ -1215,7 +1224,7 @@ template {
 .reviews__time {
   opacity: 0.4;
   color: #000000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 14px;
   font-weight: 400;
   margin-right: 26px;
@@ -1223,7 +1232,7 @@ template {
 
 .reviews__send-answer {
   color: #d12136;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 15px;
   font-weight: 400;
 }
@@ -1265,7 +1274,7 @@ template {
 
 .contacts__item {
   color: #1a212f;
-  font-family: OpenSans-ExtraBold;
+  font-family: opensans-extrabold;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 32px;
@@ -1273,7 +1282,7 @@ template {
 
 .contacts__info {
   color: #000000;
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-size: 14px;
   font-weight: 600;
   display: block;
@@ -1298,7 +1307,7 @@ template {
 }
 
 .footer__nav {
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -1321,6 +1330,10 @@ template {
   justify-content: space-between;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.footer__nav-item-link {
+  color: black;
 }
 
 .popup {
@@ -1363,15 +1376,15 @@ template {
 
 .popup__title {
   color: #48494d;
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-size: 25px;
   font-weight: 600;
   text-align: center;
 }
 
 .popup__form {
-  font-family: OpenSans-Regular;
-  font-weight: 350;
+  font-family: opensans-regular;
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   color: #474351;
@@ -1397,8 +1410,8 @@ template {
 }
 
 .popup__email {
-  font-family: OpenSans-Regular;
-  font-weight: 350;
+  font-family: opensans-regular;
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   color: #474351;
@@ -1414,7 +1427,7 @@ template {
   margin-bottom: 18px;
   padding-left: 27px;
   color: #48494d;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 14px;
   font-weight: 400;
 }
@@ -1426,7 +1439,7 @@ template {
 
 .popup__password {
   margin-bottom: 10px;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
 }
 
 .popup__btn {
@@ -1485,7 +1498,7 @@ template {
   padding-top: 15px;
   padding-left: 21px;
   color: #48494d;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 14px;
   font-weight: 400;
   position: relative;
@@ -1503,7 +1516,7 @@ template {
 
 .popup__rating-value {
   color: #000000;
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-size: 15px;
   font-weight: 600;
   margin-right: 14px;
@@ -1511,17 +1524,15 @@ template {
 
 .popup__send-btn {
   color: #ffffff;
-  font-family: OpenSans-SemiBold;
+  font-family: opensans-semibold;
   font-size: 14px;
   font-weight: 600;
-  font-style: normal;
   letter-spacing: 1.68px;
   text-align: center;
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
   margin-top: 26px;
-  margin-left: auto;
 }
 
 .popup__close {
@@ -1555,7 +1566,7 @@ template {
   content: "Пожалуйста, заполните поле";
   position: absolute;
   color: #ff0000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 14px;
   font-weight: 400;
   top: -26px;
@@ -1566,7 +1577,7 @@ template {
   content: "*";
   position: absolute;
   color: #ff0000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 14px;
   font-weight: 400;
   top: 3px;
@@ -1577,7 +1588,7 @@ template {
   content: "Пожалуйста, заполните поле";
   position: absolute;
   color: #ff0000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 14px;
   font-weight: 400;
   top: -124px;
@@ -1590,7 +1601,7 @@ template {
   content: "*";
   position: absolute;
   color: #ff0000;
-  font-family: OpenSans-Regular;
+  font-family: opensans-regular;
   font-size: 14px;
   font-weight: 400;
   top: -97px;
@@ -1600,5 +1611,19 @@ template {
 
 .popup__test {
   position: relative;
+}
+
+.popup__label-info {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,5 @@
 %btn-red {
-    font-family     : $semi-bold, sans-serif;
+    font-family     : $semi-bold;
     width           : 196px;
     height          : 52px;
     background-color: #d12136;
@@ -9,10 +9,11 @@
     letter-spacing  : 1.68px;
     line-height     : normal;
     text-align      : center;
+    color           : #ffffff;
 }
 
 %btn-white {
-    font-family   : $semi-bold, sans-serif;
+    font-family   : $semi-bold;
     width         : 223px;
     height        : 52px;
     border        : 1px solid #d12136;
