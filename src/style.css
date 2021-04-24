@@ -479,7 +479,7 @@ template {
 }
 
 .header__title {
-  font-family: opensans-extrabold;
+  font-family: opensans-extrabold, sans-serif;
   color: #48494d;
   font-size: 18px;
   font-weight: 700;
@@ -489,7 +489,7 @@ template {
 }
 
 .header__title--moto {
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   display: block;
   font-size: 14px;
   font-weight: 600;
@@ -497,7 +497,7 @@ template {
 }
 
 .header__nav {
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -547,7 +547,7 @@ template {
 }
 
 .footer__nav {
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -577,7 +577,7 @@ template {
 }
 
 .offer__send, .menu__list-item--active, .popup__send-btn {
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   width: 196px;
   height: 52px;
   background-color: #d12136;
@@ -591,7 +591,7 @@ template {
 }
 
 .offer__credit, .reviews__send-review {
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   width: 223px;
   height: 52px;
   border: 1px solid #d12136;
@@ -675,7 +675,7 @@ template {
   color: #ffffff;
   text-align: center;
   padding-top: 9px;
-  font-family: opensans-extrabold;
+  font-family: opensans-extrabold, sans-serif;
   font-size: 10px;
   font-weight: 600;
   font-style: normal;
@@ -804,7 +804,7 @@ template {
 
 .offer__title {
   color: #48494d;
-  font-family: opensans-extrabold;
+  font-family: opensans-extrabold, sans-serif;
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 72px;
@@ -834,7 +834,7 @@ template {
 
 .offer__item {
   color: rgba(72, 73, 77, 0.5);
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 16px;
   font-weight: 400;
   position: relative;
@@ -926,14 +926,14 @@ template {
 
 .offer__price-new {
   color: #48494d;
-  font-family: opensans-extrabold;
+  font-family: opensans-extrabold, sans-serif;
   font-size: 35px;
   font-weight: 700;
   margin-right: 33px;
 }
 
 .offer__price-old {
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-weight: 400;
   color: rgba(72, 73, 77, 0.5);
   position: relative;
@@ -965,7 +965,6 @@ template {
 }
 
 .menu__inner {
-  padding-left: 40px;
   max-width: 1245px;
   padding-left: 40px;
   margin: 0 auto;
@@ -1003,7 +1002,7 @@ template {
 
 .menu__list-link {
   height: 26px;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 20px;
   font-weight: 400;
   text-align: center;
@@ -1033,7 +1032,7 @@ template {
       -ms-flex-align: center;
           align-items: center;
   color: #48494d;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 16px;
   font-weight: 400;
   border-bottom: 1px solid #d7d9df;
@@ -1043,13 +1042,13 @@ template {
 
 .menu__data-list-type {
   color: #000000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 16px;
   font-weight: 400;
 }
 
 .menu__list-item--active {
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 20px;
   text-align: center;
   font-weight: 400;
@@ -1088,7 +1087,7 @@ template {
 
 .reviews__send-review {
   color: #d12136;
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.68px;
@@ -1104,7 +1103,7 @@ template {
 
 .reviews__name {
   color: #48494d;
-  font-family: opensans-extrabold;
+  font-family: opensans-extrabold, sans-serif;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 25px;
@@ -1113,7 +1112,7 @@ template {
 
 .reviews__item {
   color: #000000;
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 21px;
@@ -1128,7 +1127,7 @@ template {
   content: "+";
   position: absolute;
   color: #d12136;
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-size: 15px;
   font-weight: 600;
   left: -18px;
@@ -1136,7 +1135,7 @@ template {
 
 .reviews__item-advanteges-info {
   color: #000000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 15px;
   font-weight: 400;
   display: block;
@@ -1152,7 +1151,7 @@ template {
   content: "-";
   position: absolute;
   color: #d12136;
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-size: 15px;
   font-weight: 600;
   left: -18px;
@@ -1160,7 +1159,7 @@ template {
 
 .reviews__item-disadvanteges-info {
   color: #000000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 15px;
   font-weight: 400;
   display: block;
@@ -1169,7 +1168,7 @@ template {
 
 .reviews__item-message {
   color: #000000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 15px;
   font-weight: 400;
   margin-top: 10px;
@@ -1215,7 +1214,7 @@ template {
 
 .reviews__rating-advise {
   color: #d12136;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 15px;
   font-weight: 400;
   margin-right: auto;
@@ -1224,7 +1223,7 @@ template {
 .reviews__time {
   opacity: 0.4;
   color: #000000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
   margin-right: 26px;
@@ -1232,7 +1231,7 @@ template {
 
 .reviews__send-answer {
   color: #d12136;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 15px;
   font-weight: 400;
 }
@@ -1274,7 +1273,7 @@ template {
 
 .contacts__item {
   color: #1a212f;
-  font-family: opensans-extrabold;
+  font-family: opensans-extrabold, sans-serif;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 32px;
@@ -1282,7 +1281,7 @@ template {
 
 .contacts__info {
   color: #000000;
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-size: 14px;
   font-weight: 600;
   display: block;
@@ -1307,7 +1306,7 @@ template {
 }
 
 .footer__nav {
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -1376,14 +1375,14 @@ template {
 
 .popup__title {
   color: #48494d;
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-size: 25px;
   font-weight: 600;
   text-align: center;
 }
 
 .popup__form {
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -1410,7 +1409,7 @@ template {
 }
 
 .popup__email {
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -1427,7 +1426,7 @@ template {
   margin-bottom: 18px;
   padding-left: 27px;
   color: #48494d;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
@@ -1439,7 +1438,7 @@ template {
 
 .popup__password {
   margin-bottom: 10px;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
 }
 
 .popup__btn {
@@ -1498,7 +1497,7 @@ template {
   padding-top: 15px;
   padding-left: 21px;
   color: #48494d;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
   position: relative;
@@ -1516,7 +1515,7 @@ template {
 
 .popup__rating-value {
   color: #000000;
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-size: 15px;
   font-weight: 600;
   margin-right: 14px;
@@ -1524,7 +1523,7 @@ template {
 
 .popup__send-btn {
   color: #ffffff;
-  font-family: opensans-semibold;
+  font-family: opensans-semibold, sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.68px;
@@ -1566,7 +1565,7 @@ template {
   content: "Пожалуйста, заполните поле";
   position: absolute;
   color: #ff0000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
   top: -26px;
@@ -1577,7 +1576,7 @@ template {
   content: "*";
   position: absolute;
   color: #ff0000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
   top: 3px;
@@ -1588,7 +1587,7 @@ template {
   content: "Пожалуйста, заполните поле";
   position: absolute;
   color: #ff0000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
   top: -124px;
@@ -1601,7 +1600,7 @@ template {
   content: "*";
   position: absolute;
   color: #ff0000;
-  font-family: opensans-regular;
+  font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
   top: -97px;
