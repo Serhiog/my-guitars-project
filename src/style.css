@@ -451,7 +451,7 @@ template {
       -ms-flex-align: center;
           align-items: center;
   flex-wrap: wrap;
-  padding: 22px 40px 22px 40px;
+  padding: 14px 40px 15px 40px;
   margin: 0 auto;
 }
 
@@ -471,7 +471,11 @@ template {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 140px;
+  max-width: 155px;
+  padding-left: 9px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .header__img {
@@ -486,6 +490,7 @@ template {
   letter-spacing: 2.34px;
   margin: 0;
   padding: 0;
+  padding-top: 8px;
 }
 
 .header__title--moto {
@@ -494,6 +499,7 @@ template {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.82px;
+  margin-left: -1px;
 }
 
 .header__nav {
@@ -521,6 +527,7 @@ template {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  margin-right: -11px;
 }
 
 .header__nav-item {
@@ -537,12 +544,13 @@ template {
 
 .footer {
   background-color: #f5f5f9;
+  margin-top: -5px;
 }
 
 .footer__inner {
   max-width: 1245px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 51px;
+  padding-right: 29px;
   margin: 0 auto;
 }
 
@@ -632,7 +640,7 @@ template {
 }
 
 .slider__wrapper {
-  padding-left: 40px;
+  padding-left: 42px;
   max-width: 1245px;
   padding-right: 40px;
   margin: 0 auto;
@@ -658,7 +666,7 @@ template {
       -ms-flex-pack: start;
           justify-content: flex-start;
   max-width: 600px;
-  margin-right: 47px;
+  margin-right: 57px;
 }
 
 .slider__photos {
@@ -800,6 +808,7 @@ template {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-top: -10px;
 }
 
 .offer__title {
@@ -807,7 +816,7 @@ template {
   font-family: opensans-extrabold, sans-serif;
   font-size: 30px;
   font-weight: 700;
-  margin-bottom: 72px;
+  margin-bottom: 69px;
 }
 
 .offer__list {
@@ -829,7 +838,8 @@ template {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-bottom: 37px;
+  margin-bottom: 46px;
+  padding-left: 6px;
 }
 
 .offer__item {
@@ -856,8 +866,8 @@ template {
   width: 24px;
   height: 22px;
   opacity: 0.5;
-  top: -32px;
-  right: 13px;
+  top: -33px;
+  right: 15px;
 }
 
 .offer__item--transmisson {
@@ -871,27 +881,30 @@ template {
   width: 26px;
   height: 24px;
   opacity: 0.5;
-  top: -32px;
-  right: 13px;
+  top: -35px;
+  right: 26px;
 }
 
 .offer__item--hp {
   position: relative;
+  margin-left: -4px;
 }
 
 .offer__item--hp::before {
   content: "";
   position: absolute;
   background-image: url("img/hp.svg");
+  background-repeat: no-repeat;
   width: 32px;
   height: 22px;
   opacity: 0.5;
-  top: -32px;
-  right: 13px;
+  top: -34px;
+  right: 12px;
 }
 
 .offer__item--value {
   position: relative;
+  padding-left: 16px;
 }
 
 .offer__item--value::before {
@@ -901,7 +914,7 @@ template {
   width: 30px;
   height: 23px;
   opacity: 0.5;
-  top: -32px;
+  top: -34px;
   right: 4px;
 }
 
@@ -921,7 +934,7 @@ template {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 37px;
+  margin-bottom: 44px;
 }
 
 .offer__price-new {
@@ -929,7 +942,7 @@ template {
   font-family: opensans-extrabold, sans-serif;
   font-size: 35px;
   font-weight: 700;
-  margin-right: 33px;
+  margin-right: 36px;
 }
 
 .offer__price-old {
@@ -938,6 +951,8 @@ template {
   color: rgba(72, 73, 77, 0.5);
   position: relative;
   font-size: 20px;
+  padding-top: 4px;
+  letter-spacing: normal;
 }
 
 .offer__price-old::before {
@@ -948,25 +963,28 @@ template {
   background-color: #a3a4a6;
   -webkit-transform: skewY(356deg);
           transform: skewY(356deg);
-  top: 9px;
-  left: -3px;
+  top: 14px;
+  left: -4px;
 }
 
 .offer__send {
-  margin-bottom: 37px;
+  margin-bottom: 16px;
+  margin-left: -3px;
+  text-transform: uppercase;
 }
 
 .offer__credit {
   color: #d12136;
+  margin-left: -3px;
 }
 
 .menu {
-  margin-bottom: 130px;
+  margin-bottom: 144px;
 }
 
 .menu__inner {
   max-width: 1245px;
-  padding-left: 40px;
+  padding-left: 48px;
   margin: 0 auto;
 }
 
@@ -1012,7 +1030,7 @@ template {
 }
 
 .menu__data-list {
-  max-width: 584px;
+  max-width: 565px;
 }
 
 .menu__data-list-item {
@@ -1036,8 +1054,8 @@ template {
   font-size: 16px;
   font-weight: 400;
   border-bottom: 1px solid #d7d9df;
-  padding-bottom: 7px;
-  margin-bottom: 26px;
+  padding-bottom: 10px;
+  margin-bottom: 23px;
 }
 
 .menu__data-list-type {
@@ -1052,7 +1070,7 @@ template {
   font-size: 20px;
   text-align: center;
   font-weight: 400;
-  width: 223px;
+  width: 195px;
   border: none;
   color: #ffffff;
 }
@@ -1082,7 +1100,7 @@ template {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-top: -10px;
+  margin-top: -8px;
 }
 
 .reviews__send-review {
@@ -1099,6 +1117,9 @@ template {
   width: 189px;
   z-index: 10;
   cursor: pointer;
+  vertical-align: auto;
+  margin-right: 30px;
+  margin-top: 4px;
 }
 
 .reviews__name {
@@ -1108,6 +1129,7 @@ template {
   font-weight: 600;
   margin-bottom: 25px;
   margin-top: -44px;
+  letter-spacing: -0.5px;
 }
 
 .reviews__item {
@@ -1121,6 +1143,7 @@ template {
 .reviews__item--advanteges {
   margin-left: 20px;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .reviews__item--advanteges::before {
@@ -1145,6 +1168,7 @@ template {
 .reviews__item--disadvanteges {
   margin-left: 20px;
   position: relative;
+  margin-bottom: 19px;
 }
 
 .reviews__item--disadvanteges::before {
@@ -1171,7 +1195,8 @@ template {
   font-family: opensans-regular, sans-serif;
   font-size: 15px;
   font-weight: 400;
-  margin-top: 10px;
+  margin-top: 7px;
+  line-height: 20px;
 }
 
 .reviews__rating {
@@ -1190,7 +1215,7 @@ template {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .reviews__rating-list {
@@ -1209,7 +1234,7 @@ template {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 26px;
+  margin-right: 18px;
 }
 
 .reviews__rating-advise {
@@ -1218,6 +1243,9 @@ template {
   font-size: 15px;
   font-weight: 400;
   margin-right: auto;
+  padding-top: 2px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .reviews__time {
@@ -1226,7 +1254,7 @@ template {
   font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  margin-right: 26px;
+  margin-right: 27px;
 }
 
 .reviews__send-answer {
@@ -1234,16 +1262,34 @@ template {
   font-family: opensans-regular, sans-serif;
   font-size: 15px;
   font-weight: 400;
+  letter-spacing: 0.6px;
 }
 
 .reviews__wrapper-item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 24px;
-  margin-bottom: 78px;
+  padding-bottom: 22px;
+  margin-bottom: 66px;
 }
 
 .reviews__wrapper-item:last-child {
   margin-bottom: 0;
+}
+
+.reviews__list {
+  margin-top: -6px;
+  margin-left: -1px;
+}
+
+.reviews__rating-item {
+  margin-right: 4px;
+}
+
+.reviews__wrapper {
+  margin-top: -4px;
+}
+
+.reviews {
+  margin-bottom: 155px;
 }
 
 .contacts__inner {
@@ -1268,7 +1314,8 @@ template {
 }
 
 .contacts__list {
-  margin-right: 97px;
+  margin-right: 103px;
+  padding-left: 1px;
 }
 
 .contacts__item {
@@ -1285,7 +1332,7 @@ template {
   font-size: 14px;
   font-weight: 600;
   display: block;
-  margin-top: 15px;
+  margin-top: 14px;
   max-width: 250px;
 }
 
@@ -1294,14 +1341,37 @@ template {
   height: 271px;
 }
 
+.contacts {
+  margin-top: -5px;
+}
+
+.contacts__map {
+  margin-top: -47px;
+}
+
+.contacts__city {
+  display: block;
+  margin-bottom: 4px;
+  margin-bottom: 6px;
+}
+
+.contacts__info--tel {
+  margin-top: 12px;
+}
+
+.contacts__info--email {
+  margin-top: 12px;
+}
+
 .footer {
   background-color: #f5f5f9;
+  margin-top: -5px;
 }
 
 .footer__inner {
   max-width: 1245px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 51px;
+  padding-right: 29px;
   margin: 0 auto;
 }
 
@@ -1360,10 +1430,10 @@ template {
 }
 
 .popup__content {
-  max-width: 770px;
+  max-width: 697px;
   height: 415px;
   background-color: #f5f5f9;
-  padding: 30px 35px 30px 35px;
+  padding: 30px 19px 30px 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1379,6 +1449,9 @@ template {
   font-size: 25px;
   font-weight: 600;
   text-align: center;
+  margin-top: -5px;
+  padding-left: -17px;
+  margin-left: -23px;
 }
 
 .popup__form {
@@ -1387,7 +1460,6 @@ template {
   font-size: 18px;
   line-height: 24px;
   color: #474351;
-  margin-top: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1406,6 +1478,7 @@ template {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-top: 52px;
 }
 
 .popup__email {
@@ -1423,8 +1496,8 @@ template {
   border-radius: 4px;
   width: 100%;
   height: 50px;
-  margin-bottom: 18px;
-  padding-left: 27px;
+  margin-bottom: 17px;
+  padding-left: 23px;
   color: #48494d;
   font-family: opensans-regular, sans-serif;
   font-size: 14px;
@@ -1486,7 +1559,7 @@ template {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-bottom: 35px;
+  margin-bottom: 32px;
 }
 
 .popup__message {
@@ -1505,12 +1578,11 @@ template {
 
 .popup__left-block {
   max-width: 300px;
-  margin-right: 30px;
   position: relative;
 }
 
 .popup__right-block {
-  padding-top: 10px;
+  padding-top: 7px;
 }
 
 .popup__rating-value {
@@ -1529,13 +1601,16 @@ template {
   letter-spacing: 1.68px;
   text-align: center;
   text-transform: uppercase;
-  margin-left: auto;
+  margin-left: 218px;
   margin-right: auto;
-  margin-top: 26px;
+  margin-top: 16px;
+  max-width: 190px;
 }
 
 .popup__close {
   margin-left: auto;
+  margin-right: 7px;
+  margin-top: -5px;
 }
 
 .popup__rating-item {
@@ -1568,8 +1643,8 @@ template {
   font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  top: -26px;
-  left: 2px;
+  top: -24px;
+  left: -1px;
 }
 
 .popup__input-error::after {
@@ -1579,21 +1654,8 @@ template {
   font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  top: 3px;
-  left: 13px;
-}
-
-.popup__input-error-mesesage::before {
-  content: "Пожалуйста, заполните поле";
-  position: absolute;
-  color: #ff0000;
-  font-family: opensans-regular, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  top: -124px;
-  left: 1px;
-  z-index: 10;
-  width: 200px;
+  top: 7px;
+  left: 10px;
 }
 
 .popup__input-error-mesesage::after {
@@ -1603,8 +1665,8 @@ template {
   font-family: opensans-regular, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  top: -97px;
-  left: 8px;
+  top: -93px;
+  left: 10px;
   z-index: 10;
 }
 

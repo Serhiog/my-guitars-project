@@ -128,8 +128,8 @@ function Popup({showPopup, hidePopup, sendMessage, setSelectedStars, stars, rese
 
                   </div>
                 </div>
-                <span className={!message ? `popup__input-error popup__input-error-mesesage popup__test` : `popup__test`}></span>
-                <textarea style={!message ? {border: `1px solid #ff0000`} : null} className="popup__message" required placeholder="Комментарий" onChange={onChangeMessage} id={`message`}></textarea>
+                <span className={!message ? `popup__input-error-mesesage popup__test` : `popup__test`}></span>
+                <textarea  className="popup__message" required placeholder="Комментарий" onChange={onChangeMessage} id={`message`}></textarea>
               </div>
             </div>
             <button className="popup__send-btn" type="submit">оставить отзыв</button>

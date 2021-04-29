@@ -20,9 +20,15 @@ function Menu() {
     <section className="menu">
       <div className="menu__inner">
         <ul className="menu__list">
-          <li className={selectedTab === `char` ? `menu__list-item menu__list-item--active` : `menu__list-item`}><button className="menu__list-link" href="/" data-name="char" onClick={handleTabBtn} >Характеристики</button></li>
-          <li className={selectedTab === `reviews` ? `menu__list-item menu__list-item--active` : `menu__list-item`} ><button className="menu__list-link" href="/" data-name="reviews" onClick={handleTabBtn}>Отзывы</button></li>
-          <li className={selectedTab === `contacts` ? `menu__list-item menu__list-item--active` : `menu__list-item`} ><button className="menu__list-link" href="/" data-name="contacts" onClick={handleTabBtn}>Контакты</button></li>
+          <li className={selectedTab === `char` ? `menu__list-item menu__list-item--active` : `menu__list-item`}>
+            <button className="menu__list-link" aria-label="Характеристики" data-name="char" onClick={handleTabBtn} >Характеристики</button>
+          </li>
+          <li className={selectedTab === `reviews` ? `menu__list-item menu__list-item--active` : `menu__list-item`} >
+            <button className="menu__list-link" aria-label="Отзывы" data-name="reviews" onClick={handleTabBtn}>Отзывы</button>
+          </li>
+          <li className={selectedTab === `contacts` ? `menu__list-item menu__list-item--active` : `menu__list-item`} >
+            <button className="menu__list-link" aria-label="Контакты" data-name="contacts" onClick={handleTabBtn}>Контакты</button>
+          </li>
         </ul>
         {selectedTab === menuTabs.char && < Characteristics />}
         {selectedTab === menuTabs.reviews && <Reviews />}

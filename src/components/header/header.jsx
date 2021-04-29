@@ -7,7 +7,7 @@ function Header() {
     <header className="header">
       <div className="header__inner">
         <div className="header__logo">
-          <img className="header__img" src={logo} alt="Auto Moto Logo" />
+          <img className="header__img" src={logo} alt="Auto Moto Logo" width="55px" height="55px"/>
           <h1 className="header__title">
                         AVTO
             <span className="header__title header__title--moto">MOTO</span>

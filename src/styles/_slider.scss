@@ -9,7 +9,7 @@
 }
 
 .slider__wrapper {
-    padding-left : 40px;
+    padding-left : 42px;
     max-width    : 1245px;
     padding-right: 40px;
     margin       : 0 auto;
@@ -19,7 +19,7 @@
     @include flex;
     justify-content: flex-start;
     max-width      : 600px;
-    margin-right   : 47px;
+    margin-right   : 57px;
 }
 
 .slider__photos {
@@ -35,7 +35,7 @@
         color           : #ffffff;
         text-align      : center;
         padding-top     : 9px;
-        font-family     : $bold ;
+        font-family     : $bold;
         font-size       : 10px;
         font-weight     : 600;
         font-style      : normal;
@@ -115,25 +115,28 @@
     flex-direction : column;
     justify-content: flex-start;
     align-items    : flex-start;
+    margin-top     : -10px;
+
 }
 
 .offer__title {
     color        : #48494d;
-    font-family  : $bold ;
+    font-family  : $bold;
     font-size    : 30px;
     font-weight  : 700;
-    margin-bottom: 72px;
+    margin-bottom: 69px;
 }
 
 .offer__list {
     @include flex;
     justify-content: flex-start;
-    margin-bottom  : 37px;
+    margin-bottom  : 46px;
+    padding-left   : 6px;
 }
 
 .offer__item {
     color       : rgba(72, 73, 77, 0.5);
-    font-family : $regular ;
+    font-family : $regular;
     font-size   : 16px;
     font-weight : 400;
     position    : relative;
@@ -154,8 +157,8 @@
         width           : 24px;
         height          : 22px;
         opacity         : 0.5;
-        top             : -32px;
-        right           : 13px;
+        top             : -33px;
+        right           : 15px;
     }
 }
 
@@ -169,28 +172,31 @@
         width           : 26px;
         height          : 24px;
         opacity         : 0.5;
-        top             : -32px;
-        right           : 13px;
+        top             : -35px;
+        right           : 26px;
     }
 }
 
 .offer__item--hp {
-    position: relative;
+    position   : relative;
+    margin-left: -4px;
 
     &::before {
-        content         : "";
-        position        : absolute;
-        background-image: url("img/hp.svg");
-        width           : 32px;
-        height          : 22px;
-        opacity         : 0.5;
-        top             : -32px;
-        right           : 13px;
+        content          : "";
+        position         : absolute;
+        background-image : url("img/hp.svg");
+        background-repeat: no-repeat;
+        width            : 32px;
+        height           : 22px;
+        opacity          : 0.5;
+        top              : -34px;
+        right            : 12px;
     }
 }
 
 .offer__item--value {
-    position: relative;
+    position    : relative;
+    padding-left: 16px;
 
     &::before {
         content         : "";
@@ -199,30 +205,33 @@
         width           : 30px;
         height          : 23px;
         opacity         : 0.5;
-        top             : -32px;
+        top             : -34px;
         right           : 4px;
     }
 }
 
 .offer__price {
     @include flex;
-    margin-bottom: 37px;
+    margin-bottom: 44px;
 }
 
 .offer__price-new {
     color       : #48494d;
-    font-family : $bold ;
+    font-family : $bold;
     font-size   : 35px;
     font-weight : 700;
-    margin-right: 33px;
+    margin-right: 36px;
 }
 
 .offer__price-old {
-    font-family: $regular ;
-    font-weight: 400;
-    color      : rgba(72, 73, 77, 0.5);
-    position   : relative;
-    font-size  : 20px;
+    font-family   : $regular;
+    font-weight   : 400;
+    color         : rgba(72, 73, 77, 0.5);
+    position      : relative;
+    font-size     : 20px;
+    padding-top   : 4px;
+    letter-spacing: normal;
+
 
     &::before {
         content         : "";
@@ -231,17 +240,21 @@
         height          : 1px;
         background-color: #a3a4a6;
         transform       : skewY(356deg);
-        top             : 9px;
-        left            : -3px;
+        top             : 14px;
+        left            : -4px;
     }
 }
 
 .offer__send {
     @extend %btn-red;
-    margin-bottom: 37px;
+    margin-bottom : 16px;
+    margin-left   : -3px;
+    text-transform: uppercase
 }
 
 .offer__credit {
     @extend %btn-white;
     color: #d12136;
+    margin-left: -3px;
+
 }

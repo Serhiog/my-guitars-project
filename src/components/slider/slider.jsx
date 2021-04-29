@@ -1,12 +1,12 @@
 
-import {useState} from "react";
-import {connect} from "react-redux";
-import {sliderDirrection} from "../../consts";
-import {ActionCreator} from "../../store/action";
+import { useState } from "react";
+import { connect } from "react-redux";
+import { sliderDirrection } from "../../consts";
+import { ActionCreator } from "../../store/action";
 import React from "react";
 
 
-function Slider({picPreviews, bigPics, activePic, getNextPic, getPreviouslyPic}) {
+function Slider({ picPreviews, bigPics, activePic, getNextPic, getPreviouslyPic }) {
 
   const [navigateSliderBtnRight, setNavigateSliderBtnRight] = useState(false);
   const [navigateSliderBtnLeft, setNavigateSliderBtnLeft] = useState(false);
@@ -44,16 +44,16 @@ function Slider({picPreviews, bigPics, activePic, getNextPic, getPreviouslyPic})
         <div className="slider__inner">
           <section className="slider__photo-block">
             <div className="slider__photos">
-              <img className="slider__photos-main" src={activePic.pic} alt="Slider1" />
+              <img className="slider__photos-main" src={activePic.pic} alt="Nice car" width="600px" height="375px" />
             </div>
             <div className="slider__nav">
-              <button data-name="left" className={navigateSliderBtnLeft || disabledBtn ? `slider__btn slider__btn--left slider__btn--no-active` : `slider__btn slider__btn--left`} onClick={onSliderButtonClick} type="button" />
+              <button aria-label="left" data-name="left" className={navigateSliderBtnLeft || disabledBtn ? `slider__btn slider__btn--left slider__btn--no-active` : `slider__btn slider__btn--left`} onClick={onSliderButtonClick} type="button" />
               <ul className="slider__list">
                 {picPreviews.map((pic) => {
-                  return <li key={pic.id} className="slider__item"><img className="slider__item-pic" src={pic.pic} alt="slider" /></li>;
+                  return <li key={pic.id} className="slider__item"><img width="128px" height="80px" className="slider__item-pic" src={pic.pic} alt="slider" /></li>;
                 })}
               </ul>
-              <button data-name="right" className={navigateSliderBtnRight ? `slider__btn slider__btn--right slider__btn--no-active` : `slider__btn slider__btn--right`} onClick={onSliderButtonClick} type="button" />
+              <button aria-label="right" data-name="right" className={navigateSliderBtnRight ? `slider__btn slider__btn--right slider__btn--no-active` : `slider__btn slider__btn--right`} onClick={onSliderButtonClick} type="button" />
             </div>
           </section>
           <section className="offer">
@@ -67,10 +67,12 @@ function Slider({picPreviews, bigPics, activePic, getNextPic, getPreviouslyPic})
               </ul>
               <div className="offer__price" >
                 <p className="offer__price-new">
-                                    2 300 000 ₽
+                  2 300 000 ₽
                 </p>
                 <p className="offer__price-old">
-                                    2 400 000 ₽
+                  <pre className="offer__number">
+                    2 400 000 ₽
+                  </pre>
                 </p>
               </div>
               <button className="offer__send btn" type="button">оставить заявку</button>

@@ -7,13 +7,15 @@
     max-width: 1245px;
     @include flex;
     flex-wrap: wrap;
-    padding  : 22px 40px 22px 40px;
-    margin   : 0 auto
+    padding  : 14px 40px 15px 40px;
+    margin   : 0 auto;
 }
 
 .header__logo {
     @include flex;
-    max-width: 140px;
+    max-width   : 155px;
+    padding-left: 9px;
+    align-items : flex-start;
 }
 
 .header__img {
@@ -21,20 +23,23 @@
 }
 
 .header__title {
-    font-family   : $bold ;
+    font-family   : $bold;
     color         : #48494d;
     font-size     : 18px;
     font-weight   : 700;
     letter-spacing: 2.34px;
-    @include m0p0
+    @include m0p0;
+    padding-top: 8px;
 }
 
 .header__title--moto {
-    font-family   : $semi-bold ;
+    font-family   : $semi-bold;
     display       : block;
     font-size     : 14px;
     font-weight   : 600;
     letter-spacing: 1.82px;
+    margin-left   : -1px;
+
 }
 
 .header__nav {
@@ -46,6 +51,8 @@
     @include flex;
     flex-wrap      : wrap;
     justify-content: flex-start;
+        margin-right: -11px;
+
 }
 
 .header__nav-item {

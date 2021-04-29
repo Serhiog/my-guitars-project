@@ -1,10 +1,10 @@
 .menu {
-    margin-bottom: 130px;
+    margin-bottom: 144px;
 }
 
 .menu__inner {
     max-width   : 1245px;
-    padding-left: 40px;
+    padding-left: 48px;
     margin      : 0 auto;
 }
 
@@ -35,34 +35,35 @@
 }
 
 .menu__data-list {
-    max-width: 584px;
+    max-width: 565px;
 }
 
 .menu__data-list-item {
     @include flex;
     color         : #48494d;
-    font-family   : $regular ;
+    font-family   : $regular;
     font-size     : 16px;
     font-weight   : 400;
     border-bottom : 1px solid #d7d9df;
-    padding-bottom: 7px;
-    margin-bottom : 26px;
+    padding-bottom: 10px;
+    margin-bottom : 23px;
+
 }
 
 .menu__data-list-type {
     color      : #000000;
-    font-family: $regular ;
+    font-family: $regular;
     font-size  : 16px;
     font-weight: 400;
 }
 
 .menu__list-item--active {
     @extend %btn-red;
-    font-family: $regular ;
+    font-family: $regular;
     font-size  : 20px;
     text-align : center;
     font-weight: 400;
-    width      : 223px;
+    width      : 195px;
     border     : none;
     color      : #ffffff;
 

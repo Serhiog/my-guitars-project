@@ -1,4 +1,4 @@
-import {YMaps, Map, Placemark} from 'react-yandex-maps';
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import React from "react";
 
 function Contacts() {
@@ -15,11 +15,11 @@ function Contacts() {
     <section className="contacts">
       <div className="contacts__inner">
         <ul className="contacts__list">
-          <li className="contacts__item">Адрес<span className="contacts__info">Санкт-Петербург,
+          <li className="contacts__item">Адрес<span className="contacts__info"><span className="contacts__city">Санкт-Петербург,</span>
           набережная реки Карповки, дом 5</span></li>
           <li className="contacts__item">Режим работы<span className="contacts__info">Ежедневно, с 10:00 до 21:00</span></li>
-          <li className="contacts__item">Телефон<span className="contacts__info">8 (800) 333-55-99</span></li>
-          <li className="contacts__item">E-mail<span className="contacts__info">info@avto-moto.ru</span></li>
+          <li className="contacts__item">Телефон<span className="contacts__info contacts__info--tel">8 (800) 333-55-99</span></li>
+          <li className="contacts__item">E-mail<span className="contacts__info contacts__info--email">info@avto-moto.ru</span></li>
         </ul>
         <div className="contacts__map">
           <YMaps>

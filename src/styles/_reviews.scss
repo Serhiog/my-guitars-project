@@ -2,13 +2,13 @@
     @include flex;
     flex-direction: column;
     align-items   : flex-start;
-    margin-top    : -10px;
+    margin-top    : -8px;
 }
 
 .reviews__send-review {
     @extend %btn-white;
     color         : #d12136;
-    font-family   : $semi-bold ;
+    font-family   : $semi-bold;
     font-size     : 14px;
     font-weight   : 600;
     letter-spacing: 1.68px;
@@ -19,34 +19,40 @@
     width         : 189px;
     z-index       : 10;
     cursor        : pointer;
+    vertical-align: auto;
+    margin-right  : 30px;
+    margin-top    : 4px;
 }
 
 .reviews__name {
-    color        : #48494d;
-    font-family  : $bold ;
-    font-size    : 20px;
-    font-weight  : 600;
-    margin-bottom: 25px;
-    margin-top   : -44px;
+    color         : #48494d;
+    font-family   : $bold;
+    font-size     : 20px;
+    font-weight   : 600;
+    margin-bottom : 25px;
+    margin-top    : -44px;
+    letter-spacing: -0.5px;
+
 }
 
 .reviews__item {
     color        : #000000;
-    font-family  : $semi-bold ;
+    font-family  : $semi-bold;
     font-size    : 15px;
     font-weight  : 600;
     margin-bottom: 21px;
 }
 
 .reviews__item--advanteges {
-    margin-left: 20px;
-    position   : relative;
+    margin-left  : 20px;
+    position     : relative;
+    margin-bottom: 16px;
 
     &::before {
         content    : "+";
         position   : absolute;
         color      : #d12136;
-        font-family: $semi-bold ;
+        font-family: $semi-bold;
         font-size  : 15px;
         font-weight: 600;
         left       : -18px;
@@ -55,7 +61,7 @@
 
 .reviews__item-advanteges-info {
     color      : #000000;
-    font-family: $regular ;
+    font-family: $regular;
     font-size  : 15px;
     font-weight: 400;
     display    : block;
@@ -63,14 +69,16 @@
 }
 
 .reviews__item--disadvanteges {
-    margin-left: 20px;
-    position   : relative;
+    margin-left  : 20px;
+    position     : relative;
+    margin-bottom: 19px;
+
 
     &::before {
         content    : "-";
         position   : absolute;
         color      : #d12136;
-        font-family: $semi-bold ;
+        font-family: $semi-bold;
         font-size  : 15px;
         font-weight: 600;
         left       : -18px;
@@ -79,7 +87,7 @@
 
 .reviews__item-disadvanteges-info {
     color      : #000000;
-    font-family: $regular ;
+    font-family: $regular;
     font-size  : 15px;
     font-weight: 400;
     display    : block;
@@ -88,54 +96,76 @@
 
 .reviews__item-message {
     color      : #000000;
-    font-family: $regular ;
+    font-family: $regular;
     font-size  : 15px;
     font-weight: 400;
-    margin-top : 10px;
+    margin-top : 7px;
+    line-height: 20px;
 }
 
 .reviews__rating {
     @include flex;
-    margin-bottom: 30px
+    margin-bottom: 32px
 }
 
 .reviews__rating-list {
     @include flex;
-    margin-right: 26px;
+    margin-right: 18px;
 }
 
 .reviews__rating-advise {
-    color       : #d12136;
-    font-family : $regular ;
-    font-size   : 15px;
-    font-weight : 400;
-    margin-right: auto;
+    color         : #d12136;
+    font-family   : $regular;
+    font-size     : 15px;
+    font-weight   : 400;
+    margin-right  : auto;
+    padding-top   : 2px;
+    display       : inline-block;
+    vertical-align: middle;
 }
 
 
 .reviews__time {
     opacity     : 0.4;
     color       : #000000;
-    font-family : $regular ;
+    font-family : $regular;
     font-size   : 14px;
     font-weight : 400;
-    margin-right: 26px;
+    margin-right: 27px;
 }
 
 .reviews__send-answer {
-    color      : #d12136;
-    font-family: $regular ;
-    font-size  : 15px;
-    font-weight: 400;
+    color         : #d12136;
+    font-family   : $regular;
+    font-size     : 15px;
+    font-weight   : 400;
+    letter-spacing: 0.6px;
 }
 
 
 .reviews__wrapper-item {
     border-bottom : 1px solid rgba(0, 0, 0, 0.2);
-    padding-bottom: 24px;
-    margin-bottom : 78px;
+    padding-bottom: 22px;
+    margin-bottom : 66px;
 
     &:last-child {
         margin-bottom: 0
     }
+}
+
+.reviews__list {
+    margin-top : -6px;
+    margin-left: -1px;
+}
+
+.reviews__rating-item {
+    margin-right: 4px
+}
+
+.reviews__wrapper {
+    margin-top: -4px;
+}
+
+.reviews {
+    margin-bottom: 155px;
 }

@@ -1,11 +1,12 @@
-
 .contacts__inner {
     @include flex;
     justify-content: flex-start;
 }
 
 .contacts__list {
-    margin-right: 97px;
+    margin-right: 103px;
+    padding-left: 1px;
+
 }
 
 .contacts__item {
@@ -23,11 +24,34 @@
     font-size  : 14px;
     font-weight: 600;
     display    : block;
-    margin-top : 15px;
+    margin-top : 14px;
     max-width  : 250px;
 }
 
 .contacts__map {
     width : 431px;
     height: 271px;
+}
+
+.contacts {
+    margin-top: -5px;
+}
+
+.contacts__map {
+    margin-top: -47px;
+}
+
+.contacts__city{
+    display: block;
+    margin-bottom: 4px;
+    margin-bottom: 6px;
+
+}
+
+.contacts__info--tel{
+    margin-top: 12px;
+}
+
+.contacts__info--email{
+    margin-top: 12px;
 }
