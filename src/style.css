@@ -958,12 +958,12 @@ template {
 .offer__price-old::before {
   content: "";
   position: absolute;
-  width: 116px;
+  width: 123px;
   height: 1px;
   background-color: #a3a4a6;
   -webkit-transform: skewY(356deg);
           transform: skewY(356deg);
-  top: 14px;
+  top: 13px;
   left: -4px;
 }
 
@@ -976,6 +976,20 @@ template {
 .offer__credit {
   color: #d12136;
   margin-left: -3px;
+}
+
+.offer__price-num1 {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.offer__price-num2 {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.offer__price-num3 {
+  display: inline-block;
 }
 
 .menu {

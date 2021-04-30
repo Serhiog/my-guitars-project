@@ -70,9 +70,7 @@ function Slider({ picPreviews, bigPics, activePic, getNextPic, getPreviouslyPic 
                   2 300 000 ₽
                 </p>
                 <p className="offer__price-old">
-                  <pre className="offer__number">
-                    2 400 000 ₽
-                  </pre>
+                  <span className="offer__price-num1">2</span><span className="offer__price-num2">400</span><span className="offer__price-num3">000</span> ₽
                 </p>
               </div>
               <button className="offer__send btn" type="button">оставить заявку</button>
