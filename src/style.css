@@ -1672,7 +1672,7 @@ template {
 .popup__left-block {
   max-width: 300px;
   position: relative;
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
 .popup__right-block {
