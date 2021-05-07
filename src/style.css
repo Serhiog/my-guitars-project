@@ -1568,6 +1568,9 @@ template {
       -ms-flex-align: start;
           align-items: flex-start;
   margin-top: 52px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .popup__email {
@@ -1669,6 +1672,7 @@ template {
 .popup__left-block {
   max-width: 300px;
   position: relative;
+  margin-right: 25px;
 }
 
 .popup__right-block {

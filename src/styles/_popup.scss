@@ -44,8 +44,9 @@
     line-height: 24px;
     color      : $color-black;
     @include flex;
-    align-items: flex-start;
-    margin-top : 52px;
+    align-items    : flex-start;
+    margin-top     : 52px;
+    justify-content: flex-start;
 }
 
 .popup__email {
@@ -114,8 +115,9 @@
 }
 
 .popup__left-block {
-    max-width: 300px;
-    position : relative;
+    max-width   : 300px;
+    position    : relative;
+    margin-right: 25px;
 }
 
 .popup__right-block {
