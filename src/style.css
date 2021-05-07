@@ -1519,7 +1519,7 @@ template {
 }
 
 .popup__content {
-  max-width: 702px;
+  max-width: 715px;
   height: 415px;
   background-color: #f5f5f9;
   padding: 25px 19px 30px 35px;
@@ -1676,7 +1676,7 @@ template {
 .popup__left-block {
   max-width: 300px;
   position: relative;
-  margin-right: 15px;
+  margin-right: 27px;
 }
 
 .popup__right-block {
