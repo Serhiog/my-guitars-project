@@ -102,7 +102,7 @@
 }
 
 .popup__message {
-    width           : 300px;
+    width           : 334px;
     height          : 118px;
     border          : 1px solid rgba(72, 73, 77, 0.2);
     background-color: #ffffff;
@@ -158,10 +158,10 @@
 }
 
 .popup__close {
-    margin-left : auto;
-    margin-top  : -5px;
-    flex-basis  : 100%;
-    display     : flex;
+    margin-left: auto;
+    margin-top : -5px;
+    flex-basis : 100%;
+    display    : flex;
 }
 
 .popup__rating-item {

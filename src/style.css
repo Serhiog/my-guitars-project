@@ -1659,7 +1659,7 @@ template {
 }
 
 .popup__message {
-  width: 300px;
+  width: 334px;
   height: 118px;
   border: 1px solid rgba(72, 73, 77, 0.2);
   background-color: #ffffff;
