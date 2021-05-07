@@ -12,6 +12,7 @@ function Reviews({ showPopup, reviews }) {
 
   const handlerSendReviewBtn = (evt) => {
     evt.preventDefault();
+    document.querySelector("body").style.overflow = "hidden"
     showPopup();
   };
 

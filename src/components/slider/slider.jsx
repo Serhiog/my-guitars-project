@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { connect } from "react-redux";
-import { sliderDirrection } from "../../consts";
+import { sliderDirection } from "../../consts";
 import { ActionCreator } from "../../store/action";
 import React from "react";
 
@@ -14,8 +14,8 @@ function Slider({ picPreviews, bigPics, activePic, getNextPic, getPreviouslyPic 
 
   const onSliderButtonClick = (evt) => {
     evt.preventDefault();
-    let dirrection = evt.target.dataset.name;
-    if (dirrection === sliderDirrection.right) {
+    let direction = evt.target.dataset.name;
+    if (direction === sliderDirection.right) {
       setDisabledBtn(false);
       setNavigateSliderBtnLeft(false);
       if (activePic.id < bigPics.length) {
@@ -26,7 +26,7 @@ function Slider({ picPreviews, bigPics, activePic, getNextPic, getPreviouslyPic 
       }
     }
 
-    if (dirrection === sliderDirrection.left) {
+    if (direction === sliderDirection.left) {
       setNavigateSliderBtnRight(false);
       if (activePic.id > 1) {
         getPreviouslyPic(activePic.id - 1);

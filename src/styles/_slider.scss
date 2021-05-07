@@ -6,6 +6,7 @@
     @include flex;
     justify-content: flex-start;
     align-items    : flex-start;
+    flex-wrap      : nowrap;
 }
 
 .slider__wrapper {
@@ -59,6 +60,14 @@
     position        : relative;
     margin-right    : 31px;
 
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &:focus {
+        opacity: 0.8;
+    }
+
     &::before {
         content         : "";
         position        : absolute;
@@ -93,6 +102,14 @@
     background-color: #ffffff;
     position        : relative;
     margin-left     : 31px;
+
+    &:focus {
+        opacity: 0.8;
+    }
+
+    &:hover {
+        opacity: 0.5;
+    }
 
     &::before {
         content         : "";
@@ -132,6 +149,8 @@
     justify-content: flex-start;
     margin-bottom  : 46px;
     padding-left   : 6px;
+    flex-wrap      : nowrap;
+    padding-right  : 40px;
 }
 
 .offer__item {
@@ -249,13 +268,21 @@
     @extend %btn-red;
     margin-bottom : 16px;
     margin-left   : -3px;
-    text-transform: uppercase
+    text-transform: uppercase;
+
+    &:hover {
+        opacity: 0.5
+    }
 }
 
 .offer__credit {
     @extend %btn-white;
     color      : #d12136;
     margin-left: -3px;
+
+    &:hover {
+        opacity: 0.5
+    }
 
 }
 

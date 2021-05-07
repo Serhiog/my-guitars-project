@@ -1,6 +1,7 @@
 @font-face {
     font-family: "opensans-regular";
     font-weight: 400;
+    font‑display: swap;
     src        : url("./fonts/open-sans-v18-latin_cyrillic-regular.woff2") format("woff2");
     src        : url("./fonts/open-sans-v18-latin_cyrillic-regular.woff") format("woff");
 }
@@ -8,6 +9,7 @@
 @font-face {
     font-family: "opensans-semibold";
     font-weight: 600;
+    font‑display: swap;
     src        : url("./fonts/open-sans-v18-latin_cyrillic-600.woff2") format("woff2");
     src        : url("./fonts/open-sans-v18-latin_cyrillic-600.woff") format("woff");
 }
@@ -15,6 +17,7 @@
 @font-face {
     font-family: "opensans-extrabold";
     font-weight: 700;
+    font‑display: swap;
     src        : url("./fonts/open-sans-v18-latin_cyrillic-700.woff2") format("woff2");
     src        : url("./fonts/open-sans-v18-latin_cyrillic-700.woff") format("woff");
 }

@@ -22,6 +22,14 @@
     vertical-align: auto;
     margin-right  : 30px;
     margin-top    : 4px;
+
+    &:focus {
+        opacity: 0.8;
+    }
+
+    &:hover {
+        opacity: 0.5;
+    }
 }
 
 .reviews__name {

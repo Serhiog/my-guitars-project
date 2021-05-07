@@ -6,9 +6,9 @@
 .header__inner {
     max-width: 1245px;
     @include flex;
-    flex-wrap: wrap;
     padding  : 14px 40px 15px 40px;
     margin   : 0 auto;
+    flex-wrap: nowrap;
 }
 
 .header__logo {
@@ -51,7 +51,7 @@
     @include flex;
     flex-wrap      : wrap;
     justify-content: flex-start;
-        margin-right: -11px;
+    margin-right   : -11px;
 
 }
 
@@ -65,4 +65,12 @@
 
 .header__nav-item-link {
     color: black;
+
+    &:focus {
+        opacity: 0.8;
+    }
+
+    &:hover {
+        opacity: 0.5;
+    }
 }

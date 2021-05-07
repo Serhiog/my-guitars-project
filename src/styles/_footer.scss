@@ -24,4 +24,11 @@
 
 .footer__nav-item-link {
     color: black;
+    &:focus {
+        opacity: 0.8;
+    }
+
+    &:hover {
+        opacity: 0.5;
+    }
 }

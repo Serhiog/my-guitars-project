@@ -9,7 +9,7 @@ import Popup from "./components/popup/popup";
 
 function App() {
   return (
-    <React.Fragment>
+    <div className="wrapper">
       <Router history={history}>
         <Header />
         <Slider />
@@ -17,8 +17,10 @@ function App() {
         <Footer />
         <Popup />
       </Router>
-    </React.Fragment>
+    </div>
   );
 }
 
 export default App;
+
+

@@ -12,6 +12,7 @@
     @include flex;
     justify-content: flex-start;
     margin-bottom  : 34px;
+    flex-wrap      : nowrap;
 }
 
 .menu__list-item {
@@ -32,6 +33,14 @@
     width      : 100%;
     display    : block;
     background : none;
+
+    &:focus {
+        opacity: 0.8;
+    }
+
+    &:hover {
+        opacity: 0.5;
+    }
 }
 
 .menu__data-list {

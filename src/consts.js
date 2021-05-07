@@ -1,4 +1,4 @@
-export const sliderDirrection = {
+export const sliderDirection = {
   right: `right`,
   left: `left`,
 };
