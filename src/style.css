@@ -1526,10 +1526,12 @@ template {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .popup__title {
@@ -1541,6 +1543,8 @@ template {
   margin-top: -5px;
   padding-left: -17px;
   margin-left: -23px;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
 }
 
 .popup__form {
@@ -1713,6 +1717,11 @@ template {
   margin-left: auto;
   margin-right: 7px;
   margin-top: -5px;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .popup__rating-item {
@@ -1792,5 +1801,6 @@ template {
 
 .popup__close-img {
   padding: 5px;
+  margin-left: auto;
 }
 /*# sourceMappingURL=style.css.map */
