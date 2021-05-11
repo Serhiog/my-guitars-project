@@ -73,8 +73,8 @@ function Slider({ picPreviews, bigPics, activePic, getNextPic, getPreviouslyPic 
                   <span className="offer__price-num1">2</span><span className="offer__price-num2">400</span><span className="offer__price-num3">000</span> ₽
                 </p>
               </div>
-              <button className="offer__send btn" type="button">оставить заявку</button>
-              <button className="offer__credit btn" type="button">В КРЕДИТ ОТ 11 000 ₽</button>
+              <button tabIndex={0} className="offer__send btn" type="button">оставить заявку</button>
+              <button tabIndex={0} className="offer__credit btn" type="button">В КРЕДИТ ОТ 11 000 ₽</button>
             </div>
 
           </section>

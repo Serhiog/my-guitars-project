@@ -125,10 +125,10 @@ function Popup({ showPopup, hidePopup, sendMessage, setSelectedStars, stars, res
             <img src={closeBtn} alt="close" className="popup__close-img" />
           </a>
           <h2 className="popup__title">Оставить отзыв </h2>
-          <form novalidate className="popup__form" onSubmit={handlerOnSubmitForm} ref={formRef}>
+          <form noValidate className="popup__form" onSubmit={handlerOnSubmitForm} ref={formRef}>
             <div className="popup__left-block">
               <input className={isName && !name ? `popup__input popup__input--nocorrect` : `popup__input`} placeholder="Имя" type="text" onChange={onChangeName} ref={nameRef} id={`name`} />
-              <label className={isName && !name && `popup__label popup__input-error`} htmlFor={`name`}><span className="popup__label-info">fill you're name</span></label>
+              <label className={isName ? `popup__label popup__input-error` : "popup__label" && !name ? 'popup__input-error-star' : null} htmlFor={`name`}><span className="popup__label-info">fill you're name</span></label>
               <input className="popup__input" placeholder="Достоинства" type="text" onChange={onChangeAdvan} />
               <input className="popup__input" placeholder="Недостатки" type="text" onChange={onChangeDisAdvan} />
             </div>
@@ -147,7 +147,7 @@ function Popup({ showPopup, hidePopup, sendMessage, setSelectedStars, stars, res
 
                   </div>
                 </div>
-                <span className={isMessage ? `popup__input-error-mesesage popup__test` : `popup__test`}></span>
+                <span className={isMessage ? `popup__input-error-mesesage` : `popup__test` && !message ? 'popup__input-error-mesesage-star' : null}></span>
                 <textarea className="popup__message" placeholder="Комментарий" onChange={onChangeMessage} id={`message`}></textarea>
               </div>
             </div>

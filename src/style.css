@@ -546,12 +546,12 @@ template {
   color: black;
 }
 
-.header__nav-item-link:focus {
-  opacity: 0.8;
-}
-
 .header__nav-item-link:hover {
   opacity: 0.5;
+}
+
+.header__nav-item-link:focus {
+  outline: 1px solid blue;
 }
 
 .footer {
@@ -597,7 +597,7 @@ template {
 }
 
 .footer__nav-item-link:focus {
-  opacity: 0.8;
+  outline: 1px solid blue;
 }
 
 .footer__nav-item-link:hover {
@@ -746,7 +746,7 @@ template {
 }
 
 .slider__btn--left:focus {
-  opacity: 0.8;
+  outline: 1px solid blue;
 }
 
 .slider__btn--left::before {
@@ -801,7 +801,7 @@ template {
 }
 
 .slider__btn--right:focus {
-  opacity: 0.8;
+  outline: 1px solid blue;
 }
 
 .slider__btn--right:hover {
@@ -1095,7 +1095,7 @@ template {
 }
 
 .menu__list-link:focus {
-  opacity: 0.8;
+  outline: 1px solid blue;
 }
 
 .menu__list-link:hover {
@@ -1196,7 +1196,7 @@ template {
 }
 
 .reviews__send-review:focus {
-  opacity: 0.8;
+  outline: 1px solid blue;
 }
 
 .reviews__send-review:hover {
@@ -1487,7 +1487,7 @@ template {
 }
 
 .footer__nav-item-link:focus {
-  opacity: 0.8;
+  outline: 1px solid blue;
 }
 
 .footer__nav-item-link:hover {
@@ -1706,7 +1706,7 @@ template {
 }
 
 .popup__send-btn:focus {
-  opacity: 0.8;
+  outline: 1px solid blue;
 }
 
 .popup__send-btn:hover {
@@ -1757,7 +1757,7 @@ template {
   left: -1px;
 }
 
-.popup__input-error::after {
+.popup__input-error-star::after {
   content: "*";
   position: absolute;
   color: #ff0000;
@@ -1768,7 +1768,26 @@ template {
   left: 10px;
 }
 
-.popup__input-error-mesesage::after {
+.popup__input-error-mesesage {
+  position: relative;
+}
+
+.popup__input-error-mesesage::before {
+  content: "Пожалуйста, заполните поле";
+  position: absolute;
+  color: #ff0000;
+  font-family: opensans-regular, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  top: -123px;
+  width: 215px;
+}
+
+.popup__input-error-mesesage-star {
+  position: relative;
+}
+
+.popup__input-error-mesesage-star::after {
   content: "*";
   position: absolute;
   color: #ff0000;
@@ -1778,10 +1797,6 @@ template {
   top: -93px;
   left: 10px;
   z-index: 10;
-}
-
-.popup__test {
-  position: relative;
 }
 
 .popup__label-info {

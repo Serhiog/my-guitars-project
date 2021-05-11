@@ -149,7 +149,7 @@
     max-width     : 190px;
 
     &:focus {
-        opacity: 0.8;
+        outline: 1px solid blue;
     }
 
     &:hover {
@@ -200,7 +200,9 @@
         top        : -24px;
         left       : -1px;
     }
+}
 
+.popup__input-error-star {
     &::after {
         content    : "*";
         position   : absolute;
@@ -214,8 +216,22 @@
 }
 
 .popup__input-error-mesesage {
+    position: relative;
 
+    &::before {
+        content    : "Пожалуйста, заполните поле";
+        position   : absolute;
+        color      : #ff0000;
+        font-family: $regular;
+        font-size  : 14px;
+        font-weight: 400;
+        top        : -123px;
+        width      : 215px;
+    }
+}
 
+.popup__input-error-mesesage-star {
+    position: relative;
     &::after {
         content    : "*";
         position   : absolute;
@@ -227,10 +243,6 @@
         left       : 10px;
         z-index    : 10;
     }
-}
-
-.popup__test {
-    position: relative;
 }
 
 .popup__label-info {

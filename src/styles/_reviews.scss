@@ -24,7 +24,7 @@
     margin-top    : 4px;
 
     &:focus {
-        opacity: 0.8;
+        outline: 1px solid blue;
     }
 
     &:hover {
