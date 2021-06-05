@@ -20,8 +20,8 @@ export const guitarTypes = {
 };
 
 export const paths = {
-  main: "/",
-  cart: "/cart",
+  main: "guitars/",
+  cart: "guitars/cart",
 };
 
 export const popupStatus = {
