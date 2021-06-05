@@ -7,7 +7,6 @@ import thunk from "redux-thunk";
 import { rootReducer } from "./store/rootReducer";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { ActionCreator } from "./store/action";
 
 const store = createStore(
   rootReducer,
