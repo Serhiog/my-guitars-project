@@ -41,7 +41,7 @@ const ItemsContainer = ({ guitarsList }) => {
             })}
 
             <Pagination guitarsPerPage={guitarsPerPage} totalGuitars={guitarsList.length} paginate={paginate} currentPage={currentPage} />
-            <button className="items__page-next" href={"/"} onClick={nextPage} disabled={currentPage === 3 ? true : false}>Далее</button>
+            <button className="items__page-next" onClick={nextPage} disabled={currentPage === 3 ? true : false}>Далее</button>
         </div>
     )
 }
