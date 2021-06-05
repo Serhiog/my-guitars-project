@@ -1,256 +1,305 @@
-.popup {
-    position        : fixed;
-    width           : 100%;
-    height          : 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    top             : 0;
-    left            : 0;
-    z-index         : 11;
+.popup__top-title {
+    letter-spacing: 2px;
+    word-spacing  : -3px;
+    color         : #474747;
+    font-family   : "Droid Sans Bold";
+    font-size     : 18px;
+    font-weight   : 700;
+    font-style    : normal;
+    letter-spacing: 2px;
+    line-height   : 15px;
 }
 
-.popup__inner {
-    min-height     : 100%;
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    padding        : 30px, 10px;
+.popup__bottom-info-name {
+    color         : #000000;
+    font-family   : "Droid Sans Bold";
+    font-size     : 16px;
+    font-weight   : 700;
+    font-style    : normal;
+    letter-spacing: 0.8px;
+    line-height   : 15px;
+    text-transform: uppercase;
+    margin-bottom : 15px;
 }
 
-.popup__content {
-    max-width       : 725px;
-    height          : 415px;
-    background-color: #f5f5f9;
-    padding         : 25px 19px 30px 35px;
-    display         : flex;
-    flex-direction  : row;
-    flex-wrap       : wrap;
+.popup__bottom-info-articul {
+    color         : #000000;
+    font-family   : "Droid Sans Regular";
+    font-size     : 14px;
+    font-weight   : 400;
+    font-style    : normal;
+    letter-spacing: 1.2px;
+    line-height   : 15px;
+    margin-bottom : 5px;
 }
 
-
-.popup__title {
-    color       : #48494d;
-    font-family : $semi-bold;
-    font-size   : 25px;
-    font-weight : 600;
-    text-align  : center;
-    margin-top  : -5px;
-    padding-left: -17px;
-    margin-left : -23px;
-    flex-basis  : 100%;
-}
-
-.popup__form {
-    font-family: $regular;
-    font-weight: 400;
-    font-size  : 18px;
-    line-height: 24px;
-    color      : $color-black;
-    @include flex;
-    align-items    : flex-start;
-    margin-top     : 52px;
-    justify-content: flex-start;
-}
-
-.popup__email {
-    font-family  : $regular;
-    font-weight  : 400;
-    font-size    : 18px;
-    line-height  : 24px;
-    color        : $color-black;
-    margin-bottom: 10px;
-}
-
-.popup__input {
-    background   : #FFFFFF;
-    border       : 1px solid #DDDAE7;
-    border-radius: 4px;
-    width        : 100%;
-    height       : 50px;
-    margin-bottom: 17px;
-    padding-left : 23px;
-    color        : $color-grey;
-    font-family  : $regular;
-    font-size    : 14px;
-    font-weight  : 400;
-}
-
-.popup__input--nocorrect {
-    border          : 1px solid #ff0000;
-    background-color: #ffffff;
+.popup__bottom-info-about {
+    color         : #000000;
+    font-family   : "Droid Sans Regular";
+    font-size     : 14px;
+    font-weight   : 400;
+    font-style    : normal;
+    letter-spacing: 1.2px;
+    line-height   : 15px;
+    margin-bottom : 19px;
 
 }
 
-.popup__password {
-    margin-bottom: 10px;
-    font-family  : $regular;
+.popup__bottom-info-price {
+    color         : #000000;
+    font-family   : "Droid Sans Bold";
+    font-size     : 20px;
+    font-weight   : 700;
+    font-style    : normal;
+    letter-spacing: 2px;
+    line-height   : 15px;
 }
 
 .popup__btn {
-    width     : 370px;
-    margin-top: 15px;
+    width           : 220px;
+    height          : 46px;
+    border-radius   : 2px;
+    background-color: #e27f00;
+    color           : #ffffff;
+    font-family     : "Droid Sans Bold";
+    font-size       : 16px;
+    font-weight     : 700;
+    font-style      : normal;
+    letter-spacing  : 2px;
+    line-height     : 15px;
+    margin-top      : 17px;
 }
 
-.popup__rating-list {
-    @include flex;
-    justify-content: flex-start;
-}
+.popup__top-close {
+    font-size : 0;
+    margin-top: -17px;
 
-.popup__value-wrapper {
-    @include flex;
-    justify-content: flex-start;
-    margin-bottom  : 32px;
-}
-
-.popup__message {
-    width           : 334px;
-    height          : 118px;
-    border          : 1px solid rgba(72, 73, 77, 0.2);
-    background-color: #ffffff;
-    padding-top     : 15px;
-    padding-left    : 21px;
-    color           : $color-grey;
-    font-family     : $regular;
-    font-size       : 14px;
-    font-weight     : 400;
-    position        : relative;
-    resize          : none;
-}
-
-.popup__left-block {
-    max-width   : 300px;
-    position    : relative;
-    margin-right: 27px;
-}
-
-.popup__right-block {
-    padding-top: 7px;
-}
-
-.popup__rating-value {
-    color       : #000000;
-    font-family : $semi-bold;
-    font-size   : 15px;
-    font-weight : 600;
-    margin-right: 14px;
-}
-
-.popup__send-btn {
-    @extend %btn-red;
-    color         : #ffffff;
-    font-family   : $semi-bold;
-    font-size     : 14px;
-    font-weight   : 600;
-    letter-spacing: 1.68px;
-    text-align    : center;
-    text-transform: uppercase;
-    margin-left   : 218px;
-    margin-right  : auto;
-    margin-top    : 16px;
-    max-width     : 190px;
-
-    &:focus {
-        outline: 1px solid blue;
+    &::before {
+        content: url("img/close-cart.svg");
     }
+}
+
+.popup__inner {
+    width  : 740px;
+    padding: 30px 23px 25px 50px;
+    margin : 0 auto;
+    @include flex;
+    background-color: #fff;
+    position        : absolute;
+    left            : 50%;
+    top             : 47%;
+    transform       : translateX(-50%);
+}
+
+.popup__top {
+    flex-basis: 100%;
+    @include flex;
+    justify-content: space-between;
+    margin-bottom  : 21px
+}
+
+.popup__bottom {
+    @include flex;
+    align-items: flex-start;
+}
+
+.popup__bottom-img {
+    margin-right: 40px;
+    width       : 57px;
+    height      : 138px;
+}
+
+.popup__bottom-info {
+    margin-right: 119px;
+    margin-top  : 18px;
+}
+
+.popup {
+    position        : fixed;
+    top             : 0;
+    left            : 0;
+    display         : none;
+    width           : 100%;
+    height          : 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup--active {
+    display: block;
+}
+
+.wrapper--popup-active {
+    background: rgba(88, 87, 87, 0.6);
+}
+
+.popup-adding .popup__bottom {
+    width          : 100%;
+    justify-content: center;
+    margin-right   : 35px;
+    margin-left    : 44px;
+}
+
+.popup-adding .popup__btn {
+    margin-right: 35px;
+}
+
+.popup-adding .popup__inner--adding {
+    padding-bottom: 57px;
+}
+
+.popup-removing .popup__inner--removing {
+    top: 34%;
+}
+
+.popup__btn--removing {
+    position        : absolute;
+    right           : 6.7%;
+    top             : 63%;
+    margin-top      : 0;
+    background-color: #fff;
+    color           : #585757;
+    border          : 1px solid #585757;
+    border-radius   : 2px;
+
+}
+
+.popup__btn--adding {
+    background-color: #fff;
+    color           : #585757;
+    border          : 1px solid #585757;
+    border-radius   : 2px;
+}
+
+.popup__btn {
 
     &:hover {
+        opacity: 0.7;
+    }
+
+    &:active {
         opacity: 0.5;
     }
 }
 
-.popup__close {
-    margin-left: auto;
-    margin-top : -5px;
-    flex-basis : 100%;
-    display    : flex;
-}
+.cart__total-btn {
+    &:hover {
+        opacity: 0.7;
+    }
 
-.popup__rating-item {
-    display: none;
-}
-
-.popup__rating-item-star {
-    font-size    : 0;
-    line-height  : 0;
-    display      : block;
-    padding-right: 10px;
-    cursor       : pointer;
-
-    &::after {
-        content  : '★';
-        display  : block;
-        font-size: 32px;
-        color    : rgba(189, 190, 194, 0.7);
+    &:active {
+        opacity: 0.5;
     }
 }
 
-.popup__rating-item-star--active {
-    &::after {
-        color: #D12136
+.cart__promo-btn {
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 0.5;
     }
 }
 
-.popup__input-error {
-    &::before {
-        content    : "Пожалуйста, заполните поле";
-        position   : absolute;
-        color      : #ff0000;
-        font-family: $regular;
-        font-size  : 14px;
-        font-weight: 400;
-        top        : -24px;
-        left       : -1px;
+.cart__item-count-list-item-link {
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 0.5;
     }
 }
 
-.popup__input-error-star {
-    &::after {
-        content    : "*";
-        position   : absolute;
-        color      : #ff0000;
-        font-family: $regular;
-        font-size  : 14px;
-        font-weight: 400;
-        top        : 7px;
-        left       : 10px;
+.cart__item-count-list-item {
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 0.5;
     }
 }
 
-.popup__input-error-mesesage {
-    position: relative;
+.item__buy {
+    &:hover {
+        background: rgba(255, 168, 57, 1);
+    }
 
-    &::before {
-        content    : "Пожалуйста, заполните поле";
-        position   : absolute;
-        color      : #ff0000;
-        font-family: $regular;
-        font-size  : 14px;
-        font-weight: 400;
-        top        : -123px;
-        width      : 215px;
+    &:active {
+        background: rgba(218, 139, 38, 1);
+
     }
 }
 
-.popup__input-error-mesesage-star {
-    position: relative;
-    &::after {
-        content    : "*";
-        position   : absolute;
-        color      : #ff0000;
-        font-family: $regular;
-        font-size  : 14px;
-        font-weight: 400;
-        top        : -93px;
-        left       : 10px;
-        z-index    : 10;
+.item__about {
+    &:hover {
+        background: #585757;
+    }
+
+    &:active {
+        background: rgba(193, 193, 193, 1);
+
+
     }
 }
 
-.popup__label-info {
-    @include visually-hidden
+.header__nav-item-link {
+    &:hover {
+        color: rgba(71, 71, 71, 1);
+
+    }
+
+    &:active {
+        color: rgba(71, 71, 71, 0.5);
+
+
+
+    }
+}
+
+.header__user-item-link {
+    &:hover {
+        &::before {
+            opacity: 0.8;
+        }
+
+    }
+
+    &:active {
+        &::before {
+            opacity: 0.5;
+        }
+    }
 }
 
 
-.popup__close-img {
-    padding    : 5px;
-    margin-left: auto;
+.items__page {
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}
+
+.items__page a {
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}
+
+.items__page-next {
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
 }

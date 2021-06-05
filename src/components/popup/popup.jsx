@@ -1,186 +1,122 @@
-import closeBtn from "../../img/closeBtn.jpg";
-import { connect } from "react-redux";
-import { ActionCreator } from "../../store/action";
-import { useEffect, useState, useRef } from "react";
-import { commonButtons } from "../../consts";
-import React from "react";
+import { connect } from "react-redux"
+import { setSelectedGuitarID, showPopup, changePopupStatus, deleteCortItem } from "../../store/action"
+import { getClickedGuitar } from "../../store/selectors"
+import miniElectro from "../../img/electro-mini.png"
+import miniAcu from "../../img/acu-mini.png"
+import miniUcu from "../../img/ucu-mini.png"
+import { withRouter } from "react-router"
+import { commonButtons, guitarTypes } from "../../consts"
+import { useEffect } from "react"
+import { paths } from "../../consts"
 
+const Popup = ({ isPopup, setSelectedGuitarID, showPopup, clickedGuitarID, guitar, popupStatus, changePopupStatus, history, deleteCortItem }) => {
 
-function Popup({ showPopup, hidePopup, sendMessage, setSelectedStars, stars, resetSelectedStars }) {
-
-  const [clickedStar, setClickedStar] = useState(false);
-  const [focus, setFocus] = useState(true);
-
-  const formRef = useRef();
-  const nameRef = useRef();
-
-  const handleCloseBtn = (evt) => {
-    evt.preventDefault();
-    hidePopup();
-    document.querySelector("body").style.overflow = "auto"
-  };
-
-  const handleDocument = (evt) => {
-    if (evt.key === commonButtons.escape) {
-      hidePopup();
-      document.querySelector("body").style.overflow = "auto"
+    const handleClosePopup = (evt) => {
+        evt.preventDefault()
+        showPopup(false)
+        document.querySelector("body").style.overflow = "auto"
+        changePopupStatus("start")
     }
-  };
 
-  const setActiveColorStar = (evt) => {
-    resetSelectedStars(stars.length);
-    setSelectedStars(+evt.target.dataset.id);
-  };
-
-  const setInactiveColorStar = (evt) => {
-    setClickedStar(false);
-    if (!clickedStar) {
-      resetSelectedStars(+evt.target.dataset.id);
+    const handleAddToCart = (evt) => {
+        if (popupStatus === "start") {
+            changePopupStatus("adding")
+        }
+        evt.preventDefault()
+        setSelectedGuitarID(clickedGuitarID)
+        document.querySelector("body").style.overflow = "auto"
     }
-  };
 
-  useEffect(() => {
-    document.addEventListener(commonButtons.keydown, handleDocument);
-    return () => {
-      document.removeEventListener(commonButtons.keydown, handleDocument);
+    const handleGoToCart = () => {
+        history.push(paths.cart)
+        showPopup(false)
+        changePopupStatus("start")
+    }
+
+    const handleContinueShopping = () => {
+        showPopup(false)
+        changePopupStatus("start")
+    }
+
+    const handleRemoveGuitar = () => {
+        deleteCortItem(guitar.id)
+        showPopup(false)
+        changePopupStatus("start")
+
+    }
+
+
+
+    useEffect(() => {
+        document.addEventListener(commonButtons.keydown, handleDocument);
+        return () => {
+            document.removeEventListener(commonButtons.keydown, handleDocument);
+        };
+    }, []);
+
+    const handleClose = () => {
+        showPopup(false)
+        document.querySelector("body").style.overflow = "auto"
+    }
+
+    const handleDocument = (evt) => {
+        if (evt.key === commonButtons.escape) {
+            handleClose()
+            document.querySelector("body").style.overflow = "auto"
+        }
+
     };
-  }, []);
 
-  useEffect(() => {
-    if (focus) {
-      nameRef.current.focus();
-    }
-  });
-
-
-  const [name, setName] = useState(false);
-  const onChangeName = (evt) => {
-    setName(evt.target.value);
-    setIsName(false)
-  };
-
-  const [advan, setAdvan] = useState();
-  const onChangeAdvan = (evt) => {
-    setFocus(false);
-    setAdvan(evt.target.value);
-  };
-
-  const [disadvan, setDisadvan] = useState();
-  const onChangeDisAdvan = (evt) => {
-    setFocus(false);
-    setDisadvan(evt.target.value);
-  };
-
-  const [rating, setRating] = useState();
-  const onChangeRaiting = (evt) => {
-    setFocus(false);
-    resetSelectedStars(stars.length);
-    setClickedStar(true);
-    setRating(evt.target.value);
-    resetSelectedStars(evt.target.value);
-    setSelectedStars(evt.target.value);
-  };
-
-  const [message, setMessage] = useState(false);
-  const onChangeMessage = (evt) => {
-    setFocus(false);
-    setMessage(evt.target.value);
-    setIsMessage(false)
-  };
-
-  const [isName, setIsName] = useState(false)
-  const [isMessage, setIsMessage] = useState(false)
-
-  const handlerOnSubmitForm = (evt) => {
-    evt.preventDefault();
-    if (!name || !message) {
-      return
-    }
-    sendMessage(name, advan, disadvan, rating, message);
-    formRef.current.reset();
-    resetSelectedStars(stars.length);
-    hidePopup();
-    setMessage(false);
-    setName(false);
-    document.querySelector("body").style.overflow = "auto"
-  };
-
-  const handleBtnSubmit = () => {
-    if (!name) {
-      setIsName(true)
-    }
-    if (!message) {
-      setIsMessage(true)
-    }
-  }
-
-
-  return (
-    <div className="popup" style={showPopup ? { display: `block` } : { display: `none` }} >
-      <div className="popup__inner" onClick={handleCloseBtn}>
-        <div className="popup__content" onClick={(evt) => {
-          evt.stopPropagation();
-        }}>
-          <a className="popup__close" href="/" onClick={handleCloseBtn}>
-            <img src={closeBtn} alt="close" className="popup__close-img" />
-          </a>
-          <h2 className="popup__title">Оставить отзыв </h2>
-          <form noValidate className="popup__form" onSubmit={handlerOnSubmitForm} ref={formRef}>
-            <div className="popup__left-block">
-              <input className={isName && !name ? `popup__input popup__input--nocorrect` : `popup__input`} placeholder="Имя" type="text" onChange={onChangeName} ref={nameRef} id={`name`} />
-              <label className={isName ? `popup__label popup__input-error` : "popup__label" && !name ? 'popup__input-error-star' : null} htmlFor={`name`}><span className="popup__label-info">fill you're name</span></label>
-              <input className="popup__input" placeholder="Достоинства" type="text" onChange={onChangeAdvan} />
-              <input className="popup__input" placeholder="Недостатки" type="text" onChange={onChangeDisAdvan} />
-            </div>
-            <div className="popup__right-block">
-              <div className="popup__rating">
-                <div className="popup__value-wrapper">
-                  <p className="popup__rating-value">Оцените товар:</p>
-                  <div className="popup__rating-list">
-                    {stars.map((star) => {
-                      return (
-                        <div key={star.id} className="popup__inner-common">
-                          <input className="popup__rating-item" id={`star-` + star.id} type="radio" name="rating" defaultValue={star.id} onClick={onChangeRaiting} />
-                          <label data-id={star.id} className={star.isSelected ? `popup__rating-item-star popup__rating-item-star--active` : `popup__rating-item-star`} htmlFor={`star-` + star.id} onMouseOver={setActiveColorStar} onMouseLeave={setInactiveColorStar}>{`Rating` + star.id}</label>
-                        </div>);
-                    })}
-
-                  </div>
+    const mainInfo = () => {
+        return (
+            <div className="popup__bottom">
+                <img className="popup__bottom-img" src={guitar.type === guitarTypes.electro && miniElectro || guitar.type === guitarTypes.ucu && miniUcu || guitar.type === guitarTypes.acu && miniAcu} alt="name" width="56px" height="128px" />
+                <div className="popup__bottom-info">
+                    <p className="popup__bottom-info-name">{guitar.name}</p>
+                    <p className="popup__bottom-info-articul">Артикул: {guitar.art}</p>
+                    <p className="popup__bottom-info-about">Электрогитара, {guitar.strings} струнная</p>
+                    <p className="popup__bottom-info-price">Цена: <span className="popup__bottom-info-price-count"> {guitar.price}</span>₽</p>
                 </div>
-                <span className={isMessage ? `popup__input-error-mesesage` : `popup__test` && !message ? 'popup__input-error-mesesage-star' : null}></span>
-                <textarea className="popup__message" placeholder="Комментарий" onChange={onChangeMessage} id={`message`}></textarea>
-              </div>
-            </div>
-            <button className="popup__send-btn" type="submit" onClick={handleBtnSubmit}>оставить отзыв</button>
-          </form>
-        </div>
-      </div>
-    </div >
+                {popupStatus === "start" && <button className="popup__btn" onClick={handleAddToCart}>Добавить в корзину</button>}
+                {popupStatus === "removing" && <button className="popup__btn" onClick={handleRemoveGuitar}>Удалить товар</button>}
+                {popupStatus === "removing" && <button className="popup__btn popup__btn--removing" onClick={handleContinueShopping}>Продолжить покупки</button>}
 
-  );
+            </div>
+        )
+    }
+
+
+    if (guitar !== undefined) {
+        return (
+            <div className={!isPopup ? "popup" : "popup popup--active"} onClick={handleClose}>
+                <div className={popupStatus === "adding" && "popup-adding" || popupStatus === "removing" && "popup-removing"}>
+                    <div className={popupStatus === "start" && "popup__inner" || popupStatus === "adding" && "popup__inner popup__inner--adding" || popupStatus === "removing" && "popup__inner popup__inner--removing"} onClick={(evt) => {
+                        evt.stopPropagation();
+                    }}>
+                        <div className="popup__top">
+                            <p className="popup__top-title"> {popupStatus === "adding" && "Товар успешно добавлен в корзину" || popupStatus === "start" && "Добавить товар в корзину" || popupStatus === "removing" && "Удалить этот товар? "}</p>
+                            <a href="!/" className="popup__top-close" onClick={handleClosePopup}>close</a>
+                        </div>
+                        {popupStatus === "start" && mainInfo() || popupStatus === "removing" && mainInfo()}
+                        {popupStatus === "adding" &&
+                            <div className="popup__bottom">
+                                <button className="popup__btn" onClick={handleGoToCart}>Перейти в корзину</button>
+                                <button className="popup__btn popup__btn--adding" onClick={handleContinueShopping}>Продолжить покупки</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        )
+    } else return true
+
 }
 
-
 const mapStateToProps = (state) => ({
-  showPopup: state.showPopup,
-  stars: state.stars,
-  reviews: state.reviews
-});
+    isPopup: state.isPopup,
+    clickedGuitarID: state.clickedGuitarID,
+    guitar: getClickedGuitar(state),
+    popupStatus: state.popupStatus
+})
 
-const mapDispatchToProps = (dispatch) => ({
-  hidePopup() {
-    dispatch(ActionCreator.hidePopup());
-  },
-  sendMessage(name, advan, disAdvan, rating, message) {
-    dispatch(ActionCreator.sendMessage({ name, advan, disAdvan, rating, message }));
-  },
-  setSelectedStars(id) {
-    dispatch(ActionCreator.setSelectedStars(id));
-  },
-  resetSelectedStars(id) {
-    dispatch(ActionCreator.resetSelectedStars(id));
-  }
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Popup);
+export default connect(mapStateToProps, { setSelectedGuitarID, showPopup, changePopupStatus, deleteCortItem })(withRouter(Popup))

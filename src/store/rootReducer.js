@@ -1,100 +1,117 @@
-import {ActionType} from "./action";
-import slider1Min from "../img/slider-1-min.png";
-import slider2Min from "../img/slider-min-2.jpg";
-import slider3Min from "../img/slider-min-3.png";
-import slider1Big from "../img/slider-big-1.png";
-import slider2Big from "../img/slider-2-big.png";
-import slider3Big from "../img/slider-3-big.png";
+import { ActionType } from "./action";
+import data from "../mocks/data.json";
+import { guitarTypes } from "../consts";
 
 const initialState = {
-  stars: [
-    {
-      id: 1,
-      isSelected: false,
-    },
-    {
-      id: 2,
-      isSelected: false,
-    },
-    {
-      id: 3,
-      isSelected: false,
-    },
-    {
-      id: 4,
-      isSelected: false,
-    },
-    {
-      id: 5,
-      isSelected: false,
-    },
+  initialData: [...data],
+  mutatedData: [...data],
+  minPrice: "",
+  maxPrice: "",
+  types: [
+    { name: guitarTypes.acu, status: false },
+    { name: guitarTypes.electro, status: false },
+    { name: guitarTypes.ucu, status: false },
   ],
-
-  picPreviews: [
-    {pic: slider1Min, id: 1},
-    {pic: slider2Min, id: 2},
-    {pic: slider3Min, id: 3},
+  strings: [
+    { name: guitarTypes.four, status: false },
+    { name: guitarTypes.six, status: false },
+    { name: guitarTypes.seven, status: false },
+    { name: guitarTypes.twelve, status: false },
   ],
-  bigPics: [
-    {pic: slider1Big, id: 1},
-    {pic: slider2Big, id: 2},
-    {pic: slider3Big, id: 3},
-  ],
-  activePic: ``,
-  showPopup: false,
-  reviews: [],
+  actualSort: "byPrice",
+  actualSortWay: "",
+  selectedGuitarsID: [],
+  totalPrices: [],
+  clickedStringFilter: false,
+  promo: "",
+  isPopup: false,
+  clickedGuitarID: null,
+  popupStatus: "start",
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.GET_INITIAL_PIC:
-      return Object.assign({}, state, {activePic: state.bigPics[0]});
-    case ActionType.GET_NEXT_PIC:
-      const picNext = state.bigPics.find((pic) => {
-        return pic.id === action.payload;
-      });
+    case ActionType.SET_MIN_PRICE:
+      return { ...state, minPrice: action.payload };
+    case ActionType.SET_MAX_PRICE:
+      return { ...state, maxPrice: action.payload };
+    case ActionType.SET_GUITAR_TYPE:
+      return {
+        ...state,
+        clickedStringFilter: false,
+        types: state.types.map((item) => {
+          if (item.name === action.payload.name) {
+            return Object.assign({}, item, action.payload);
+          }
+          return item;
+        }),
+      };
+    case ActionType.SET_GUITAR_STRING:
+      return {
+        ...state,
+        clickedStringFilter: true,
+        strings: state.strings.map((item) => {
+          if (item.name === action.payload.name) {
+            return Object.assign({}, item, action.payload);
+          }
+          return item;
+        }),
+      };
+    case ActionType.SET_ACTUAL_SORT:
+      return { ...state, actualSort: action.payload };
+    case ActionType.SET_ACTUAL_SORT_WAY:
+      return { ...state, actualSortWay: action.payload };
+    case ActionType.SET_SELECTED_GUITAR_ID:
       return Object.assign({}, state, {
-        activePic: picNext,
-      });
-    case ActionType.GET_PREVIOUSLY_PIC:
-      const picPreviously = state.bigPics.find((pic) => {
-        return pic.id === action.payload;
-      });
-      return Object.assign({}, state, {
-        activePic: picPreviously,
-      });
-    case ActionType.SHOW_POPUP:
-      return Object.assign({}, state, {showPopup: true});
-    case ActionType.HIDE_POPUP:
-      return Object.assign({}, state, {showPopup: false});
-    case ActionType.SEND_REVIEW:
-      return Object.assign({}, state, {
-        reviews: [
-          ...state.reviews,
-          Object.assign({}, action.payload, {id: state.reviews.length}),
+        selectedGuitarsID: [
+          ...new Set([...state.selectedGuitarsID, ...[+action.payload]]),
         ],
       });
-    case ActionType.SET_FAVORITE_STAR:
-      return Object.assign({}, state, {
-        stars: state.stars.map((star) => {
-          if (star.id <= action.payload) {
-            star.isSelected = true;
+    case ActionType.SET_TOTAL_PRICES:
+      let newPriceID = action.payload.id;
+      if (state.totalPrices.length > 0) {
+        let exact = state.totalPrices.find((item) => {
+          return item.id === newPriceID;
+        });
+        if (exact) {
+          let corIndex = state.totalPrices.indexOf(exact);
+          if (corIndex >= 0) {
+            state.totalPrices.splice(corIndex, 1);
+            return Object.assign({}, state, {
+              totalPrices: [...state.totalPrices, ...[action.payload]],
+            });
           }
-          return star;
-        }),
-      });
-    case ActionType.RESET_FAVORITE_STAR:
+        }
+      }
       return Object.assign({}, state, {
-        stars: state.stars.map((star) => {
-          if (star.id <= action.payload) {
-            star.isSelected = false;
-          }
-          return star;
-        }),
+        totalPrices: [...state.totalPrices, ...[action.payload]],
       });
+    case ActionType.DELETE_CORT_ITEM:
+      let removedItemID = action.payload;
+      let exact = state.selectedGuitarsID.find((item) => {
+        return item === +removedItemID;
+      });
+      let corIndex = state.selectedGuitarsID.indexOf(exact);
+      state.selectedGuitarsID.splice(corIndex, 1);
+      const exactPrice = state.totalPrices.find((item) => {
+        return item.id === exact;
+      });
+      let corIndex2 = state.totalPrices.indexOf(exactPrice);
+      state.totalPrices.splice(corIndex2, 1);
+      return Object.assign({}, state, {
+        selectedGuitarsID: [...state.selectedGuitarsID],
+      });
+    case ActionType.CLICKED_GUITAR:
+      return { ...state, clickedGuitarID: action.payload };
+    case ActionType.SET_PROMO:
+      return { ...state, promo: action.payload };
+    case ActionType.SHOW_POPUP:
+      return { ...state, isPopup: action.payload };
+    case ActionType.CHANGE_POPUP_STATUS:
+      return { ...state, popupStatus: action.payload };
     default:
       return state;
   }
 };
 
-export {rootReducer};
+export { rootReducer };

@@ -1,26 +1,21 @@
 import React from "react";
-import {Router} from "react-router-dom";
+import { Router } from "react-router-dom";
 import history from "./browser-history";
-import Header from "./components/header/header";
-import Slider from "./components/slider/slider";
-import Menu from "./components/menu/menu";
-import Footer from "./components/footer/footer";
-import Popup from "./components/popup/popup";
+import { connect } from "react-redux";
+import CommonInner from "./components/common-inner/common-inner";
 
-function App() {
+function App({ isPopup }) {
   return (
-    <div className="wrapper">
-      <Router history={history}>
-        <Header />
-        <Slider />
-        <Menu />
-        <Footer />
-        <Popup />
-      </Router>
-    </div>
+    <Router history={history}>
+      <div className={!isPopup ? "wrapper" : "wrapper--popup-active"}>
+        <CommonInner />
+      </div>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  isPopup: state.isPopup,
+});
 
-
+export default connect(mapStateToProps)(App);
