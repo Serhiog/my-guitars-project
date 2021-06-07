@@ -279,7 +279,6 @@ export const getClickedGuitar = createSelector(
   getGuitars,
   getClickedGuitrID,
   (guitars, id) => {
-    const clickedGuitar = guitars.find((item) => item.id === id);
-    return clickedGuitar;
+    return guitars.find((item) => item.id === id);
   }
 );

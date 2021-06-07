@@ -1,6 +1,6 @@
 .crumbs__title {
     color         : #000000;
-    font-family   : "Droid Sans Bold";
+    font-family   : "Droid Sans Bold, Arial, sans-serif";
     font-size     : 22px;
     font-weight   : 700;
     letter-spacing: 1.9px;
@@ -9,7 +9,7 @@
 
     @media (max-width: 769px) {
         color      : #000000;
-        font-family: "Droid Sans Bold";
+        font-family: "Droid Sans Bold, Arial, sans-serif";
         font-size  : 16px;
         font-weight: 700;
 
@@ -34,7 +34,7 @@
 
 .crumbs__item {
     color         : #474747;
-    font-family   : "Droid Sans Regular";
+    font-family   : "Droid Sans Regular, Arial, sans-serif";
     font-size     : 16px;
     font-weight   : 400;
     margin-right  : 35px;
@@ -85,7 +85,7 @@
 
 .crumbs__item-link {
     color         : #474747;
-    font-family   : "Droid Sans Regular";
+    font-family   : "Droid Sans Regular, Arial, sans-serif";
     font-size     : 16px;
     font-weight   : 400;
     position      : relative;

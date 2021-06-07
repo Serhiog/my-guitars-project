@@ -29,3 +29,7 @@ export const popupStatus = {
   adding: "adding",
   removing: "removing",
 };
+
+export const maxGuitarsOnPage = 9;
+
+export const maxGuitarRatingStar = 5;

@@ -89,7 +89,9 @@ const Popup = ({ isPopup, setSelectedGuitarID, showPopup, clickedGuitarID, guita
     if (guitar !== undefined) {
         return (
             <div className={!isPopup ? "popup" : "popup popup--active"} onClick={handleClose}>
-                <div className={popupStatus === "adding" && "popup-adding" || popupStatus === "removing" && "popup-removing"}>
+
+
+                <div className={popupStatus === "adding" ? "popup-adding" : "hhh" || popupStatus === "removing" ? "popup-removing" : "kkk"}>
                     <div className={popupStatus === "start" && "popup__inner" || popupStatus === "adding" && "popup__inner popup__inner--adding" || popupStatus === "removing" && "popup__inner popup__inner--removing"} onClick={(evt) => {
                         evt.stopPropagation();
                     }}>

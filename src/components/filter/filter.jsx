@@ -147,41 +147,41 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
                 </div>
                 <div className="filter__type">
                     <p className="filter__type-name">Тип гитар</p>
-                    <label className="filter__type-label">
-                        <input className="filter__type-input" data-name="Акустическая гитара" type="checkbox" onChange={handleType} />
+                    <label htmlFor="acoustic" className="filter__type-label">
+                        <input id="acoustic" className="filter__type-input" data-name="Акустическая гитара" type="checkbox" onChange={handleType} />
                         <span className="filter__type-checkbox"></span>
                         Акустические гитары
                     </label>
-                    <label className="filter__type-label">
-                        <input className="filter__type-input" data-name="Электрогитара" type="checkbox" onChange={handleType} />
+                    <label htmlFor="electro" className="filter__type-label">
+                        <input id="electro" className="filter__type-input" data-name="Электрогитара" type="checkbox" onChange={handleType} />
                         <span className="filter__type-checkbox"></span>
                         Электрогитары
                     </label>
-                    <label className="filter__type-label">
-                        <input className="filter__type-input" data-name="Укулеле" type="checkbox" onChange={handleType} />
+                    <label htmlFor="ukulele" className="filter__type-label">
+                        <input id="ukulele" className="filter__type-input" data-name="Укулеле" type="checkbox" onChange={handleType} />
                         <span className="filter__type-checkbox"></span>
                         Укулеле
                     </label>
                 </div>
                 <div className="filter__string">
                     <p className="filter__string-name">Количество струн</p>
-                    <label className="filter__string-label">
-                        <input className="filter__string-input" data-name="4" type="checkbox" onChange={handleStrings} disabled={blockedStrings.four} />
+                    <label htmlFor="four" className="filter__string-label">
+                        <input id="four" className="filter__string-input" data-name="4" type="checkbox" onChange={handleStrings} disabled={blockedStrings.four} />
                         <span className="filter__string-checkbox"></span>
                         <span className={blockedStrings.four ? "filter__string-num-disabled" : "filter__string-num"}>4</span>
                     </label>
-                    <label className="filter__string-label">
-                        <input className="filter__string-input" data-name="6" type="checkbox" onChange={handleStrings} disabled={blockedStrings.six} />
+                    <label htmlFor="six" className="filter__string-label">
+                        <input id="six" className="filter__string-input" data-name="6" type="checkbox" onChange={handleStrings} disabled={blockedStrings.six} />
                         <span className="filter__string-checkbox"></span>
                         <span className={blockedStrings.six ? "filter__string-num-disabled" : "filter__string-num"}>6</span>
                     </label>
-                    <label className="filter__string-label">
-                        <input className="filter__string-input" data-name="7" type="checkbox" onChange={handleStrings} disabled={blockedStrings.seven} />
+                    <label htmlFor="seven" className="filter__string-label">
+                        <input id="seven" className="filter__string-input" data-name="7" type="checkbox" onChange={handleStrings} disabled={blockedStrings.seven} />
                         <span className="filter__string-checkbox"></span>
                         <span className={blockedStrings.seven ? "filter__string-num-disabled" : "filter__string-num"}>7</span>
                     </label>
-                    <label className="filter__string-label">
-                        <input className="filter__string-input" data-name="12" type="checkbox" onChange={handleStrings} disabled={blockedStrings.twelve} />
+                    <label htmlFor="twelve" className="filter__string-label">
+                        <input id="twelve" className="filter__string-input" data-name="12" type="checkbox" onChange={handleStrings} disabled={blockedStrings.twelve} />
                         <span className="filter__string-checkbox"></span>
                         <span className={blockedStrings.twelve ? "filter__string-num-disabled" : "filter__string-num"}>12</span>
                     </label>

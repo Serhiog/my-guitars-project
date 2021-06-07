@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { getGuitarsWithPriceSort } from "../../store/selectors"
 import { useState } from "react"
 import Pagination from "../pagination/pagination"
+import { maxGuitarsOnPage } from "../../consts"
 
 
 
@@ -10,14 +11,14 @@ const ItemsContainer = ({ guitarsList }) => {
 
 
 
-    const itemsPages = Math.ceil(guitarsList.length / 9)
+    const itemsPages = Math.ceil(guitarsList.length / maxGuitarsOnPage)
     const pages = []
     for (let page = 1; page < itemsPages + 1; page++) {
         pages.push(page)
     }
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [guitarsPerPage] = useState(9)
+    const [guitarsPerPage] = useState(maxGuitarsOnPage)
     const lastGuitarIndex = currentPage * guitarsPerPage
     const firstGuitarIndex = lastGuitarIndex - guitarsPerPage
     const currentGuitar = guitarsList.slice(firstGuitarIndex, lastGuitarIndex)
@@ -41,7 +42,7 @@ const ItemsContainer = ({ guitarsList }) => {
             })}
 
             <Pagination guitarsPerPage={guitarsPerPage} totalGuitars={guitarsList.length} paginate={paginate} currentPage={currentPage} />
-            <button className="items__page-next" onClick={nextPage} disabled={currentPage === 3 ? true : false}>Далее</button>
+            <button className="items__page-next" onClick={nextPage} disabled={currentPage === pages.length ? true : false}>Далее</button>
         </div>
     )
 }

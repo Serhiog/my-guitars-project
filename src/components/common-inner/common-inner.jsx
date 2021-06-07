@@ -10,7 +10,7 @@ import { paths } from "../../consts"
 const CommonInner = ({ location }) => {
 
     return (
-        <div className={location.pathname === paths.cart ? "common-inner--cart" : "common-inner"}>
+        <div className={location.pathname === paths.cart ? "common-inner common-inner--cart" : "common-inner"}>
             <Header />
             <Guitar />
             <BreadCrumbs />

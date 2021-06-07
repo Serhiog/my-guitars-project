@@ -10,16 +10,18 @@ import { paths } from "../../consts"
 
 const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) => {
 
-    if (selectedGuitars.length === 0) {
-        history.push(paths.main)
-    }
+
+
+    useEffect(() => {
+        if (!selectedGuitars.length) {
+            history.push(paths.main)
+        }
+    }, [selectedGuitars])
 
 
     const [promoValue, setPromoValue] = useState("")
     const [promoError, setPromoError] = useState(false)
 
-
-    useEffect(() => { })
 
     const handlePromo = (evt) => {
         let promo = evt.target.value

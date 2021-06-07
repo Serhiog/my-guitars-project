@@ -4,7 +4,8 @@ import maxAcu from "../../img/acu-max.png"
 import maxUcu from "../../img/ucu-max.png"
 import { connect } from "react-redux"
 import { showPopup, clickedGuitar } from "../../store/action"
-import { guitarTypes } from "../../consts"
+import { guitarTypes, maxGuitarRatingStar } from "../../consts"
+import StarRating from "../star-rating/star-rating"
 
 const Item = ({ guitar, id, showPopup, clickedGuitar }) => {
 
@@ -15,6 +16,13 @@ const Item = ({ guitar, id, showPopup, clickedGuitar }) => {
         document.querySelector("body").style.overflow = "hidden"
     }
 
+    const ratingLength = []
+
+    for (let i = 0; i < maxGuitarRatingStar; i++) {
+        ratingLength.push(maxGuitarRatingStar[i])
+    }
+
+
     return (
         <div className="item">
             <div className="item__pic">
@@ -22,11 +30,10 @@ const Item = ({ guitar, id, showPopup, clickedGuitar }) => {
             </div>
             <div className="item__rating">
                 <ul className="item__rating-list">
-                    <li className="item__rating-item"></li>
-                    <li className="item__rating-item"></li>
-                    <li className="item__rating-item"></li>
-                    <li className="item__rating-item"></li>
-                    <li className="item__rating-item"></li>
+                    {
+                        ratingLength.map(i => <StarRating key={i} />)
+                    }
+
                 </ul>
                 <span className="item__rating-count">{guitar.popular}</span>
             </div>
