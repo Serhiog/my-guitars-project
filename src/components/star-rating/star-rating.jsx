@@ -1,3 +1,5 @@
-const StarRating = () => { return <li className="item__rating-item"></li> }
+const StarRating = () => {
+  return <li className="item__rating-item"></li>;
+};
 
-export default StarRating
+export default StarRating;

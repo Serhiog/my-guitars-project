@@ -1,42 +1,44 @@
-import { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router";
-import { paths } from "../../consts"
+import {useEffect, useState} from "react";
+import {connect} from "react-redux";
+import {withRouter} from "react-router";
+import {paths} from "../../consts";
 
-function Header({ history, selectedGuitarsID }) {
+function Header({history, selectedGuitarsID}) {
 
-  const [burger, setBurger] = useState(false)
+  const [burger, setBurger] = useState(false);
 
   const handleBurgerOpen = () => {
-    setBurger(true)
-  }
+    setBurger(true);
+  };
   const handleBurgerClose = () => {
-    setBurger(false)
-  }
+    setBurger(false);
+  };
 
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState(window.innerWidth);
 
 
   useEffect(() => {
-  }, [width])
+  }, [width]);
 
-  window.addEventListener('resize', () => { setWidth(window.innerWidth) });
+  window.addEventListener(`resize`, () => {
+    setWidth(window.innerWidth);
+  });
 
   const handleCart = (evt) => {
-    evt.preventDefault()
-    history.push(paths.cart)
-  }
+    evt.preventDefault();
+    history.push(paths.cart);
+  };
 
   const handleCatalog = (evt) => {
-    evt.preventDefault()
-    history.push(paths.main)
-  }
+    evt.preventDefault();
+    history.push(paths.main);
+  };
 
   return (
-    <header className={burger && width < 769 ? "header header--burger-active" : "header"}>
+    <header className={burger && width < 769 ? `header header--burger-active` : `header`}>
       <div className="header__inner">
         <button className="header__burger" onClick={handleBurgerOpen}></button>
-        <div className="header__logo" onClick={() => history.push("/")}></div>
+        <div className="header__logo" onClick={() => history.push(`/`)}></div>
         <ul className="header__nav">
           <li className="header__nav-item">
             <button className="header__nav-item-close" onClick={handleBurgerClose}></button>
@@ -78,6 +80,6 @@ function Header({ history, selectedGuitarsID }) {
 
 const mapStateToProps = (state) => ({
   selectedGuitarsID: state.selectedGuitarsID
-})
+});
 
 export default connect(mapStateToProps)(withRouter(Header));

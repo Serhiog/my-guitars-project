@@ -1,7 +1,7 @@
 const Guitar = () => {
-    return (
-        <section className="guitar"></section>
-    )
-}
+  return (
+    <section className="guitar"></section>
+  );
+};
 
-export default Guitar
+export default Guitar;
