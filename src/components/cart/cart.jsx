@@ -1,14 +1,14 @@
 
-import {connect} from "react-redux";
-import {getPromoPrices, getSelectedCartGuitars, getSelectedTotalPrices} from "../../store/selectors";
+import { connect } from "react-redux";
+import { getPromoPrices, getSelectedCartGuitars, getSelectedTotalPrices } from "../../store/selectors";
 import CartItem from "../cart-item/cart-item";
-import {setPromo} from "../../store/action";
-import {useEffect, useState} from "react";
-import {Promocodes} from "../../consts";
-import {withRouter} from "react-router";
-import {paths} from "../../consts";
+import { setPromo } from "../../store/action";
+import { useEffect, useState } from "react";
+import { Promocodes } from "../../consts";
+import { withRouter } from "react-router";
+import { paths } from "../../consts";
 
-const Cart = ({selectedGuitars, totalPrice, setPromo, promoPrice, history}) => {
+const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) => {
 
 
   useEffect(() => {
@@ -54,8 +54,10 @@ const Cart = ({selectedGuitars, totalPrice, setPromo, promoPrice, history}) => {
       </ul>
       <div className="cart__promo">
         <p className="cart__promo-title">Промокод на скидку</p>
-        <p className="cart__promo-info">Введите свой промокод, если он у вас есть.</p>
-        <input className="cart__promo-input" onChange={handlePromo}></input>
+        <label for="promo" className="cart__promo-label">
+          <p className="cart__promo-info">Введите свой промокод, если он у вас есть.</p>
+          <input id="promo" className="cart__promo-input" onChange={handlePromo}></input>
+        </label>
         <button className="cart__promo-btn" onClick={handleCheckPromoBtn}>{promoError ? `Не верный купон` : `Применить купон`}</button>
       </div>
       <div className="cart__total">
@@ -73,4 +75,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps, {setPromo})(withRouter(Cart));
+export default connect(mapStateToProps, { setPromo })(withRouter(Cart));

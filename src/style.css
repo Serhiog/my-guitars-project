@@ -2226,6 +2226,9 @@ input::-webkit-inner-spin-button {
   font-style: normal;
   letter-spacing: 0.8px;
   line-height: 15px;
+  position: absolute;
+  right: 0;
+  top: 59px;
 }
 
 .cart__total-count {
@@ -2276,6 +2279,7 @@ input::-webkit-inner-spin-button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
 }
 
 .cart__total {

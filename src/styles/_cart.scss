@@ -46,6 +46,9 @@
     font-style      : normal;
     letter-spacing  : 0.8px;
     line-height     : 15px;
+    position        : absolute;
+    right           : 0;
+    top             : 59px;
 }
 
 .cart__total-count {
@@ -78,6 +81,7 @@
     max-width: 405px;
     @include flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .cart__total {
