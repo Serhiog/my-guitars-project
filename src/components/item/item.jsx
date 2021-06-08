@@ -2,12 +2,12 @@
 import maxElectro from "../../img/electro-max.png";
 import maxAcu from "../../img/acu-max.png";
 import maxUcu from "../../img/ucu-max.png";
-import {connect} from "react-redux";
-import {showPopup, clickedGuitar} from "../../store/action";
-import {guitarTypes, maxGuitarRatingStar} from "../../consts";
+import { connect } from "react-redux";
+import { showPopup, clickedGuitar } from "../../store/action";
+import { guitarTypes } from "../../consts";
 import StarRating from "../star-rating/star-rating";
 
-const Item = ({guitar, id, showPopup, clickedGuitar}) => {
+const Item = ({ guitar, id, showPopup, clickedGuitar }) => {
 
   const handleBuy = (evt) => {
     evt.preventDefault();
@@ -16,13 +16,6 @@ const Item = ({guitar, id, showPopup, clickedGuitar}) => {
     document.querySelector(`body`).style.overflow = `hidden`;
   };
 
-  const ratingLength = [];
-
-  for (let i = 0; i < maxGuitarRatingStar; i++) {
-    ratingLength.push(maxGuitarRatingStar[i]);
-  }
-
-
   return (
     <div className="item">
       <div className="item__pic">
@@ -30,10 +23,7 @@ const Item = ({guitar, id, showPopup, clickedGuitar}) => {
       </div>
       <div className="item__rating">
         <ul className="item__rating-list">
-          {
-            ratingLength.map((i) => <StarRating key={i} />)
-          }
-
+          <StarRating />
         </ul>
         <span className="item__rating-count">{guitar.popular}</span>
       </div>
@@ -51,4 +41,4 @@ const Item = ({guitar, id, showPopup, clickedGuitar}) => {
   );
 };
 
-export default connect(null, {clickedGuitar, showPopup})(Item);
+export default connect(null, { clickedGuitar, showPopup })(Item);
