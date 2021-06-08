@@ -1,6 +1,3 @@
-import { maxGuitarRatingStar } from "../../consts";
-
-
 const StarRating = () => {
   return (
     <>
