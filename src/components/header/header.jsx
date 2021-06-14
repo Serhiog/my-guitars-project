@@ -44,30 +44,30 @@ function Header({history, selectedGuitarsID}) {
             <button className="header__nav-item-close" onClick={handleBurgerClose}></button>
           </li>
           <li className="header__nav-item">
-            <a className="header__nav-item-link" href="/" onClick={handleCatalog}>Каталог</a>
+            <a tabIndex={0} className="header__nav-item-link" href="/" onClick={handleCatalog}>Каталог</a>
           </li>
           <li className="header__nav-item">
-            <a className="header__nav-item-link" href="/"> Где купить?</a>
+            <a tabIndex={0} className="header__nav-item-link" href="/"> Где купить?</a>
           </li>
           <li className="header__nav-item">
-            <a className="header__nav-item-link" href="/">О компании</a>
+            <a tabIndex={0} className="header__nav-item-link" href="/">О компании</a>
           </li>
           <li className="header__nav-item header__nav-item--services">
-            <a className="header__nav-item-link" href="/">Cервис-центры</a>
+            <a tabIndex={0} className="header__nav-item-link" href="/">Cервис-центры</a>
           </li>
           <li className="header__nav-item header__nav-item--shops">
-            <a className="header__nav-item-link" href="/">Магазины</a>
+            <a tabIndex={0} className="header__nav-item-link" href="/">Магазины</a>
           </li>
         </ul>
         <ul className="header__user">
           <li className="header__user-item header__user-item--location">
-            <a className="header__user-item-link" href="/">Location</a>
+            <a tabIndex={0} className="header__user-item-link" href="/">Location</a>
           </li>
           <li className="header__user-item header__user-item--search">
-            <a className="header__user-item-link" href="/">Search</a>
+            <a tabIndex={0} className="header__user-item-link" href="/">Search</a>
           </li>
           <li className="header__user-item header__user-item--cart">
-            <a className="header__user-item-link header__user-item-link--cart" href="/" onClick={handleCart}>
+            <a tabIndex={0} className="header__user-item-link header__user-item-link--cart" href="/" onClick={handleCart}>
               Cart
               <span className="header__user-item-link-count">{selectedGuitarsID.length > 0 && selectedGuitarsID.length}</span>
             </a>

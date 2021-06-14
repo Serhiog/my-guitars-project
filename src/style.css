@@ -560,6 +560,26 @@ template {
   }
 }
 
+.header__nav-item-link:focus {
+  outline: 1px solid blue;
+}
+
+.crumbs__item-link:focus {
+  outline: 1px solid blue;
+}
+
+.sorting__item-link-price:focus {
+  outline: 1px solid blue;
+}
+
+.footer__catalog-list-item-link:focus {
+  outline: 1px solid blue;
+}
+
+.footer__info-list-item-link:focus {
+  outline: 1px solid blue;
+}
+
 .header__user {
   display: -webkit-box;
   display: -ms-flexbox;

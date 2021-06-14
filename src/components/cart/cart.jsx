@@ -54,7 +54,7 @@ const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) =>
       </ul>
       <div className="cart__promo">
         <p className="cart__promo-title">Промокод на скидку</p>
-        <label for="promo" className="cart__promo-label">
+        <label htmlFor="promo" className="cart__promo-label">
           <p className="cart__promo-info">Введите свой промокод, если он у вас есть.</p>
           <input id="promo" className="cart__promo-input" onChange={handlePromo}></input>
         </label>

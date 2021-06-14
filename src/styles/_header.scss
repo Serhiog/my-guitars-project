@@ -1,6 +1,6 @@
 .header {
     background-color: #dddada;
-    min-width: 1025px;
+    min-width       : 1025px;
 }
 
 .header__inner {
@@ -97,6 +97,34 @@
         font-style    : normal;
         letter-spacing: 0.6px;
 
+    }
+
+    &:focus {
+        outline: 1px solid blue;
+    }
+}
+
+.crumbs__item-link {
+    &:focus {
+        outline: 1px solid blue;
+    }
+}
+
+.sorting__item-link-price {
+    &:focus {
+        outline: 1px solid blue;
+    }
+}
+
+.footer__catalog-list-item-link {
+    &:focus {
+        outline: 1px solid blue;
+    }
+}
+
+.footer__info-list-item-link{
+    &:focus {
+        outline: 1px solid blue;
     }
 }
 
