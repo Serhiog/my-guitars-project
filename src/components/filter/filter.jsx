@@ -4,7 +4,7 @@ import {setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar} from "../../st
 import {getActiveFilters, getMostExpensiveGuitarForInput, getMostCheaperGuitarForInput} from "../../store/selectors";
 import {guitarTypes} from "../../consts";
 
-const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPrice, maxPrice, blockedStrings, mostExpensiveGuitar, mostCheaperGuitar}) => {
+const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPrice, maxPrice, blockedStrings, mostExpensiveGuitar, mostCheaperGuitar, clickedStringFilter}) => {
 
   const [minPriceValue, setMinPriceValue] = useState(false);
   const handleMinPrice = (evt) => {
@@ -168,24 +168,24 @@ const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPr
         <div className="filter__string">
           <p className="filter__string-name">Количество струн</p>
           <label htmlFor="four" className="filter__string-label">
-            <input id="four" className="filter__string-input" data-name="4" type="checkbox" onChange={handleStrings} disabled={blockedStrings.four} />
+            <input id="four" className="filter__string-input" data-name="4" type="checkbox" onChange={handleStrings} disabled={blockedStrings.four && !clickedStringFilter} />
             <span className="filter__string-checkbox"></span>
-            <span className={blockedStrings.four ? `filter__string-num-disabled` : `filter__string-num`}>4</span>
+            <span className={blockedStrings.four && !clickedStringFilter ? `filter__string-num-disabled` : `filter__string-num`}>4</span>
           </label>
           <label htmlFor="six" className="filter__string-label">
-            <input id="six" className="filter__string-input" data-name="6" type="checkbox" onChange={handleStrings} disabled={blockedStrings.six} />
+            <input id="six" className="filter__string-input" data-name="6" type="checkbox" onChange={handleStrings} disabled={blockedStrings.six && !clickedStringFilter} />
             <span className="filter__string-checkbox"></span>
-            <span className={blockedStrings.six ? `filter__string-num-disabled` : `filter__string-num`}>6</span>
+            <span className={blockedStrings.six && !clickedStringFilter ? `filter__string-num-disabled` : `filter__string-num`}>6</span>
           </label>
           <label htmlFor="seven" className="filter__string-label">
-            <input id="seven" className="filter__string-input" data-name="7" type="checkbox" onChange={handleStrings} disabled={blockedStrings.seven} />
+            <input id="seven" className="filter__string-input" data-name="7" type="checkbox" onChange={handleStrings} disabled={blockedStrings.seven && !clickedStringFilter} />
             <span className="filter__string-checkbox"></span>
-            <span className={blockedStrings.seven ? `filter__string-num-disabled` : `filter__string-num`}>7</span>
+            <span className={blockedStrings.seven && !clickedStringFilter ? `filter__string-num-disabled` : `filter__string-num`}>7</span>
           </label>
           <label htmlFor="twelve" className="filter__string-label">
-            <input id="twelve" className="filter__string-input" data-name="12" type="checkbox" onChange={handleStrings} disabled={blockedStrings.twelve} />
+            <input id="twelve" className="filter__string-input" data-name="12" type="checkbox" onChange={handleStrings} disabled={blockedStrings.twelve && !clickedStringFilter} />
             <span className="filter__string-checkbox"></span>
-            <span className={blockedStrings.twelve ? `filter__string-num-disabled` : `filter__string-num`}>12</span>
+            <span className={blockedStrings.twelve && !clickedStringFilter ? `filter__string-num-disabled` : `filter__string-num`}>12</span>
           </label>
         </div>
       </form>
@@ -199,7 +199,8 @@ const mapStateToProps = (state) => ({
   maxPrice: state.maxPrice,
   blockedStrings: getActiveFilters(state),
   mostExpensiveGuitar: getMostExpensiveGuitarForInput(state),
-  mostCheaperGuitar: getMostCheaperGuitarForInput(state)
+  mostCheaperGuitar: getMostCheaperGuitarForInput(state),
+  clickedStringFilter: state.clickedStringFilter
 });
 
 export default connect(mapStateToProps, {setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar})(Filter);
