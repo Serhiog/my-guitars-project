@@ -279,7 +279,7 @@ export const getActiveFilters = createSelector(
   getGuitarsWithPriceSort,
   getStringsStatus,
   (actualGuitars, status) => {
-    console.log(actualGuitars);
+
     return actualGuitars.reduce(
       (blocked, item) => {
         if (item.strings === "4") {

@@ -148,19 +148,19 @@ const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPr
           <p className="filter__type-name">Тип гитар</p>
           <label htmlFor="acoustic" className="filter__type-label">
             <input id="acoustic" className="filter__type-input" data-name="Акустическая гитара" type="checkbox" onChange={handleType}
-            disabled={blockedStrings.acu} />
+            disabled={blockedStrings.acu && clickedStringFilter} />
             <span className="filter__type-checkbox"></span>
                         Акустические гитары
           </label>
           <label htmlFor="electro" className="filter__type-label">
             <input id="electro" className="filter__type-input" data-name="Электрогитара" type="checkbox" onChange={handleType}
-            disabled={blockedStrings.electro} />
+            disabled={blockedStrings.electro && clickedStringFilter} />
             <span className="filter__type-checkbox"></span>
                         Электрогитары
           </label>
           <label htmlFor="ukulele" className="filter__type-label">
             <input id="ukulele" className="filter__type-input" data-name="Укулеле" type="checkbox" onChange={handleType}
-            disabled={blockedStrings.ucu} />
+            disabled={blockedStrings.ucu && clickedStringFilter} />
             <span className="filter__type-checkbox"></span>
                         Укулеле
           </label>
