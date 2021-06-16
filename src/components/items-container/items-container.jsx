@@ -7,8 +7,7 @@ import {maxGuitarsOnPage} from "../../consts";
 
 
 const ItemsContainer = ({guitarsList}) => {
-
-
+  
   const itemsPages = Math.ceil(guitarsList.length / maxGuitarsOnPage);
   const pages = [];
   for (let page = 1; page < itemsPages + 1; page++) {

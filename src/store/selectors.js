@@ -304,6 +304,7 @@ export const getActiveFilters = createSelector(
           blocked.ucu = false;
         }
         return blocked;
+
       },
       {
         four: true,
@@ -314,6 +315,7 @@ export const getActiveFilters = createSelector(
         electro: true,
         ucu: true,
       }
+      
     );
   }
 );
