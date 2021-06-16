@@ -8,8 +8,9 @@
     padding  : 20px 40px;
     margin   : 0 auto;
     @include flex(row, flex-start, nowrap);
+    padding-left: 38px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1019px) {
         max-width   : 768px;
         padding-left: 30px;
     }
@@ -30,7 +31,7 @@
     margin-right: 69px;
     cursor      : pointer;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1019px) {
         margin-right: 38px;
     }
 
@@ -45,10 +46,10 @@
 }
 
 .header__nav {
-    @include flex(row, space-between, nowrap);
+    @include flex(row, space-between, wrap);
     margin-right: 158px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1019px) {
         margin-right: 49px;
     }
 
@@ -71,7 +72,7 @@
         margin-right: 0;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1019px) {
         margin-right: 22px;
     }
 
@@ -148,7 +149,7 @@
 .header__user-item--location {
     margin-right: 50px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1019px) {
         margin-right: 47px;
     }
 
@@ -172,7 +173,7 @@
 .header__user-item--search {
     margin-right: 48px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1019px) {
         margin-right: 44px;
     }
 

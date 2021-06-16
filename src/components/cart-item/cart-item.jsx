@@ -1,12 +1,12 @@
 import miniElectro from "../../img/electro-mini.png";
 import miniAcu from "../../img/acu-mini.png";
 import miniUcu from "../../img/ucu-mini.png";
-import {useEffect, useState} from "react";
-import {setTotalPrices, showPopup, changePopupStatus, clickedGuitar} from "../../store/action";
-import {connect} from "react-redux";
-import {guitarTypes} from "../../consts";
+import { useEffect, useState } from "react";
+import { setTotalPrices, showPopup, changePopupStatus, clickedGuitar } from "../../store/action";
+import { connect } from "react-redux";
+import { guitarTypes } from "../../consts";
 
-const CartItem = ({guitar, setTotalPrices, showPopup, changePopupStatus, clickedGuitar}) => {
+const CartItem = ({ guitar, setTotalPrices, showPopup, changePopupStatus, clickedGuitar }) => {
 
   const [count, setCount] = useState(1);
 
@@ -14,20 +14,24 @@ const CartItem = ({guitar, setTotalPrices, showPopup, changePopupStatus, clicked
     evt.preventDefault();
     if (count > 1) {
       setCount(count - 1);
-      setTotalPrices({id: +guitar.id, price: +guitar.price * (count - 1)});
+      setTotalPrices({ id: +guitar.id, price: +guitar.price * (count - 1) });
+    } else {
+      clickedGuitar(guitar.id);
+      changePopupStatus(`removing`);
+      showPopup(true);
     }
   };
 
   const onIncCount = (evt) => {
     evt.preventDefault();
     setCount(count + 1);
-    setTotalPrices({id: +guitar.id, price: +guitar.price * (count + 1)});
+    setTotalPrices({ id: +guitar.id, price: +guitar.price * (count + 1) });
   };
 
 
   useEffect(() => {
     if (count === 1) {
-      setTotalPrices({id: +guitar.id, price: +guitar.price * (count)});
+      setTotalPrices({ id: +guitar.id, price: +guitar.price * (count) });
     }
   }, []);
 
@@ -75,4 +79,4 @@ const mapStateToProps = (state) => ({
   totalPrices: state.totalPrices
 });
 
-export default connect(mapStateToProps, {setTotalPrices, showPopup, changePopupStatus, clickedGuitar})(CartItem);
+export default connect(mapStateToProps, { setTotalPrices, showPopup, changePopupStatus, clickedGuitar })(CartItem);

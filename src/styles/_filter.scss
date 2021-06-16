@@ -25,6 +25,11 @@
     background: url("img/filled-checkbox.svg");
 }
 
+.filter__type-input:disabled+.filter__type-checkbox {
+    opacity: 0.5;
+    background-color: #f6f3f3;
+}
+
 .filter__string-input:checked+.filter__string-checkbox {
     background: url("img/filled-checkbox.svg");
 }
@@ -39,7 +44,7 @@
     font-family   : "Droid Sans Bold, Arial, sans-serif";
     font-size     : 18px;
     font-weight   : 700;
-    padding-bottom: 32px;
+    padding-bottom: 29px;
     margin-bottom : 32px;
     border-bottom : 1px solid #e7e4e4;
     letter-spacing: 1.8px;

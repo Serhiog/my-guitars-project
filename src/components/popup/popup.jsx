@@ -1,15 +1,20 @@
-import {connect} from "react-redux";
-import {setSelectedGuitarID, showPopup, changePopupStatus, deleteCortItem} from "../../store/action";
-import {getClickedGuitar} from "../../store/selectors";
+import { connect } from "react-redux";
+import { setSelectedGuitarID, showPopup, changePopupStatus, deleteCortItem } from "../../store/action";
+import { getClickedGuitar } from "../../store/selectors";
 import miniElectro from "../../img/electro-mini.png";
 import miniAcu from "../../img/acu-mini.png";
 import miniUcu from "../../img/ucu-mini.png";
-import {withRouter} from "react-router";
-import {commonButtons, guitarTypes} from "../../consts";
-import {useEffect} from "react";
-import {paths} from "../../consts";
+import { withRouter } from "react-router";
+import { commonButtons, guitarTypes } from "../../consts";
+import { useEffect } from "react";
+import { paths } from "../../consts";
 
-const Popup = ({isPopup, setSelectedGuitarID, showPopup, clickedGuitarID, guitar, popupStatus, changePopupStatus, history, deleteCortItem}) => {
+const Popup = ({ isPopup, setSelectedGuitarID, showPopup, clickedGuitarID, guitar, popupStatus, changePopupStatus, history, deleteCortItem }) => {
+
+  if (isPopup) {
+    document.querySelector(`body`).style.overflow = `hidden`
+  } else { document.querySelector(`body`).style.overflow = `auto` }
+
 
   const handleClosePopup = (evt) => {
     evt.preventDefault();
@@ -24,16 +29,17 @@ const Popup = ({isPopup, setSelectedGuitarID, showPopup, clickedGuitarID, guitar
     }
     evt.preventDefault();
     setSelectedGuitarID(clickedGuitarID);
-    document.querySelector(`body`).style.overflow = `auto`;
   };
 
   const handleGoToCart = () => {
+    document.querySelector(`body`).style.overflow = `auto`;
     history.push(paths.cart);
     showPopup(false);
     changePopupStatus(`start`);
   };
 
   const handleContinueShopping = () => {
+    document.querySelector(`body`).style.overflow = `auto`;
     showPopup(false);
     changePopupStatus(`start`);
   };
@@ -100,10 +106,10 @@ const Popup = ({isPopup, setSelectedGuitarID, showPopup, clickedGuitarID, guitar
             </div>
             {popupStatus === `start` && mainInfo() || popupStatus === `removing` && mainInfo()}
             {popupStatus === `adding` &&
-                            <div className="popup__bottom">
-                              <button className="popup__btn" onClick={handleGoToCart}>Перейти в корзину</button>
-                              <button className="popup__btn popup__btn--adding" onClick={handleContinueShopping}>Продолжить покупки</button>
-                            </div>
+              <div className="popup__bottom">
+                <button className="popup__btn" onClick={handleGoToCart}>Перейти в корзину</button>
+                <button className="popup__btn popup__btn--adding" onClick={handleContinueShopping}>Продолжить покупки</button>
+              </div>
             }
           </div>
         </div>
@@ -122,4 +128,4 @@ const mapStateToProps = (state) => ({
   popupStatus: state.popupStatus
 });
 
-export default connect(mapStateToProps, {setSelectedGuitarID, showPopup, changePopupStatus, deleteCortItem})(withRouter(Popup));
+export default connect(mapStateToProps, { setSelectedGuitarID, showPopup, changePopupStatus, deleteCortItem })(withRouter(Popup));

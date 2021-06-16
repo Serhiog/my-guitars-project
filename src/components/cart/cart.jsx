@@ -33,7 +33,6 @@ const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) =>
     for (let promos in Promocodes) {
       if (Promocodes[promos] !== promoValue) {
         setPromoError(true);
-        return;
       }
       if (Promocodes[promos] === promoValue) {
         setPromo(promoValue);

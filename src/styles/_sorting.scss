@@ -54,7 +54,9 @@
 .sorting__item-link-up {
     position: relative;
     opacity : 0.5;
-
+    padding-left: 3px;
+    display: block;
+    margin-top: -3px;
     &::before {
         position: absolute;
         content : url("img/up.svg");

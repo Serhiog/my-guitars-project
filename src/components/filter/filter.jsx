@@ -1,10 +1,10 @@
 import {createRef, useEffect, useState} from "react";
 import {connect} from "react-redux";
 import {setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar} from "../../store/action";
-import {getActiveFilters} from "../../store/selectors";
+import {getActiveFilters, getMostExpensiveGuitarForInput, getMostCheaperGuitarForInput} from "../../store/selectors";
 import {guitarTypes} from "../../consts";
 
-const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPrice, maxPrice, blockedStrings}) => {
+const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPrice, maxPrice, blockedStrings, mostExpensiveGuitar, mostCheaperGuitar}) => {
 
   const [minPriceValue, setMinPriceValue] = useState(false);
   const handleMinPrice = (evt) => {
@@ -55,7 +55,6 @@ const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPr
 
   const handleStrings = (evt) => {
     let selectedString = evt.target.dataset.name;
-
     if (selectedString === guitarTypes.four && !string4) {
       setString4(true);
       setStringGuitar({name: selectedString, status: true});
@@ -134,12 +133,12 @@ const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPr
         <div className="filter__price">
           <p className="filter__price-name">Цена, ₽</p>
           <div className="filter__price-inner">
-            <input className="filter__price-from" placeholder="" type="number" onChange={handleMinPrice}
+            <input className="filter__price-from" placeholder={mostCheaperGuitar} type="number" onChange={handleMinPrice}
               ref={minPriceRef}
               value={minPrice <= 0 ? `` : minPrice}
               min="0"
             />
-            <input ref={maxPriceRef} className="filter__price-to" placeholder="" type="number" onChange={handleMaxPrice}
+            <input ref={maxPriceRef} className="filter__price-to" placeholder={mostExpensiveGuitar} type="number" onChange={handleMaxPrice}
               value={maxPrice <= 0 ? `` : maxPrice}
               min="0"
             />
@@ -148,17 +147,20 @@ const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPr
         <div className="filter__type">
           <p className="filter__type-name">Тип гитар</p>
           <label htmlFor="acoustic" className="filter__type-label">
-            <input id="acoustic" className="filter__type-input" data-name="Акустическая гитара" type="checkbox" onChange={handleType} />
+            <input id="acoustic" className="filter__type-input" data-name="Акустическая гитара" type="checkbox" onChange={handleType}
+            disabled={blockedStrings.acu} />
             <span className="filter__type-checkbox"></span>
                         Акустические гитары
           </label>
           <label htmlFor="electro" className="filter__type-label">
-            <input id="electro" className="filter__type-input" data-name="Электрогитара" type="checkbox" onChange={handleType} />
+            <input id="electro" className="filter__type-input" data-name="Электрогитара" type="checkbox" onChange={handleType}
+            disabled={blockedStrings.electro} />
             <span className="filter__type-checkbox"></span>
                         Электрогитары
           </label>
           <label htmlFor="ukulele" className="filter__type-label">
-            <input id="ukulele" className="filter__type-input" data-name="Укулеле" type="checkbox" onChange={handleType} />
+            <input id="ukulele" className="filter__type-input" data-name="Укулеле" type="checkbox" onChange={handleType}
+            disabled={blockedStrings.ucu} />
             <span className="filter__type-checkbox"></span>
                         Укулеле
           </label>
@@ -195,7 +197,9 @@ const Filter = ({setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPr
 const mapStateToProps = (state) => ({
   minPrice: state.minPrice,
   maxPrice: state.maxPrice,
-  blockedStrings: getActiveFilters(state)
+  blockedStrings: getActiveFilters(state),
+  mostExpensiveGuitar: getMostExpensiveGuitarForInput(state),
+  mostCheaperGuitar: getMostCheaperGuitarForInput(state)
 });
 
 export default connect(mapStateToProps, {setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar})(Filter);

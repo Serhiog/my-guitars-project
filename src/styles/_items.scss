@@ -1,9 +1,11 @@
 .items {
     @include flex;
     width          : 718px;
-    margin-top     : -580px;
-    margin-right   : -17px;
+    margin-top     : -584px;
+    margin-right   : -16px;
     justify-content: flex-start;
+    margin-bottom: 127px;
+
 }
 
 .items__page {

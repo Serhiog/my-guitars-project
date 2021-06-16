@@ -1,14 +1,10 @@
 .footer {
     min-width: 1025px;
-    position: relative;
+    position : relative;
 }
 
 .footer__inner {
-    position  : absolute;
     background: #3f3f3f;
-    bottom    : 0;
-    right     : 0;
-    left      : 0;
 
     &::before {
         content   : "";
@@ -138,7 +134,7 @@
 }
 
 .footer__about-text1 {
-    margin-bottom : 15px;
+    margin-bottom : 12px;
     font-size     : 10px;
     line-height   : 12px;
     letter-spacing: 0.3px;
@@ -231,10 +227,18 @@
 }
 
 .footer__guitar {
-    height    : 400px;
-    background: url("img/guitar_footer.png") no-repeat -65px 41px;
-    max-width : 1020px;
-    margin    : 0 auto;
+    // background: url("") no-repeat -65px 41px;
+    margin: 0 auto;
+
+    &::before {
+        content : url("img/guitar_footer.png");
+        width   : 868px;
+        height  : 279px;
+        position: absolute;
+        z-index : -1;
+        top     : -85px;
+        left    : -34px;
+    }
 }
 
 .footer__catalog-list-item-link {
