@@ -86,7 +86,6 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
   }, [guitarKey]);
 
   const handleStrings = (evt) => {
-    console.log('string click:', evt.target.disabled);
     let selectedString = evt.target.dataset.name;
 
     setSelectedStrings((prevStrings) => {
