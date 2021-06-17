@@ -16,7 +16,7 @@ const BreadCrumbs = ({location, history}) => {
 
   return (
     <div className="crumbs">
-      <h1 className="crumbs__title">{location.pathname === paths.main ? `Корзина` : `Каталог гитар`}</h1>
+      <h1 className="crumbs__title">{location.pathname === paths.main ? `Каталог гитар` : `Корзина`}</h1>
       <ul className="crumbs__list">
         <li className="crumbs__item"><a href={`!#`} className="crumbs__item-link" onClick={handleMainLink}>Главная</a></li>
         <li className="crumbs__item"><a href={`!#`} className="crumbs__item-link" onClick={handleCartLink}>Каталог</a></li>

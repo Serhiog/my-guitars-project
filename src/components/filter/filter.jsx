@@ -4,6 +4,19 @@ import { setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar } from "../../
 import { getActiveFilters, getMostExpensiveGuitarForInput, getMostCheaperGuitarForInput, getGuitarsWithPriceSort } from "../../store/selectors";
 import { guitarTypes } from "../../consts";
 
+const allStrings = ['4', '6', '7', '12'];
+const allGuitars = ["Акустическая гитара", "Электрогитара", "Укулеле"];
+const guitarStrings = {
+  "Акустическая гитара": ['6', '7', '12'],
+  "Электрогитара": ['4', '6', '7'],
+  "Укулеле": ['4']
+};
+const stringGuitars = {
+  4: ["Электрогитара", "Укулеле"],
+  6: ["Акустическая гитара",  "Электрогитара"],
+  7: ["Акустическая гитара",  "Электрогитара"],
+  12: ["Акустическая гитара"]
+};
 const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPrice, maxPrice, blockedStrings, mostExpensiveGuitar, mostCheaperGuitar, clickedStringFilter, guitars }) => {
 
 
@@ -20,108 +33,73 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
     setMaxPrice(evt.target.value);
   };
 
-  const [acoustic, setAcoustic] = useState(false);
-  const [electro, setElectro] = useState(false);
-  const [ucu, setUcu] = useState(false);
+  const [selectedGuitars, setSelectedGuitars] = useState([]);
+  const [selectedStrings, setSelectedStrings] = useState([]);
 
-  const [acuDisabled, setAcuDisabled] = useState(false)
-  const [ucuDisabled, setUcuDisabled] = useState(false)
-  const [electroDisabled, setElectroDisabled] = useState(false)
-
-  const [fourDisabled, setFourDisabled] = useState(false)
-  const [sixDisabled, setSixDisabled] = useState(false)
-  const [sevenDisabled, setSevenDisabled] = useState(false)
-  const [twelveDisabled, setTwelveDisabled] = useState(false)
-
-  const [selectedTypes, setSelectedTypes] = useState(false)
 
   const handleType = (evt) => {
-    setSelectedStrings(false)
-    setSelectedTypes(true)
     let type = evt.target.dataset.name;
-    if (type === guitarTypes.acu && !acoustic) {
-      setAcoustic(true);
-      setTypeGuitar({ name: type, status: true });
-    } else if (type === guitarTypes.acu && acoustic) {
-      setAcoustic(false);
-      setTypeGuitar({ name: type, status: false });
-    }
-    if (type === guitarTypes.electro && !electro) {
-      setElectro(true);
-      setTypeGuitar({ name: type, status: true });
-    } else if (type === guitarTypes.electro && electro) {
-      setElectro(false);
-      setTypeGuitar({ name: type, status: false });
-    }
-    if (type === guitarTypes.ucu && !ucu) {
-      setUcu(true);
-      setTypeGuitar({ name: type, status: true });
-    } else if (type === guitarTypes.ucu && ucu) {
-      setUcu(false);
-      setTypeGuitar({ name: type, status: false });
-    }
+
+    setSelectedGuitars((prevGuitars) => {
+      if (prevGuitars.includes(type)) {
+        return prevGuitars.filter(guitar => guitar !== type);
+      } else {
+        return [...prevGuitars, type];
+      }
+    });
   };
 
-  useEffect(() => {
-    let existAcu = !guitars.some(guitar => guitar.type === "Акустическая гитара")
-    setAcuDisabled(existAcu)
-    let existUcu = !guitars.some(guitar => guitar.type === "Укулеле")
-    setUcuDisabled(existUcu)
-    let existElectro = !guitars.some(guitar => guitar.type === "Электрогитара")
-    setElectroDisabled(existElectro)
-  })
+  const filteredStrings = selectedGuitars.reduce((resultStrings, guitarType) => {
+    const set = new Set([...resultStrings, ...guitarStrings[guitarType]]);
+    return [...set];
+  }, []).sort();
+
+  const filteredGuitars = selectedStrings.reduce((resultGuitars, stringType) => {
+    const set = new Set([...resultGuitars, ...stringGuitars[stringType]]);
+    return [...set];
+  }, []).sort();
+
+  console.log('selectedGuitars:', selectedGuitars);
+  console.log('selectedStrings:', selectedStrings);
+  console.log('filteredStrings:', filteredStrings);
+  console.log('filteredGuitars:', filteredGuitars);
+
+
+  const onlyAllowedStrings = filteredStrings.length !== 0 ? filteredStrings : allStrings;
+  const onlyAllowedGuitars = filteredGuitars.length !== 0 ? filteredGuitars : allGuitars;
+
+  console.log('onlyAllowedStrings:', onlyAllowedStrings);
+  console.log('onlyAllowedGuitars:', onlyAllowedGuitars);
+  const stringKey = JSON.stringify(onlyAllowedStrings);
+  const guitarKey = JSON.stringify(onlyAllowedGuitars);
 
   useEffect(() => {
-    let existFour = !guitars.some(guitar => guitar.strings === "4")
-    setFourDisabled(existFour)
-    let existSix = !guitars.some(guitar => guitar.strings === "6")
-    setSixDisabled(existSix)
-    let existSeven = !guitars.some(guitar => guitar.strings === "7")
-    setSevenDisabled(existSeven)
-    let existTwelve = !guitars.some(guitar => guitar.strings === "12")
-    setTwelveDisabled(existTwelve)
-  })
+    setSelectedStrings(prevStrings => {
+        return prevStrings.filter(stringType => onlyAllowedStrings.includes(stringType));
+    });
+  }, [stringKey]);
 
-  const [string4, setString4] = useState(false);
-  const [string6, setString6] = useState(false);
-  const [string7, setString7] = useState(false);
-  const [string12, setString12] = useState(false);
-
-  const [selectedStrings, setSelectedStrings] = useState(false)
-
+  useEffect(() => {
+    setSelectedGuitars(prevGuitars => {
+      return prevGuitars.filter(guitarType => onlyAllowedGuitars.includes(guitarType));
+    });
+  }, [guitarKey]);
 
   const handleStrings = (evt) => {
-    setSelectedStrings(true)
-    setSelectedTypes(false)
+    console.log('string click:', evt.target.disabled);
+    // setSelectedStrings(true)
+    // setSelectedTypes(false)
     let selectedString = evt.target.dataset.name;
-    if (selectedString === guitarTypes.four && !string4) {
-      setString4(true);
-      setStringGuitar({ name: selectedString, status: true });
-    } else if (selectedString === guitarTypes.four && string4) {
-      setString4(false);
-      setStringGuitar({ name: selectedString, status: false });
-    }
-    if (selectedString === guitarTypes.six && !string6) {
-      setString6(true);
-      setStringGuitar({ name: selectedString, status: true });
-    } else if (selectedString === guitarTypes.six && string6) {
-      setString6(false);
-      setStringGuitar({ name: selectedString, status: false });
-    }
-    if (selectedString === guitarTypes.seven && !string7) {
-      setString7(true);
-      setStringGuitar({ name: selectedString, status: true });
-    } else if (selectedString === guitarTypes.seven && string7) {
-      setString7(false);
-      setStringGuitar({ name: selectedString, status: false });
-    }
-    if (selectedString === guitarTypes.twelve && !string12) {
-      setString12(true);
-      setStringGuitar({ name: selectedString, status: true });
-    } else if (selectedString === guitarTypes.twelve && string12) {
-      setString12(false);
-      setStringGuitar({ name: selectedString, status: false });
-    }
+
+    setSelectedStrings((prevStrings) => {
+      if (prevStrings.includes(selectedString)) {
+        return prevStrings.filter(string => string !== selectedString);
+      } else {
+        return [...prevStrings, selectedString];
+      }
+    });
+
+  
   };
 
 
@@ -187,19 +165,22 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
           <p className="filter__type-name">Тип гитар</p>
           <label htmlFor="acoustic" className="filter__type-label">
             <input id="acoustic" className="filter__type-input" data-name="Акустическая гитара" type="checkbox" onChange={handleType}
-              disabled={acuDisabled && !selectedTypes} />
+              checked={selectedGuitars.includes("Акустическая гитара")}
+              disabled={!onlyAllowedGuitars.includes("Акустическая гитара")} />
             <span className="filter__type-checkbox"></span>
                         Акустические гитары
           </label>
           <label htmlFor="electro" className="filter__type-label">
             <input id="electro" className="filter__type-input" data-name="Электрогитара" type="checkbox" onChange={handleType}
-              disabled={electroDisabled && !selectedTypes} />
+            checked={selectedGuitars.includes("Электрогитара")}
+              disabled={!onlyAllowedGuitars.includes("Электрогитара")} />
             <span className="filter__type-checkbox"></span>
                         Электрогитары
           </label>
           <label htmlFor="ukulele" className="filter__type-label">
             <input id="ukulele" className="filter__type-input" data-name="Укулеле" type="checkbox" onChange={handleType}
-              disabled={ucuDisabled && !selectedTypes} />
+            checked={selectedGuitars.includes("Укулеле")}
+              disabled={!onlyAllowedGuitars.includes("Укулеле")} />
             <span className="filter__type-checkbox"></span>
                         Укулеле
           </label>
@@ -207,22 +188,22 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
         <div className="filter__string">
           <p className="filter__string-name">Количество струн</p>
           <label htmlFor="four" className="filter__string-label">
-            <input id="four" className="filter__string-input" data-name="4" type="checkbox" onChange={handleStrings} disabled={fourDisabled && !selectedStrings} />
+            <input id="four" className="filter__string-input" data-name="4" type="checkbox" checked={selectedStrings.includes('4')} onChange={handleStrings} disabled={!onlyAllowedStrings.includes('4')} />
             <span className="filter__string-checkbox"></span>
             <span className={blockedStrings.four && !clickedStringFilter ? `filter__string-num-disabled` : `filter__string-num`}>4</span>
           </label>
           <label htmlFor="six" className="filter__string-label">
-            <input id="six" className="filter__string-input" data-name="6" type="checkbox" onChange={handleStrings} disabled={sixDisabled && !selectedStrings} />
+            <input id="six" className="filter__string-input" data-name="6" type="checkbox" checked={selectedStrings.includes('6')} onChange={handleStrings} disabled={!onlyAllowedStrings.includes('6')} />
             <span className="filter__string-checkbox"></span>
             <span className={blockedStrings.six && !clickedStringFilter ? `filter__string-num-disabled` : `filter__string-num`}>6</span>
           </label>
           <label htmlFor="seven" className="filter__string-label">
-            <input id="seven" className="filter__string-input" data-name="7" type="checkbox" onChange={handleStrings} disabled={sevenDisabled && !selectedStrings} />
+            <input id="seven" className="filter__string-input" data-name="7" type="checkbox" checked={selectedStrings.includes('7')} onChange={handleStrings} disabled={!onlyAllowedStrings.includes('7')} />
             <span className="filter__string-checkbox"></span>
             <span className={blockedStrings.seven && !clickedStringFilter ? `filter__string-num-disabled` : `filter__string-num`}>7</span>
           </label>
           <label htmlFor="twelve" className="filter__string-label">
-            <input id="twelve" className="filter__string-input" data-name="12" type="checkbox" onChange={handleStrings} disabled={twelveDisabled && !selectedStrings} />
+            <input id="twelve" className="filter__string-input" data-name="12" type="checkbox" checked={selectedStrings.includes('12')} onChange={handleStrings} disabled={!onlyAllowedStrings.includes('12')} />
             <span className="filter__string-checkbox"></span>
             <span className={blockedStrings.twelve && !clickedStringFilter ? `filter__string-num-disabled` : `filter__string-num`}>12</span>
           </label>
