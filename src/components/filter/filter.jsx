@@ -13,14 +13,14 @@ const guitarStrings = {
 };
 const stringGuitars = {
   4: ["Электрогитара", "Укулеле"],
-  6: ["Акустическая гитара",  "Электрогитара"],
-  7: ["Акустическая гитара",  "Электрогитара"],
+  6: ["Акустическая гитара", "Электрогитара"],
+  7: ["Акустическая гитара", "Электрогитара"],
   12: ["Акустическая гитара"]
 };
 const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minPrice, maxPrice, blockedStrings, mostExpensiveGuitar, mostCheaperGuitar, clickedStringFilter, guitars }) => {
 
 
-  
+
   const [minPriceValue, setMinPriceValue] = useState(false);
   const handleMinPrice = (evt) => {
     setMinPriceValue(evt.target.value);
@@ -36,6 +36,9 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
   const [selectedGuitars, setSelectedGuitars] = useState([]);
   const [selectedStrings, setSelectedStrings] = useState([]);
 
+  const [acoustic, setAcoustic] = useState(false)
+  const [electro, setElectro] = useState(false)
+  const [ucu, setUcu] = useState(false)
 
   const handleType = (evt) => {
     let type = evt.target.dataset.name;
@@ -47,6 +50,27 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
         return [...prevGuitars, type];
       }
     });
+    if (type === guitarTypes.acu && !acoustic) {
+      setAcoustic(true)
+      setTypeGuitar({ name: type, status: true })
+    } else if (type === guitarTypes.acu && acoustic) {
+      setAcoustic(false)
+      setTypeGuitar({ name: type, status: false })
+    }
+    if (type === guitarTypes.electro && !electro) {
+      setElectro(true)
+      setTypeGuitar({ name: type, status: true })
+    } else if (type === guitarTypes.electro && electro) {
+      setElectro(false)
+      setTypeGuitar({ name: type, status: false })
+    }
+    if (type === guitarTypes.ucu && !ucu) {
+      setUcu(true)
+      setTypeGuitar({ name: type, status: true })
+    } else if (type === guitarTypes.ucu && ucu) {
+      setUcu(false)
+      setTypeGuitar({ name: type, status: false })
+    }
   };
 
   const filteredStrings = selectedGuitars.reduce((resultStrings, guitarType) => {
@@ -75,7 +99,7 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
 
   useEffect(() => {
     setSelectedStrings(prevStrings => {
-        return prevStrings.filter(stringType => onlyAllowedStrings.includes(stringType));
+      return prevStrings.filter(stringType => onlyAllowedStrings.includes(stringType));
     });
   }, [stringKey]);
 
@@ -84,6 +108,11 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
       return prevGuitars.filter(guitarType => onlyAllowedGuitars.includes(guitarType));
     });
   }, [guitarKey]);
+
+  const [string4, setString4] = useState(false)
+  const [string6, setString6] = useState(false)
+  const [string7, setString7] = useState(false)
+  const [string12, setString12] = useState(false)
 
   const handleStrings = (evt) => {
     let selectedString = evt.target.dataset.name;
@@ -96,7 +125,36 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
       }
     });
 
-  
+    if (selectedString === guitarTypes.four && !string4) {
+      setString4(true)
+      setStringGuitar({ name: selectedString, status: true })
+    } else if (selectedString === guitarTypes.four && string4) {
+      setString4(false)
+      setStringGuitar({ name: selectedString, status: false })
+    }
+    if (selectedString === guitarTypes.six && !string6) {
+      setString6(true)
+      setStringGuitar({ name: selectedString, status: true })
+    } else if (selectedString === guitarTypes.six && string6) {
+      setString6(false)
+      setStringGuitar({ name: selectedString, status: false })
+    }
+    if (selectedString === guitarTypes.seven && !string7) {
+      setString7(true)
+      setStringGuitar({ name: selectedString, status: true })
+    } else if (selectedString === guitarTypes.seven && string7) {
+      setString7(false)
+      setStringGuitar({ name: selectedString, status: false })
+    }
+    if (selectedString === guitarTypes.twelve && !string12) {
+      setString12(true)
+      setStringGuitar({ name: selectedString, status: true })
+    } else if (selectedString === guitarTypes.twelve && string12) {
+      setString12(false)
+      setStringGuitar({ name: selectedString, status: false })
+    }
+
+
   };
 
 
@@ -169,14 +227,14 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
           </label>
           <label htmlFor="electro" className="filter__type-label">
             <input id="electro" className="filter__type-input" data-name="Электрогитара" type="checkbox" onChange={handleType}
-            checked={selectedGuitars.includes("Электрогитара")}
+              checked={selectedGuitars.includes("Электрогитара")}
               disabled={!onlyAllowedGuitars.includes("Электрогитара")} />
             <span className="filter__type-checkbox"></span>
                         Электрогитары
           </label>
           <label htmlFor="ukulele" className="filter__type-label">
             <input id="ukulele" className="filter__type-input" data-name="Укулеле" type="checkbox" onChange={handleType}
-            checked={selectedGuitars.includes("Укулеле")}
+              checked={selectedGuitars.includes("Укулеле")}
               disabled={!onlyAllowedGuitars.includes("Укулеле")} />
             <span className="filter__type-checkbox"></span>
                         Укулеле
