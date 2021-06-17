@@ -59,17 +59,17 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
     return [...set];
   }, []).sort();
 
-  console.log('selectedGuitars:', selectedGuitars);
-  console.log('selectedStrings:', selectedStrings);
-  console.log('filteredStrings:', filteredStrings);
-  console.log('filteredGuitars:', filteredGuitars);
+  // console.log('selectedGuitars:', selectedGuitars);
+  // console.log('selectedStrings:', selectedStrings);
+  // console.log('filteredStrings:', filteredStrings);
+  // console.log('filteredGuitars:', filteredGuitars);
 
 
   const onlyAllowedStrings = filteredStrings.length !== 0 ? filteredStrings : allStrings;
   const onlyAllowedGuitars = filteredGuitars.length !== 0 ? filteredGuitars : allGuitars;
 
-  console.log('onlyAllowedStrings:', onlyAllowedStrings);
-  console.log('onlyAllowedGuitars:', onlyAllowedGuitars);
+  // console.log('onlyAllowedStrings:', onlyAllowedStrings);
+  // console.log('onlyAllowedGuitars:', onlyAllowedGuitars);
   const stringKey = JSON.stringify(onlyAllowedStrings);
   const guitarKey = JSON.stringify(onlyAllowedGuitars);
 
@@ -87,8 +87,6 @@ const Filter = ({ setMinPrice, setMaxPrice, setTypeGuitar, setStringGuitar, minP
 
   const handleStrings = (evt) => {
     console.log('string click:', evt.target.disabled);
-    // setSelectedStrings(true)
-    // setSelectedTypes(false)
     let selectedString = evt.target.dataset.name;
 
     setSelectedStrings((prevStrings) => {
