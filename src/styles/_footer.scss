@@ -1,5 +1,4 @@
 .footer {
-    min-width: 1025px;
     position : relative;
 }
 
@@ -17,7 +16,7 @@
 }
 
 .footer__about {
-    width       : 142px;
+    width       : 146px;
     margin-top  : 26px;
     margin-right: 17px;
 }
@@ -39,10 +38,11 @@
 .footer__contacts {
     width     : 140px;
     margin-top: 27px;
+    margin-right: -13px;
 }
 
 .footer__logo {
-    margin-right: 123px;
+    margin-right: 126px;
     width       : 118px;
 }
 
@@ -53,8 +53,9 @@
     font-family: "Droid Sans Regular, Arial, sans-serif";
     font-weight: 400;
     color      : #ffffff;
-    padding    : 58px 40px 60px 40px;
+    padding    : 56px 40px 60px 40px;
     align-items: flex-start;
+    flex-wrap: nowrap;
 }
 
 .footer__logo-links-item-link {

@@ -408,7 +408,6 @@ template {
 
 .header {
   background-color: #dddada;
-  min-width: 1025px;
 }
 
 .header__inner {
@@ -772,7 +771,6 @@ template {
 }
 
 .footer {
-  min-width: 1025px;
   position: relative;
 }
 
@@ -790,7 +788,7 @@ template {
 }
 
 .footer__about {
-  width: 142px;
+  width: 146px;
   margin-top: 26px;
   margin-right: 17px;
 }
@@ -810,10 +808,11 @@ template {
 .footer__contacts {
   width: 140px;
   margin-top: 27px;
+  margin-right: -13px;
 }
 
 .footer__logo {
-  margin-right: 123px;
+  margin-right: 126px;
   width: 118px;
 }
 
@@ -840,10 +839,12 @@ template {
   font-family: "Droid Sans Regular, Arial, sans-serif";
   font-weight: 400;
   color: #ffffff;
-  padding: 58px 40px 60px 40px;
+  padding: 56px 40px 60px 40px;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 .footer__logo-links-item-link {
@@ -1084,7 +1085,6 @@ template {
 
 .guitar {
   background: url("img/image-back.png") no-repeat;
-  width: 1020px;
   height: 282px;
   max-width: 1020px;
   margin: 0 auto;
@@ -1544,7 +1544,6 @@ input::-webkit-inner-spin-button {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  min-width: 1025px;
 }
 
 @media (max-width: 1019px) {
@@ -1728,7 +1727,7 @@ input::-webkit-inner-spin-button {
       align-content: center;
   width: 718px;
   margin-top: -584px;
-  margin-right: -16px;
+  margin-right: -35px;
   justify-content: flex-start;
 }
 

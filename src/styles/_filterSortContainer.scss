@@ -6,7 +6,6 @@
     @include flex;
     align-items    : flex-start;
     justify-content: flex-end;
-    min-width      : 1025px;
 
     @media (max-width: 1019px) {
         max-width   : 768px;
