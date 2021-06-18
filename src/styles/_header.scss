@@ -48,6 +48,8 @@
 .header__nav {
     @include flex(row, space-between, wrap);
     margin-right: 158px;
+    max-width: 514px;
+    justify-content: flex-start;
 
     @media (max-width: 1019px) {
         margin-right: 49px;

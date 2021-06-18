@@ -498,6 +498,10 @@ template {
   -ms-flex-line-pack: center;
       align-content: center;
   margin-right: 158px;
+  max-width: 514px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 @media (max-width: 1019px) {
