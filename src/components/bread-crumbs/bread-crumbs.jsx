@@ -1,7 +1,7 @@
-import {withRouter} from "react-router";
-import {paths} from "../../consts";
+import { withRouter } from "react-router";
+import { paths } from "../../consts";
 
-const BreadCrumbs = ({location, history}) => {
+const BreadCrumbs = ({ location, history }) => {
 
   const handleMainLink = (evt) => {
     evt.preventDefault();
@@ -16,7 +16,7 @@ const BreadCrumbs = ({location, history}) => {
 
   return (
     <div className="crumbs">
-      <h1 className="crumbs__title">{location.pathname === paths.main ? `Каталог гитар` : `Корзина`}</h1>
+      <h1 className="crumbs__title">{location.pathname === paths.main || location.pathname === "/guitars/" ? `Каталог гитар` : `Корзина`}</h1>
       <ul className="crumbs__list">
         <li className="crumbs__item"><a href={`!#`} className="crumbs__item-link" onClick={handleMainLink}>Главная</a></li>
         <li className="crumbs__item"><a href={`!#`} className="crumbs__item-link" onClick={handleCartLink}>Каталог</a></li>

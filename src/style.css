@@ -1520,6 +1520,7 @@ input::-webkit-inner-spin-button {
   max-width: 1020px;
   padding: 20px 40px;
   margin: 0 auto;
+  margin-bottom: 122px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1543,7 +1544,6 @@ input::-webkit-inner-spin-button {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  margin-bottom: -6px;
   min-width: 1025px;
 }
 
@@ -1730,7 +1730,6 @@ input::-webkit-inner-spin-button {
   margin-top: -584px;
   margin-right: -16px;
   justify-content: flex-start;
-  margin-bottom: 127px;
 }
 
 .items__page {
