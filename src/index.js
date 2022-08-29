@@ -21,6 +21,4 @@ Promise.all([store.dispatch(dataAPI.fetchData)]).then(() => {
     </Provider>,
     document.getElementById(`root`)
   );
-});
-
-console.log('hello');
+}); 
