@@ -20,7 +20,7 @@ const initialState = {
   ],
   actualSort: `byPrice`,
   actualSortWay: ``,
-  selectedGuitarsID: [],
+  selectedGuitarsID: false,
   totalPrices: [],
   clickedStringFilter: false,
   promo: ``,

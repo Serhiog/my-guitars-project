@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
-import { paths } from "../../consts";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Header({ selectedGuitarsID }) {
 
-  const location = useLocation();
   const [burger, setBurger] = useState(false);
 
   const handleBurgerOpen = () => {
@@ -15,28 +13,8 @@ function Header({ selectedGuitarsID }) {
     setBurger(false);
   };
 
-  const [width, setWidth] = useState(window.innerWidth);
-
-
-  useEffect(() => {
-  }, [width]);
-
-  window.addEventListener(`resize`, () => {
-    setWidth(window.innerWidth);
-  });
-
-  const handleCart = (evt) => {
-    evt.preventDefault();
-    location(paths.cart);
-  };
-
-  const handleCatalog = (evt) => {
-    evt.preventDefault();
-    location(paths.main);
-  };
-
   return (
-    <header className={burger && width < 769 ? `header header--burger-active` : `header`}>
+    <header className={burger ? `header header--burger-active` : `header`}>
       <div className="header__inner">
         <button className="header__burger" onClick={handleBurgerOpen}></button>
         <Link to="/">
@@ -48,7 +26,7 @@ function Header({ selectedGuitarsID }) {
             <button className="header__nav-item-close" onClick={handleBurgerClose}></button>
           </li>
           <li className="header__nav-item">
-            <Link tabIndex={0} className="header__nav-item-link" to="/" onClick={() => handleCatalog}>Каталог</Link>
+            <Link tabIndex={0} className="header__nav-item-link" to="/">Каталог</Link>
           </li>
           <li className="header__nav-item">
             <Link tabIndex={0} className="header__nav-item-link" to="/"> Где купить?</Link>
@@ -71,9 +49,9 @@ function Header({ selectedGuitarsID }) {
             <Link tabIndex={0} className="header__user-item-link" to="/">Search</Link>
           </li>
           <li className="header__user-item header__user-item--cart">
-            <Link tabIndex={0} className="header__user-item-link header__user-item-link--cart" to="/" onClick={() => handleCart}>
+            <Link tabIndex={0} className="header__user-item-link header__user-item-link--cart" to="/cart">
               Cart
-              <span className="header__user-item-link-count">{selectedGuitarsID.length > 0 && selectedGuitarsID.length}</span>
+              <span className="header__user-item-link-count">{selectedGuitarsID.length}</span>
             </Link>
           </li>
         </ul>
