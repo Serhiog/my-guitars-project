@@ -1,5 +1,5 @@
 import { paths } from "../../consts";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const BreadCrumbs = () => {
 
@@ -20,9 +20,15 @@ const BreadCrumbs = () => {
     <div className="crumbs">
       <h1 className="crumbs__title">{location.pathname === paths.main || location.pathname === paths.guitars ? `Каталог гитар` : `Корзина`}</h1>
       <ul className="crumbs__list">
-        <li className="crumbs__item"><a href={`!#`} className="crumbs__item-link" onClick={handleMainLink}>Главная</a></li>
-        <li className="crumbs__item"><a href={`!#`} className="crumbs__item-link" onClick={handleCartLink}>Каталог</a></li>
-        {location.pathname === paths.cart && <li className="crumbs__item"><a href={`!#`} className="crumbs__item-link">Оформляем</a></li>}
+        <li className="crumbs__item">
+          <Link to={`!#`} className="crumbs__item-link" onClick={handleMainLink}>Главная</Link>
+        </li>
+        <li className="crumbs__item">
+          <Link to={`!#`} className="crumbs__item-link" onClick={handleCartLink}>Каталог</Link>
+        </li>
+        {location.pathname === paths.cart && <li className="crumbs__item">
+          <Link to={`!#`} className="crumbs__item-link">Оформляем</Link>
+        </li>}
       </ul>
     </div >
   );
