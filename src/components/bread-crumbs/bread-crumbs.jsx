@@ -5,29 +5,18 @@ const BreadCrumbs = () => {
 
   const location = useLocation();
 
-  const handleMainLink = (evt) => {
-    evt.preventDefault();
-    location(paths.main);
-  };
-
-  const handleCartLink = (evt) => {
-    evt.preventDefault();
-    location(paths.cart);
-  };
-
-
   return (
     <div className="crumbs">
       <h1 className="crumbs__title">{location.pathname === paths.main || location.pathname === paths.guitars ? `Каталог гитар` : `Корзина`}</h1>
       <ul className="crumbs__list">
         <li className="crumbs__item">
-          <Link to={`!#`} className="crumbs__item-link" onClick={handleMainLink}>Главная</Link>
+          <Link tabIndex={0} to={paths.main} className="crumbs__item-link" >Главная</Link>
         </li>
         <li className="crumbs__item">
-          <Link to={`!#`} className="crumbs__item-link" onClick={handleCartLink}>Каталог</Link>
+          <Link tabIndex={0} to={paths.guitars} className="crumbs__item-link">Каталог</Link>
         </li>
         {location.pathname === paths.cart && <li className="crumbs__item">
-          <Link to={`!#`} className="crumbs__item-link">Оформляем</Link>
+          <Link tabIndex={0} to={`!#`} className="crumbs__item-link">Оформляем</Link>
         </li>}
       </ul>
     </div >

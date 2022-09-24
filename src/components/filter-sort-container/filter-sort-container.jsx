@@ -7,7 +7,10 @@ import { WithLoader } from "../../hocs/with-loader"
 
 const FilterSortContainer = () => {
 
+
+
   const location = useLocation();
+
   const MyLazyItemsContainerWithLoader = WithLoader(lazy(() => import("../items-container/items-container")));
   const MyLazyCartWithLoader = WithLoader(lazy(() => import("../cart/cart")));
 

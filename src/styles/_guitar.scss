@@ -1,9 +1,9 @@
 .guitar {
-    background: url("img/image-back.png") no-repeat;
+    background: url("img/image-back.png") no-repeat right;
     height    : 282px;
-    max-width : 1020px;
     margin    : 0 auto;
     margin-top: -37px;
+    font-size : 0;
 
     @media (max-width: 1019px) {
         background: url("img/image-back-tablet.png") right no-repeat;

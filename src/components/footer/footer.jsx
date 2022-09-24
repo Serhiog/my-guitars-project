@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import footerLogo from "../../img/footer-logo.png";
 
 function Footer() {
@@ -10,13 +11,13 @@ function Footer() {
               <img src={footerLogo} alt="Логотип в футере" width="67px" height="70px" className="footer__logo-img" />
               <ul className="footer__logo-links">
                 <li className="footer__logo-links-item">
-                  <a className="footer__logo-links-item-link footer__logo-links-item-link--facebook" href="facebook.com">Facebook</a>
+                  <Link className="footer__logo-links-item-link footer__logo-links-item-link--facebook" to="facebook.com">Facebook</Link>
                 </li>
                 <li className="footer__logo-links-item">
-                  <a className="footer__logo-links-item-link footer__logo-links-item-link--instagram" href="instagram.com">Instagram</a>
+                  <Link className="footer__logo-links-item-link footer__logo-links-item-link--instagram" to="instagram.com">Instagram</Link>
                 </li>
                 <li className="footer__logo-links-item">
-                  <a className="footer__logo-links-item-link footer__logo-links-item-link--twitter" href="twitter.com">Twitter</a>
+                  <Link className="footer__logo-links-item-link footer__logo-links-item-link--twitter" to="twitter.com">Twitter</Link>
                 </li>
               </ul>
             </div>
@@ -28,21 +29,41 @@ function Footer() {
             <div className="footer__catalog">
               <h4 className="footer__catalog-title">Каталог</h4>
               <ul className="footer__catalog-list">
-                <li className="footer__catalog-list-item"><a href={`!#`} className="footer__catalog-list-item-link">Акустические гитары</a></li>
-                <li className="footer__catalog-list-item"><a href={`!#`} className="footer__catalog-list-item-link">Классические гитары</a></li>
-                <li className="footer__catalog-list-item"><a href={`!#`} className="footer__catalog-list-item-link">Электрогитары</a></li>
-                <li className="footer__catalog-list-item"><a href={`!#`} className="footer__catalog-list-item-link">Бас-гитары</a></li>
-                <li className="footer__catalog-list-item"><a href={`!#`} className="footer__catalog-list-item-link">Укулеле</a></li>
+                <li className="footer__catalog-list-item">
+                  <Link to={`!#`} className="footer__catalog-list-item-link">Акустические гитары</Link>
+                </li>
+                <li className="footer__catalog-list-item">
+                  <Link to={`!#`} className="footer__catalog-list-item-link">Классические гитары</Link>
+                </li>
+                <li className="footer__catalog-list-item">
+                  <Link to={`!#`} className="footer__catalog-list-item-link">Электрогитары</Link>
+                </li>
+                <li className="footer__catalog-list-item">
+                  <Link to={`!#`} className="footer__catalog-list-item-link">Бас-гитары</Link>
+                </li>
+                <li className="footer__catalog-list-item">
+                  <Link to={`!#`} className="footer__catalog-list-item-link">Укулеле</Link>
+                </li>
               </ul>
             </div>
             <div className="footer__info">
               <h4 className="footer__info-title">Информация</h4>
               <ul className="footer__info-list">
-                <li className="footer__info-list-item"><a href={`!#`} className="footer__info-list-item-link">Где купить?</a></li>
-                <li className="footer__info-list-item"><a href={`!#`} className="footer__info-list-item-link">Блог</a></li>
-                <li className="footer__info-list-item"><a href={`!#`} className="footer__info-list-item-link">Вопрос - ответ</a></li>
-                <li className="footer__info-list-item"><a href={`!#`} className="footer__info-list-item-link">Возврат</a></li>
-                <li className="footer__info-list-item"><a href={`!#`} className="footer__info-list-item-link">Сервис-центры</a></li>
+                <li className="footer__info-list-item">
+                  <Link to={`!#`} className="footer__info-list-item-link">Где купить?</Link>
+                </li>
+                <li className="footer__info-list-item">
+                  <Link to={`!#`} className="footer__info-list-item-link">Блог</Link>
+                </li>
+                <li className="footer__info-list-item">
+                  <Link to={`!#`} className="footer__info-list-item-link">Вопрос - ответ</Link>
+                </li>
+                <li className="footer__info-list-item">
+                  <Link to={`!#`} className="footer__info-list-item-link">Возврат</Link>
+                </li>
+                <li className="footer__info-list-item">
+                  <Link to={`!#`} className="footer__info-list-item-link">Сервис-центры</Link>
+                </li>
               </ul>
             </div>
             <div className="footer__contacts">

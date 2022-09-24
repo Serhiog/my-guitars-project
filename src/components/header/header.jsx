@@ -2,7 +2,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-function Header({ selectedGuitarsID }) {
+const Header = ({ selectedGuitarsID }) => {
 
   const [burger, setBurger] = useState(false);
 
@@ -16,20 +16,21 @@ function Header({ selectedGuitarsID }) {
   return (
     <header className={burger ? `header header--burger-active` : `header`}>
       <div className="header__inner">
-        <button className="header__burger" onClick={handleBurgerOpen}></button>
-        <Link to="/">
-          <div className="header__logo">
+        <button tabIndex={0} className="header__burger" onClick={handleBurgerOpen}>Open burger menu</button>
+        <Link tabIndex={0} to="/">
+          <div className="header__logo"> Site logo
           </div>
         </Link>
         <ul className="header__nav">
           <li className="header__nav-item">
-            <button className="header__nav-item-close" onClick={handleBurgerClose}></button>
+            <button tabIndex={0} className="header__nav-item-close" onClick={handleBurgerClose}>Close burger menu
+            </button>
           </li>
           <li className="header__nav-item">
             <Link tabIndex={0} className="header__nav-item-link" to="/">Каталог</Link>
           </li>
           <li className="header__nav-item">
-            <Link tabIndex={0} className="header__nav-item-link" to="/"> Где купить?</Link>
+            <Link tabIndex={0} className="header__nav-item-link" to="/">Где купить?</Link>
           </li>
           <li className="header__nav-item">
             <Link tabIndex={0} className="header__nav-item-link" to="/">О компании</Link>

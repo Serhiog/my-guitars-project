@@ -9,13 +9,11 @@ import { paths } from "../../consts";
 
 const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) => {
 
-
-  useEffect(() => {
-    if (!selectedGuitars.length) {
-      history.push(paths.main);
-    }
-  }, [selectedGuitars]);
-
+  // useEffect(() => {
+  //   if (!selectedGuitars.length) {
+  //     history.push(paths.main);
+  //   }
+  // }, [selectedGuitars]);
 
   const [promoValue, setPromoValue] = useState(``);
   const [promoError, setPromoError] = useState(false);
@@ -43,13 +41,17 @@ const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) =>
 
   return (
     <section className="cart">
+
       <ul className="cart__list">
-        {selectedGuitars.map((guitar) => {
+
+        {selectedGuitars ? selectedGuitars.map((guitar) => {
           return (
             <CartItem key={guitar.id} guitar={guitar} />
           );
-        })}
+        }) : <li className="cart__item">Ваша корзина пуста! Пожалуйста, выберите товар.</li>}
+
       </ul>
+
       <div className="cart__promo">
         <p className="cart__promo-title">Промокод на скидку</p>
         <label htmlFor="promo" className="cart__promo-label">
@@ -58,9 +60,10 @@ const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) =>
         </label>
         <button className="cart__promo-btn" onClick={handleCheckPromoBtn}>{promoError ? `Не верный купон` : `Применить купон`}</button>
       </div>
+
       <div className="cart__total">
         <p className="cart__total-count">Всего: {promoPrice ? promoPrice : totalPrice} ₽</p>
-        <button className="cart__total-btn" >Оформить заказ</button>
+        <button className="cart__total-btn">Оформить заказ</button>
       </div>
     </section>
   );
@@ -68,8 +71,8 @@ const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) =>
 
 const mapStateToProps = (state) => ({
   selectedGuitars: getSelectedCartGuitars(state),
-  totalPrice: getSelectedTotalPrices(state),
-  promoPrice: getPromoPrices(state)
+  // totalPrice: getSelectedTotalPrices(state),
+  // promoPrice: getPromoPrices(state)
 });
 
 

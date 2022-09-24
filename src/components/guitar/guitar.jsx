@@ -1,6 +1,6 @@
 const Guitar = () => {
   return (
-    <section className="guitar"></section>
+    <section className="guitar">Guitar photo</section>
   );
 };
 

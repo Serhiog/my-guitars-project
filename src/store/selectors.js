@@ -188,12 +188,15 @@ export const getSelectedCartGuitars = createSelector(
   getInitialGuitars,
   getSelectedGuiatars,
   (allInitialGuitars, selectedIDs) => {
-    return allInitialGuitars.slice().reduce((acc, item) => {
-      if (selectedIDs.includes(+item.id)) {
-        acc.push(item);
-      }
-      return acc;
-    }, []);
+    return (
+      selectedIDs &&
+      allInitialGuitars.slice().reduce((acc, item) => {
+        if (selectedIDs.includes(+item.id)) {
+          acc.push(item);
+        }
+        return acc;
+      }, [])
+    );
   }
 );
 
@@ -279,7 +282,6 @@ export const getActiveFilters = createSelector(
   getGuitarsWithPriceSort,
   getStringsStatus,
   (actualGuitars, status) => {
-
     return actualGuitars.reduce(
       (blocked, item) => {
         if (item.strings === "4") {
@@ -304,7 +306,6 @@ export const getActiveFilters = createSelector(
           blocked.ucu = false;
         }
         return blocked;
-
       },
       {
         four: true,
@@ -315,7 +316,6 @@ export const getActiveFilters = createSelector(
         electro: true,
         ucu: true,
       }
-      
     );
   }
 );
