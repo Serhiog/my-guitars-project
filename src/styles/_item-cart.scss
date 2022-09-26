@@ -2,10 +2,18 @@
     @include flex;
     border-bottom: 1px solid #ecebeb;
 
+    &--empty {
+        display   : block;
+        width     : 100vw;
+        text-align: center;
+        font-size: 20px;
+    }
+
     &:nth-child(1) {
         border-top: 1px solid #ecebeb;
     }
 }
+
 
 .cart__item-close {
     font-size   : 0;

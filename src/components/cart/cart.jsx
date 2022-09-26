@@ -48,7 +48,7 @@ const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) =>
           return (
             <CartItem key={guitar.id} guitar={guitar} />
           );
-        }) : <li className="cart__item">Ваша корзина пуста! Пожалуйста, выберите товар.</li>}
+        }) : <li className="cart__item cart__item--empty">Ваша корзина пуста! Пожалуйста, выберите товар.</li>}
 
       </ul>
 
@@ -63,7 +63,7 @@ const Cart = ({ selectedGuitars, totalPrice, setPromo, promoPrice, history }) =>
 
       <div className="cart__total">
         <p className="cart__total-count">Всего: {promoPrice ? promoPrice : totalPrice} ₽</p>
-        <button className="cart__total-btn">Оформить заказ</button>
+        <button className={!selectedGuitars ? "cart__total-btn cart__total-btn--disabled" : "cart__total-btn "} disabled={!selectedGuitars}>Оформить заказ</button>
       </div>
     </section>
   );

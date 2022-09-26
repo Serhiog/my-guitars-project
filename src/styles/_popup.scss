@@ -189,6 +189,10 @@
     &:active {
         opacity: 0.5;
     }
+
+    &--disabled {
+        background-color: rgb(193, 193, 193);
+    }
 }
 
 .cart__promo-btn {
